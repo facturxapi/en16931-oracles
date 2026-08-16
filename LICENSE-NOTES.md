@@ -161,10 +161,10 @@ des artefacts CEN / XSD UBL hors périmètre de ce pack).
 - Les en-têtes `.sch` citent **« European Union Public Licence (EUPL) version 1.4.0 »**.
   **Aucune EUPL 1.4.0 n’existe** dans le catalogue EUPL connu (Joinup / eupl.eu) —
   anomalie d’en-tête amont (confusion probable avec la version du Schematron /
-  du pack France_RFE). Documentation de prudence : les `.sch` sont traités
-  comme redistribuables sous **Apache-2.0** (autorité du LICENSE racine) **et**
-  déclarés également disponibles sous **EUPL 1.2** par prudence de lecture
-  d’en-tête, sans inventer une EUPL 1.4.0.
+  du pack France_RFE). Les `.sch` sont redistribués ici sous **Apache-2.0**
+  uniquement (autorité du LICENSE racine du tag). L’en-tête « EUPL version 1.4.0 »
+  est documenté comme anomalie d’en-tête ; on n’invente **aucune** autre licence
+  EUPL pour ces fichiers France_RFE.
 - Aucun usage du nom **FNFE** comme marque ; références factuelles au dépôt
   `fnfempe/France_RFE` uniquement.
 - Les XSLT compilés n’ont pas de NOTICE séparée : le `.sch` source est conservé
