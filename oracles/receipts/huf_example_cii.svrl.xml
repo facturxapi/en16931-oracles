@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svrl:schematron-output xmlns:ccts="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2"
+                        xmlns:iso="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:qdt="urn:un:unece:uncefact:data:standard:QualifiedDataType:100"
+                        xmlns:ram="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
+                        xmlns:rsm="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
+                        xmlns:saxon="http://saxon.sf.net/"
+                        xmlns:schold="http://www.ascc.net/xml/schematron"
+                        xmlns:svrl="http://purl.oclc.org/dsdl/svrl"
+                        xmlns:udt="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"
+                        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+                        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        schemaVersion=""
+                        title="EN16931 model bound to CII"><!--   
+		   
+		   
+		 -->
+   <svrl:ns-prefix-in-attribute-values prefix="rsm"
+                                       uri="urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"/>
+   <svrl:ns-prefix-in-attribute-values prefix="ccts"
+                                       uri="urn:un:unece:uncefact:documentation:standard:CoreComponentsTechnicalSpecification:2"/>
+   <svrl:ns-prefix-in-attribute-values prefix="udt"
+                                       uri="urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"/>
+   <svrl:ns-prefix-in-attribute-values prefix="qdt"
+                                       uri="urn:un:unece:uncefact:data:standard:QualifiedDataType:100"/>
+   <svrl:ns-prefix-in-attribute-values prefix="ram"
+                                       uri="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"/>
+   <svrl:ns-prefix-in-attribute-values prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+   <svrl:active-pattern document="file:huf_example_cii.xml"
+                        documents="file:huf_example_cii.xml"
+                        id="EN16931-CII-Model"
+                        name="EN16931-CII-Model"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice"/>
+   <svrl:fired-rule context="//ram:IncludedSupplyChainTradeLineItem"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax[ram:CategoryCode = 'S'][upper-case(ram:TypeCode) = 'VAT']"/>
+   <svrl:fired-rule context="//ram:SpecifiedLineTradeSettlement/ram:BillingSpecifiedPeriod"/>
+   <svrl:fired-rule context="//ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ChargeIndicator[udt:Indicator = 'true']"/>
+   <svrl:fired-rule context="//ram:AdditionalReferencedDocument"/>
+   <svrl:fired-rule context="//ram:IncludedSupplyChainTradeLineItem"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax[ram:CategoryCode = 'S'][upper-case(ram:TypeCode) = 'VAT']"/>
+   <svrl:fired-rule context="//ram:SpecifiedLineTradeSettlement/ram:BillingSpecifiedPeriod"/>
+   <svrl:fired-rule context="//ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ChargeIndicator[udt:Indicator = 'true']"/>
+   <svrl:fired-rule context="//ram:AdditionalReferencedDocument"/>
+   <svrl:fired-rule context="//ram:IncludedSupplyChainTradeLineItem"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax[ram:CategoryCode = 'S'][upper-case(ram:TypeCode) = 'VAT']"/>
+   <svrl:fired-rule context="//ram:SpecifiedLineTradeSettlement/ram:BillingSpecifiedPeriod"/>
+   <svrl:fired-rule context="//ram:SpecifiedLineTradeSettlement/ram:SpecifiedTradeAllowanceCharge/ram:ChargeIndicator[udt:Indicator = 'true']"/>
+   <svrl:fired-rule context="//ram:AdditionalReferencedDocument"/>
+   <svrl:fired-rule context="//ram:SellerTradeParty"/>
+   <svrl:fired-rule context="//ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']"/>
+   <svrl:fired-rule context="//ram:SpecifiedTaxRegistration/ram:ID[@schemeID='VA']"/>
+   <svrl:fired-rule context="//ram:AdditionalReferencedDocument"/>
+   <svrl:fired-rule context="//ram:AdditionalReferencedDocument"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeDelivery"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans"/>
+   <svrl:fired-rule context="//ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax"/>
+   <svrl:fired-rule context="//ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode[.='S']"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementHeaderMonetarySummation"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID=/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode]"/>
+   <svrl:active-pattern document="file:huf_example_cii.xml"
+                        documents="file:huf_example_cii.xml"
+                        id="EN16931-CII-Syntax"
+                        name="EN16931-CII-Syntax"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext"/>
+   <svrl:fired-rule context="//*[ends-with(name(), 'DocumentContextParameter')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocument"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:IncludedNote"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeAgreement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Quantity')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeDelivery"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Quantity')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'TradeTax')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="//ram:BillingSpecifiedPeriod"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeAllowanceCharge"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ReferencedDocument')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeAgreement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Quantity')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeDelivery"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Quantity')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'TradeTax')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="//ram:BillingSpecifiedPeriod"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeAllowanceCharge"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ReferencedDocument')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:ApplicableProductCharacteristic"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeAgreement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Quantity')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeDelivery"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Quantity')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'TradeTax')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedLineTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="//ram:BillingSpecifiedPeriod"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeAllowanceCharge"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ReferencedDocument')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeAgreement"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:PostalTradeAddress"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:PostalTradeAddress"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ReferencedDocument')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ReferencedDocument')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeDelivery"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement"/>
+   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'TradeTax')]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:TypeCode"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
+   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:SpecifiedTradeSettlementHeaderMonetarySummation"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
+   <svrl:active-pattern document="file:huf_example_cii.xml"
+                        documents="file:huf_example_cii.xml"
+                        id="EN16931-Codes"
+                        name="EN16931-Codes"/>
+   <svrl:fired-rule context="rsm:ExchangedDocument/ram:TypeCode"/>
+   <svrl:fired-rule context="ram:SubjectCode"/>
+   <svrl:fired-rule context="ram:OriginTradeCountry/ram:ID"/>
+   <svrl:fired-rule context="ram:BasisQuantity[@unitCode] | ram:BilledQuantity[@unitCode]"/>
+   <svrl:fired-rule context="ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="ram:ReferenceTypeCode"/>
+   <svrl:fired-rule context="ram:OriginTradeCountry/ram:ID"/>
+   <svrl:fired-rule context="ram:BasisQuantity[@unitCode] | ram:BilledQuantity[@unitCode]"/>
+   <svrl:fired-rule context="ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="ram:ReferenceTypeCode"/>
+   <svrl:fired-rule context="ram:OriginTradeCountry/ram:ID"/>
+   <svrl:fired-rule context="ram:BasisQuantity[@unitCode] | ram:BilledQuantity[@unitCode]"/>
+   <svrl:fired-rule context="ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="ram:ReferenceTypeCode"/>
+   <svrl:fired-rule context="ram:CountryID"/>
+   <svrl:fired-rule context="ram:CountryID"/>
+   <svrl:fired-rule context="ram:AttachmentBinaryObject[@mimeCode]"/>
+   <svrl:fired-rule context="ram:InvoiceCurrencyCode"/>
+   <svrl:fired-rule context="ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode"/>
+   <svrl:fired-rule context="ram:ApplicableTradeTax/ram:CategoryCode"/>
+   <svrl:fired-rule context="ram:TaxTotalAmount[@currencyID]"/>
+</svrl:schematron-output>

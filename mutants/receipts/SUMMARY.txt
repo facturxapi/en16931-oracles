@@ -1,0 +1,10 @@
+CII_example1.xml  failed-assert=2  ids=BR-CO-15,BR-CO-16  16 Aug 2026 PT  EN16931 1.3.16
+CII_example3.xml  failed-assert=2  ids=BR-S-09,BR-CO-14  16 Aug 2026 PT  EN16931 1.3.16
+CII_example5.xml  failed-assert=1  ids=BR-02  16 Aug 2026 PT  EN16931 1.3.16
+CII_business_example_01.xml  failed-assert=2  ids=BR-CO-10,BR-CO-13  16 Aug 2026 PT  EN16931 1.3.16
+CII_business_example_02.xml  failed-assert=1  ids=BR-CL-01  16 Aug 2026 PT  EN16931 1.3.16
+CII_business_example_Z.xml  failed-assert=1  ids=BR-CO-09  16 Aug 2026 PT  EN16931 1.3.16
+CII-BR-CO-10-RoundingIssue.xml  failed-assert=1  ids=BR-01  16 Aug 2026 PT  EN16931 1.3.16
+XRechnung-O.xml  failed-assert=1  ids=CII-DT-097  16 Aug 2026 PT  EN16931 1.3.16
+ubl-tc434-creditnote1.xml  failed-assert=1  ids=BR-CO-16  16 Aug 2026 PT  EN16931 1.3.16
+huf_example_cii.xml  failed-assert=3  ids=BR-CO-17,BR-S-08,BR-S-09  16 Aug 2026 PT  EN16931 1.3.16

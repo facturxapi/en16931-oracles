@@ -1,0 +1,1 @@
+XRechnung-O.xml  failed-assert=1  ids=CII-DT-097  16 Aug 2026 PT  EN16931 1.3.16

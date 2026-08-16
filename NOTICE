@@ -1,0 +1,23 @@
+NOTICE
+======
+
+Les fichiers d'exemple XML (fixtures/) et les feuilles XSLT
+(vendor/en16931-1.3.16/xslt/) redistribués dans cette arborescence sont
+© ConnectingEurope / Commission européenne, artefacts de validation
+eInvoicing-EN16931, release validation-1.3.16 (publiée le 13 avril 2026 UTC).
+
+Ils sont licenciés sous European Union Public Licence (EUPL) version 1.2.
+Copies non modifiées.
+
+Sources :
+  https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.16
+  https://raw.githubusercontent.com/ConnectingEurope/eInvoicing-EN16931/master/LICENSE.txt
+
+Le texte de la Licence accompagne cette arborescence :
+  LICENSE-EUPL-1.2.txt
+  vendor/en16931-1.3.16/LICENSE.txt
+  third-party/LICENSE-ConnectingEurope-EN16931.txt
+
+Le texte des oracles (oracles/*.md) n'est pas couvert par l'EUPL.
+Licence du texte d'oracle : À-TRANCHER (founder).
+Licence du dépôt : non décidée.

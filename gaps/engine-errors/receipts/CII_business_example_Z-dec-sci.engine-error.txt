@@ -1,0 +1,1 @@
+ Cannot convert string "1169387E-2" to xs:decimal: invalid character 'E'

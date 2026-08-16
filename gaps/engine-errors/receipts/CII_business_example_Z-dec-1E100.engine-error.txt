@@ -1,0 +1,1 @@
+ Cannot convert string "1E+100" to xs:decimal: invalid character 'E'
