@@ -1,0 +1,1 @@
+cii-siren-lettres.xml	tag=v1.4.0.03	syntax=cii	failed=2	ids=BR-FR-10_BT-30,BR-FR-32-LEGALID	sha256=9eca98a4293f11eb8d37025362b0d6383ce41c2c4598de273dce5ad3f73279f1	xslt=a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438

@@ -1,0 +1,1 @@
+ubl-date-annee.xml	tag=v1.4.0.03	syntax=ubl	failed=1	ids=BR-FR-03_BT-2	sha256=a00a4dae2ecfaafe0c506cf29f9b14c391127f4da3daefbcb66513a9659d19cb	xslt=4a54e8b363907b7ca13c6d63302910aa7e42681fdaa6d16ef18b9a414973c09c

@@ -1,0 +1,1 @@
+ubl-id-lead-space.xml	tag=v1.4.0.03	syntax=ubl	failed=2	ids=BR-FR-01_BT-1-2,BR-FR-02_BT-1	sha256=73e64517c678c6308079113abf25c04b20fb8537528284432ea9dcb40624a61a	xslt=4a54e8b363907b7ca13c6d63302910aa7e42681fdaa6d16ef18b9a414973c09c

@@ -1,0 +1,40 @@
+Diff mesuré — contextes BR-FR-01/02/03 (EXT-FR-FE-136/138) UBL Flux2
+Fichiers : BR-FR-Flux2-Schematron-UBL.sch  v1.4.0.02 vs v1.4.0.03
+Source de vérité = octets extraits des zipballs GitHub (assets vides).
+
+=== v1.4.0.02 ===
+ID BR-FR-01_EXT-FR-FE-136-1
+  context: ubl:Invoice/cac:InvoiceLine/cac:BillingReference/cac:DocumentReference/cbc:ID | cn:CreditNote/cac:CreditNoteLine/cac:BillingReference/cac:DocumentReference/cbc:ID
+  test: string-length(.) le 35
+ID BR-FR-01_BT-EXT-FR-FE-136-2
+  context: ubl:Invoice/cac:InvoiceLine/cac:BillingReference/cac:DocumentReference/cbc:ID | cn:CreditNote/cac:CreditNoteLine/cac:BillingReference/cac:DocumentReference/cbc:ID
+  test: custom:is-valid-id-format(.)
+ID BR-FR-02_EXT-FR-FE-136
+  context: ubl:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:ID | cn:CreditNote/cac:CreditNoteLine/cac:DocumentReference/cbc:ID
+  test: custom:is-valid-id-format(.)
+ID BR-FR-03_EXT-FR-FE-138
+  context: ubl:Invoice/cac:InvoiceLine/cac:DocumentReference/cbc:IssueDate | cn:CreditNote/cac:CreditNoteLine/cac:DocumentReference/cbc:IssueDate
+  test: custom:is-valid-date-format(.)
+
+=== v1.4.0.03 ===
+ID BR-FR-01_EXT-FR-FE-136-1
+  context: ubl:Invoice/cac:InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID | cn:CreditNote/cac:CreditNoteLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID
+  test: string-length(.) le 35
+ID BR-FR-01_EXT-FR-FE-136-2
+  context: ubl:Invoice/cac:InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID | cn:CreditNote/cac:CreditNoteLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID
+  test: custom:is-valid-id-format(.)
+ID BR-FR-02_EXT-FR-FE-136
+  context: ubl:Invoice/cac:InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID | cn:CreditNote/cac:CreditNoteLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID
+  test: custom:is-valid-id-format(.)
+ID BR-FR-03_EXT-FR-FE-138
+  context: ubl:Invoice/cac:InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate | cn:CreditNote/cac:CreditNoteLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate
+  test: custom:is-valid-date-format(.)
+
+CONSTAT:
+.02 BR-FR-02_EXT-FR-FE-136 context = InvoiceLine/cac:DocumentReference/cbc:ID  (= BT-128 UBL)
+.03 BR-FR-02_EXT-FR-FE-136 context = InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID  (= EXT-FR-FE-136)
+.02 BR-FR-03_EXT-FR-FE-138 context = InvoiceLine/cac:DocumentReference/cbc:IssueDate  (date de BT-128)
+.03 BR-FR-03_EXT-FR-FE-138 context = InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:IssueDate
+.02 id BR-FR-01_BT-EXT-FR-FE-136-2  →  .03 id BR-FR-01_EXT-FR-FE-136-2 (retrait préfixe BT-)
+.02 BR-FR-01_*136 context = InvoiceLine/cac:BillingReference/cac:DocumentReference/cbc:ID (chemin XSD invalide)
+.03 BR-FR-01_*136 context = InvoiceLine/cac:BillingReference/cac:InvoiceDocumentReference/cbc:ID

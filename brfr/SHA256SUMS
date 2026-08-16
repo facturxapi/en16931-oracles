@@ -1,0 +1,24 @@
+# SHA256 — pack BR-FR (fichiers de preuve, pas les extraits 38 Mo)
+9ba5d5550f0504a067a431339a7d17c122eda9a7031eab0b0a453b78af3e037d  artefacts/France_RFE-v1.4.0.02.zip
+2c247a25691ab72d2c0ddf72d1957673b7d427b0775508da3ef6810a71863019  artefacts/France_RFE-v1.4.0.03.zip
+e308eade08e21ad69881328a2c14290ec2877b02b7ec873531baf82aae2f6628  vendor/v1.4.0.02/ubl-flux2/BR-FR-Flux2-Schematron-UBL.xslt
+a37c559b8c14678af02a3ca0d1beadaae6db71df7ad2f96420a15eaf05f7e0b9  vendor/v1.4.0.02/ubl-flux2/BR-FR-Flux2-Schematron-UBL.sch
+4a54e8b363907b7ca13c6d63302910aa7e42681fdaa6d16ef18b9a414973c09c  vendor/v1.4.0.03/ubl-flux2/BR-FR-Flux2-Schematron-UBL.xslt
+ce7ee7a89225a9bfc5799050f0fc5a67b4a44d8e441ef8b55ba557e852729861  vendor/v1.4.0.03/ubl-flux2/BR-FR-Flux2-Schematron-UBL.sch
+a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438  vendor/v1.4.0.02/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt
+d1172c6e89cc17fcdafcaaaf2ad57c2d1d1a576ad7694b5a6e5514a7cec0c4db  vendor/v1.4.0.02/cii-flux2/BR-FR-Flux2-Schematron-CII.sch
+a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438  vendor/v1.4.0.03/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt
+d1172c6e89cc17fcdafcaaaf2ad57c2d1d1a576ad7694b5a6e5514a7cec0c4db  vendor/v1.4.0.03/cii-flux2/BR-FR-Flux2-Schematron-CII.sch
+11dffcf8f4b8769995a44b2e39d81ab45aee10848360b6abc44036cb791172f0  fixtures/cii-synth-S1-pass.xml
+a491abede5640cca6f478d114127081964f2eb2341e5ae4d4aa08961f8c0b85d  fixtures/ubl-synth-B1-pass.xml
+e15abf78974f5813ec20511b2f828e7626dd111e787aff863c042dc9d9ac7d77  fixtures/ubl-synth-S1-bt128-pass.xml
+d544fc2c0f474bb58bf37bc738d1f2f4193ad91be7ac40b6e774150fd41422a9  fixtures/ubl-synth-S1-pass.xml
+b72e42ecfcc55df45aebcb676a0f8df3d099050cc83d38c9915106f5a22106ad  mutants/cii-id-espace.xml
+a00a4dae2ecfaafe0c506cf29f9b14c391127f4da3daefbcb66513a9659d19cb  mutants/ubl-date-annee.xml
+84998263f2372f88ac06fc32df6c6afd956242a6e7cf8aba6d5270ed0d9e8fad  mutants/ubl-id-espace.xml
+539e663c0d2d0908677491fb34e2fa3ddd4617131535d6be14da220f6bf3a78e  mutants/ubl-note-pmt-absent.xml
+f799c14c93b6a85a35a886163a221ce912120c8f4c659ec004833832d61ff427  mutants/ubl-profile-invalide.xml
+14eb33de033e420a5a3bd410792ae003fa4a5dcc7af86a8ecce2dccfeff3e9b1  mutants/ubl-siren-vendeur-court.xml
+77a5f3e4422d62d7a3d2d69742c088bb398e74410eab328b378c3300eaecc919  mutants/ubl-tva-taux.xml
+e28756cbd68d1fa44e5ececdfa9cb7077a6f413c87a50cdae73613574c156419  mutants/ubl-type-invalide.xml
+dbc90844873917001c30bb3046f9ccee8a12db4aad39431a0d47282f910449ef  objective-a/ubl-bt128-espace.xml
