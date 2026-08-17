@@ -1,0 +1,25 @@
+name: Verify EN16931 oracle receipts
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install SaxonC-HE 13.0
+        run: python3 -m pip install --disable-pip-version-check -q saxonche==13.0.0
+      - name: Re-run receipts and compare RESULTS.sha256
+        env:
+          ORACLE_ROOT: ${{ github.workspace }}
+        run: python3 scripts/verify_receipts.py
