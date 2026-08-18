@@ -1,0 +1,13 @@
+{
+  "html_url": "https://github.com/fnfempe/France_RFE/releases/tag/v1.4.0.03",
+  "tag_name": "v1.4.0.03",
+  "name": "FNFE_RFE_INVOICE_1.4.0.03",
+  "published_at": "2026-08-04T17:59:39Z",
+  "created_at": "2026-08-04T17:57:56Z",
+  "tarball_url": "https://api.github.com/repos/fnfempe/France_RFE/tarball/v1.4.0.03",
+  "zipball_url": "https://api.github.com/repos/fnfempe/France_RFE/zipball/v1.4.0.03",
+  "body": "Fix v1.4.0.03 corrects\r\nIssue #25 (ad BY SE for BR-CL-10 in UBL)\r\nIssue #22 Wrong XPath for BR-FR-01/02/03 in UBL\r\nIssue #19 in UBL and CII\r\nIssue #17\r\nIssue #21\r\n\r\nUpdate Factur-X with published version 1.09.2 (instead of Beta 1.09.2).",
+  "draft": false,
+  "prerelease": false,
+  "source": "github.com/fnfempe/France_RFE release metadata (author/api_urls stripped for publication)"
+}

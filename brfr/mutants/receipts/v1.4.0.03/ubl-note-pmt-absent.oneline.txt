@@ -1,0 +1,1 @@
+ubl-note-pmt-absent.xml	tag=v1.4.0.03	syntax=ubl	failed=1	ids=BR-FR-05_BT-22-1	sha256=539e663c0d2d0908677491fb34e2fa3ddd4617131535d6be14da220f6bf3a78e	xslt=4a54e8b363907b7ca13c6d63302910aa7e42681fdaa6d16ef18b9a414973c09c

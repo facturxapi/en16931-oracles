@@ -73,3 +73,8 @@ dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab  RESULTS.json
 - `gaps/` — documented blind spots
 - `vendor/en16931-1.3.16/` — official XSLT
 - `scripts/validate.py` — reproducible runner
+
+## BR-FR Flux2 pack (`brfr/`)
+
+French Flux2 (France_RFE) dual-version fixtures, mutants, gaps, and receipts.
+See `brfr/README.md` and the BR-FR section of `LICENSE-NOTES.md`.

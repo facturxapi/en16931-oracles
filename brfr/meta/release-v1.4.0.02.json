@@ -1,0 +1,13 @@
+{
+  "html_url": "https://github.com/fnfempe/France_RFE/releases/tag/v1.4.0.02",
+  "tag_name": "v1.4.0.02",
+  "name": "FNFE_RFE_INVOICE_1.4.0.02",
+  "published_at": "2026-07-14T17:20:22Z",
+  "created_at": "2026-07-14T17:18:32Z",
+  "tarball_url": "https://api.github.com/repos/fnfempe/France_RFE/tarball/v1.4.0.02",
+  "zipball_url": "https://api.github.com/repos/fnfempe/France_RFE/zipball/v1.4.0.02",
+  "body": "Following Issue #12 fix UBL extended-ctc-fr schematron, adding SE BY to CL-10\r\n\r\nCorrect an error message on CII FR-FR-28 (text error was on UBL Xpath instead of CII)",
+  "draft": false,
+  "prerelease": false,
+  "source": "github.com/fnfempe/France_RFE release metadata (author/api_urls stripped for publication)"
+}

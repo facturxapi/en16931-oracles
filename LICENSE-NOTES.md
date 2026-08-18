@@ -137,3 +137,36 @@ ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
    le dépôt ConnectingEurope / la release `validation-1.3.16`.
 5. Si l'on **modifie** un XML ou un XSLT : mentionner la modification
    et sa date (art. 5). **Ce pack ne le fait pas.**
+
+---
+
+## BR-FR / France_RFE Flux2 (pack `brfr/`) — notes lues 16 août 2026
+
+**Objet :** redistribution des **seuls** fichiers Flux2 utilisés sous
+`brfr/vendor/v1.4.0.02/` et `brfr/vendor/v1.4.0.03/` (`.sch` / `.xslt`
+UBL+CII Flux2), **sans** zipball entier (le zipball amont embarque aussi
+des artefacts CEN / XSD UBL hors périmètre de ce pack).
+
+### Textes / sources
+
+| Texte | Source | Copie jointe |
+|---|---|---|
+| Apache License 2.0 (LICENSE racine du tag France_RFE) | https://raw.githubusercontent.com/fnfempe/France_RFE/v1.4.0.03/LICENSE | `brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt` |
+| En-têtes Schematron Flux2 (verbatim) | fichiers `.sch` vendored | inchangés |
+
+### Licence applicable
+
+- Licence de redistribution des copies **non modifiées** utilisées ici :
+  **Apache-2.0** (LICENSE du dépôt amont au tag `v1.4.0.03`, mesurée 11357 octets).
+- Les en-têtes `.sch` citent **« European Union Public Licence (EUPL) version 1.4.0 »**.
+  **Aucune EUPL 1.4.0 n’existe** dans le catalogue EUPL connu (Joinup / eupl.eu) —
+  anomalie d’en-tête amont (confusion probable avec la version du Schematron /
+  du pack France_RFE). Les `.sch` sont redistribués ici sous **Apache-2.0**
+  uniquement (autorité du LICENSE racine du tag). L’en-tête « EUPL version 1.4.0 »
+  est documenté comme anomalie d’en-tête ; on n’invente **aucune** autre licence
+  EUPL pour ces fichiers France_RFE.
+- Aucun usage du nom **FNFE** comme marque ; références factuelles au dépôt
+  `fnfempe/France_RFE` uniquement.
+- Les XSLT compilés n’ont pas de NOTICE séparée : le `.sch` source est conservé
+  à côté de chaque `.xslt` exécuté.
+

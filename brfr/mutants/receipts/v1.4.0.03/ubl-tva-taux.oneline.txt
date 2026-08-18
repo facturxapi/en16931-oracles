@@ -1,0 +1,1 @@
+ubl-tva-taux.xml	tag=v1.4.0.03	syntax=ubl	failed=1	ids=BR-FR-16_BT-119	sha256=77a5f3e4422d62d7a3d2d69742c088bb398e74410eab328b378c3300eaecc919	xslt=4a54e8b363907b7ca13c6d63302910aa7e42681fdaa6d16ef18b9a414973c09c
