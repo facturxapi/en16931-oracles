@@ -74,6 +74,11 @@ dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab  RESULTS.json
 - `vendor/en16931-1.3.16/` — official XSLT
 - `scripts/validate.py` — reproducible runner
 
+## See also
+
+- Why two validators can return different verdicts on the same XML (ITB 16/16 on this corpus, FNFE-MPE V1.4.0 calendar of 30 June 2026): https://facturxapi.com/blog/pourquoi-deux-validateurs-divergent
+- GitHub Action that runs the same official ConnectingEurope 1.3.16 XSLT: https://github.com/facturxapi/validate-einvoice
+
 ## BR-FR Flux2 pack (`brfr/`)
 
 French Flux2 (France_RFE) dual-version fixtures, mutants, gaps, and receipts.
