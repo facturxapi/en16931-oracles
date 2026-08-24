@@ -1,6 +1,6 @@
 # EN16931 validation oracles
 
-[![Verify EN16931 oracle receipts](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml)
+[![Verify EN16931 oracle receipts](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml) [![EN16931 upstream drift](https://github.com/facturxapi/en16931-oracles/actions/workflows/upstream-drift.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/upstream-drift.yml)
 
 Reproducible machine verification of the official CEN EN16931 1.3.16
 validation artefacts (ConnectingEurope eInvoicing-EN16931).
