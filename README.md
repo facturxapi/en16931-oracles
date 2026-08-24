@@ -78,6 +78,7 @@ dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab  RESULTS.json
 
 - Why two validators can return different verdicts on the same XML (ITB 16/16 on this corpus, FNFE-MPE V1.4.0 calendar of 30 June 2026): https://facturxapi.com/blog/pourquoi-deux-validateurs-divergent
 - GitHub Action that runs the same official ConnectingEurope 1.3.16 XSLT: https://github.com/facturxapi/validate-einvoice
+- Sourced map of the European e-invoicing ecosystem: https://github.com/facturxapi/awesome-einvoicing
 
 ## BR-FR Flux2 pack (`brfr/`)
 
