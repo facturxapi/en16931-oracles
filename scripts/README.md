@@ -74,3 +74,37 @@ Mutants :
 ```bash
 .venv/bin/python scripts/validate.py --dir mutants --out-dir mutants/receipts --no-expected
 ```
+
+## Gate gaps/ (23 sondes)
+
+```bash
+.venv/bin/python scripts/verify_gaps_receipts.py
+python3 -m unittest discover -s tests -p 'test_*.py' -v
+```
+
+Rejoue les 23 fixtures `gaps/`, compare `gaps/receipts/RESULTS.sha256`
+(`363eeba0e2f2774b60cf99a39fb996f1ac80c53de4421c63e7c513fc20b9c825`) et
+tous les artefacts `*.svrl.xml` / `*.receipt.md` versionnés. Vérifie aussi que
+`gaps/RESULTS.*` est byte-identique à `gaps/receipts/RESULTS.*`. Le replay est
+strictement non-mutateur (écriture uniquement dans un répertoire temporaire).
+L'empreinte complète de `gaps/` est vérifiée avant/après
+(`scripts/tree_fingerprint.py`).
+Les SVRL doivent avoir chaque `document`/`documents` exactement
+`file:<basename.xml>` (`scripts/svrl_hermetic.py`). Pour recapturer manuellement
+dans `gaps/` : ajouter `--write-results-to-xml-dir` à `validate.py`.
+
+## Gate oracles/receipts/ (10 fixtures officielles)
+
+```bash
+.venv/bin/python scripts/verify_receipts.py
+```
+
+Rejoue les 10 fixtures `fixtures/`, compare `oracles/receipts/RESULTS.sha256`
+(`dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab`) et tous les
+artefacts `*.svrl.xml` / `*.receipt.md` versionnés. Le replay est strictement
+non-mutateur (écriture uniquement dans un répertoire temporaire) : aucune
+réparation SVRL in-place. L'empreinte complète de `oracles/receipts/` est
+vérifiée avant/après (`scripts/tree_fingerprint.py`).
+
+CI (`.github/workflows/verify-receipts.yml`) enchaîne les deux gates, les tests
+unitaires, puis `git diff --exit-code` + `git status --porcelain` vide pour garantir un checkout inchangé (y compris fichiers non suivis).
