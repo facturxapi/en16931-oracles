@@ -17,16 +17,17 @@ Sources primaires seulement pour les claims normatifs. Les notes `local-prep` ne
 - Distinction explicite : « la règle devrait normativement couvrir ce cas » vs « simple attente de test ».
 - Les `id` viennent de l'attribut `id` du SVRL officiel. Les octets des factures ne sont pas journalisés.
 
-## Comptage (23 sondes)
+## Comptage (25 sondes)
 
 | Classe | n | Sens |
 |---|---:|---|
-| **Angle mort** | **8** | règle officielle citée + contre-test vert (0 failed-assert pertinent) |
+| **Angle mort** | **9** | règle officielle citée + contre-test vert (0 failed-assert pertinent) |
 | **Observation** | **8** | vert, mais aucune règle 1.3.16 ne *prétend* tester le cas |
 | **Couvert** | **5** | `svrl:failed-assert` a tiré — ce n'est pas un trou |
+| **Voisin valide** | **1** | date calendaire réelle, 0 failed-assert attendu (contrôle) |
 | **Erreur moteur** | **2** | Saxon FORG0001, pas de SVRL (pas un passage silencieux) |
 
-4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles positifs. 2 erreurs `xs:decimal`.
+4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles où la règle tire. 1 voisin leap-valide. 2 erreurs `xs:decimal`.
 
 ## Table des sondes
 
@@ -38,7 +39,9 @@ Sources primaires seulement pour les claims normatifs. Les notes `local-prep` ne
 | `gaps/ubl-tc434-creditnote1-bt31-BE00.xml` | ubl | L36 BT-31 `BE0000000196` → `BE00` | 0 | — | **angle mort** BR-CO-09 | `gaps/receipts/ubl-tc434-creditnote1-bt31-BE00.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-bt31-A.xml` | ubl | L36 BT-31 → `A` | 0 | — | **angle mort** BR-CO-09 UBL (`contains` sans bornes) | `gaps/receipts/ubl-tc434-creditnote1-bt31-A.svrl.xml` |
 | `gaps/CII_business_example_Z-date-20260231.xml` | Z | L20 BT-2 `20150109` → `20260231` | 0 | — | **angle mort** CII-DT-097 | `gaps/receipts/CII_business_example_Z-date-20260231.svrl.xml` |
+| `gaps/CII_business_example_Z-date-20260229.xml` | Z | L20 BT-2 `20150109` → `20260229` | 0 | — | **angle mort** CII-DT-097 (classe 3) | `gaps/receipts/CII_business_example_Z-date-20260229.svrl.xml` |
 | `gaps/CII_business_example_Z-date-20260431.xml` | Z | L183 échéance `20150109` → `20260431` | 0 | — | **angle mort** CII-DT-097 | `gaps/receipts/CII_business_example_Z-date-20260431.svrl.xml` |
+| `gaps/CII_business_example_Z-date-20280229.xml` | Z | L20 BT-2 `20150109` → `20280229` | 0 | — | **voisin valide** (29 fév. bissextile) | `gaps/receipts/CII_business_example_Z-date-20280229.svrl.xml` |
 | `gaps/CII_business_example_Z-dec-0.000.xml` | Z | L189 BT-110 `0.0` → `0.000` | 0 | — | **angle mort** BR-DEC-13 | `gaps/receipts/CII_business_example_Z-dec-0.000.svrl.xml` |
 | `gaps/CII_business_example_Z-iban-badcheck.xml` | Z | L171 BT-84 dernier chiffre `0` → `1` (ISO 13616 mod97=28) | 0 | — | observation | `gaps/receipts/CII_business_example_Z-iban-badcheck.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-iban-bad.xml` | ubl | L83 compte `…76` → `…77` (mod97=28) | 0 | — | observation | `gaps/receipts/ubl-tc434-creditnote1-iban-bad.svrl.xml` |
@@ -56,7 +59,7 @@ Sources primaires seulement pour les claims normatifs. Les notes `local-prep` ne
 | `gaps/engine-errors/CII_business_example_Z-dec-1E100.xml` | Z | L190 BT-112 → `1E+100` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-1E100.engine-error.txt` |
 | `gaps/engine-errors/CII_business_example_Z-dec-sci.xml` | Z | L190 BT-112 → `1169387E-2` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-sci.engine-error.txt` |
 
-`gaps/receipts/RESULTS.sha256` (21 XML du lot, hors engine-errors) = `edc232f519a8a999c4c8d573eb0cacc6997135030053591fde766eff8954c364`
+`gaps/receipts/RESULTS.sha256` (23 XML du lot, hors engine-errors) = `363eeba0e2f2774b60cf99a39fb996f1ac80c53de4421c63e7c513fc20b9c825`
 
 ---
 
@@ -114,6 +117,7 @@ test="( contains( ' 1A AD AE … ZW ', substring(cbc:CompanyID,1,2) ) )"
 
 - BT-2 `20150109` → `20260231` (31 février) — 0 failed-assert
 - échéance `20150109` → `20260431` (31 avril) — 0 failed-assert
+- BT-2 `20150109` → `20260229` (29 février 2026, année commune) — 0 failed-assert (classe 3)
 
 **Règle officielle,** sch CII L987–988, contexte `//udt:DateTimeString[@format = '102']` :
 
@@ -123,11 +127,15 @@ test="matches(.,'^\s*(\d{4})(1[0-2]|0[1-9]){1}(3[01]|[12][0-9]|0[1-9]){1}\s*$')"
 [CII-DT-097] - Date time string with format attribute 102 shall be YYYYMMDD.
 ```
 
-Le regex autorise mois 01–12 et jour 01–31, sans calendrier (pas de 30/31 selon le mois, pas d'année bissextile). `20260231` et `20260431` matchent.
+Le regex autorise mois 01–12 et jour 01–31, sans calendrier (pas de 30/31 selon le mois, pas d'année bissextile). `20260231`, `20260431` et `20260229` matchent.
 
 BR-03 ne teste que la présence : `normalize-space(…DateTimeString[@format='102']) != ''`.
 
 **Contrôle négatif (couvert) :** `20151399` (mois 13, jour 99) → **1 failed-assert `CII-DT-097`**. La règle tire quand le *motif* casse ; elle est muette dès que le motif 8 chiffres « ressemble » à YYYYMMDD.
+
+**Voisin leap-valide (contrôle, pas un trou) :** BT-2 → `20280229` (29 février 2028, année bissextile). Date calendaire réelle. Attendu officiel 1.3.16 : 0 failed-assert. On garde 2028 plutôt que 2024 (`20240229`) parce que le cluster CII-DT-097 existant est déjà en 2026 (`20260231` / `20260431`) ; 2028 est l'année bissextile suivante dans la fenêtre 2026–2028 du balayage #516, sans reculer l'année d'émission plus près du parent 2015.
+
+Le 26 Aug 2026, [@victor-emmanuel-c](https://github.com/victor-emmanuel-c) a publié sur ConnectingEurope/eInvoicing-EN16931#516 un balayage de 20 dates invalides 2026–2028 (12 jours 31 en mois de 30 + 6 × 30/31 février + 2 × 29 février en année commune) : [commentaire](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/516#issuecomment-5430511492). Ce dépôt **ne recopie pas** leur jeu de 20 fixtures. On n'ajoute ici que la classe 3 (`20260229`) et un voisin leap-valide, en suivi de #516 (READY_CONTENT / FOLLOW). Texte ajouté : CC-BY-4.0.
 
 **Distinction :** le *texte* dit « shall be YYYYMMDD » (format 102). Un puriste du format 102 peut y voir une **simple attente de test** calendaire. BT-2 est pourtant une *date* d'émission : le 31 février n'en est pas une. **La règle devrait normativement couvrir** une date impossible, parce que c'est le seul filet format 102 du XSLT CII. Classé angle mort du *test* (insuffisant pour un BT date), pas d'une règle inventée.
 
@@ -227,7 +235,7 @@ BR-DEC-14 (`substring-after(.,'.')`) n'aurait *pas* tiré : pas de `.` dans `1E+
 À la racine de `repo-v1/` :
 
 ```bash
-# 21 sondes (lot principal, ignore expected.json)
+# 23 sondes (lot principal, ignore expected.json)
 .venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected
 
 # les 2 notations scientifiques (exception Saxon, pas de SVRL)
