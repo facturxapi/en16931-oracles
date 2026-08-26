@@ -82,6 +82,12 @@ def sha256_bytes(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+_SCRIPTS_DIR = Path(__file__).resolve().parent
+if str(_SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(_SCRIPTS_DIR))
+from svrl_hermetic import hermeticize_svrl
+
+
 def repo_root_from_script() -> Path:
     return Path(__file__).resolve().parent.parent
 
@@ -302,7 +308,11 @@ def transform(xml_path: Path, xslt_path: Path) -> str:
         if svrl is None:
             print(f"ERREUR: transformation XSLT sans résultat : {xml_path.name}", file=sys.stderr)
             sys.exit(2)
-        return svrl
+        try:
+            return hermeticize_svrl(svrl, xml_path.name)
+        except ValueError as exc:
+            print(f"ERREUR: SVRL non hermétique pour {xml_path.name}: {exc}", file=sys.stderr)
+            sys.exit(2)
 
 
 def count_svrl(svrl: str) -> tuple[int, int]:
@@ -632,6 +642,11 @@ def main(argv: list[str] | None = None) -> int:
         default="CII_example1.xml",
         help="Nom du mutant pour --hash-probe (defaut: CII_example1.xml).",
     )
+    parser.add_argument(
+        "--write-results-to-xml-dir",
+        action="store_true",
+        help="Ecrit aussi RESULTS.json/.sha256 dans --dir (defaut: non; le gate reste non-mutateur).",
+    )
     args = parser.parse_args(argv)
 
     repo = repo_root_from_script()
@@ -647,9 +662,7 @@ def main(argv: list[str] | None = None) -> int:
     require_integrity = default_fixtures
     use_expected = (not args.no_expected) and default_fixtures
     fail_on_failed_assert = (not args.no_expected) and default_fixtures
-    extra = None
-    if not default_fixtures:
-        extra = xml_dir
+    extra = xml_dir if args.write_results_to_xml_dir else None
 
     rc, _digest = run_validation(
         repo,
