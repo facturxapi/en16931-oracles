@@ -2,18 +2,23 @@
 
 [![Verify EN16931 oracle receipts](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml) [![EN16931 upstream drift](https://github.com/facturxapi/en16931-oracles/actions/workflows/upstream-drift.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/upstream-drift.yml)
 
-Reproducible machine verification of the official CEN EN16931 1.3.16
-validation artefacts (ConnectingEurope eInvoicing-EN16931).
+Reproducible machine verification of the official ConnectingEurope
+EN16931 1.3.16 validation artefacts (`eInvoicing-EN16931`).
 
 This repository publishes:
 
-- the **10** official CEN example invoices used as oracles;
+- the **10** official ConnectingEurope example invoices used as oracles;
 - the official **CII** and **UBL** XSLT from validation-1.3.16 (vendored, unmodified);
 - SVRL receipts and a content-addressed `RESULTS.sha256`;
-- intentional **mutants** that must fail;
-- documented **GAPS** (blind spots) of the official Schematron/XSLT.
+- intentional **mutants** that must fail.
 
 It does **not** claim anything about a commercial product, API, or runtime.
+
+## Which FacturX repo should I use?
+
+- [validate-einvoice](https://github.com/facturxapi/validate-einvoice) — GitHub Action that runs the official ConnectingEurope EN16931 1.3.16 XSLT artefacts (CII/UBL).
+- [en16931-oracles](https://github.com/facturxapi/en16931-oracles) — Replayable fixtures, receipts and mutants for that same 1.3.16 pin.
+- [awesome-einvoicing](https://github.com/facturxapi/awesome-einvoicing) — Sourced map of specs, validators, libraries and corpora. Inclusion is not a ranking.
 
 ## Provenance and licences
 
@@ -70,14 +75,14 @@ dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab  RESULTS.json
 - `fixtures/` — official examples
 - `oracles/` — candidate notes + SVRL receipts
 - `mutants/` — intentional failures
-- `gaps/` — documented blind spots
+- `gaps/` — extra fixtures (notes only; not a published findings list)
 - `vendor/en16931-1.3.16/` — official XSLT
 - `scripts/validate.py` — reproducible runner
 
 ## See also
 
 - Why two validators can return different verdicts on the same XML (ITB 16/16 on this corpus, FNFE-MPE V1.4.0 calendar of 30 June 2026): https://facturxapi.com/blog/pourquoi-deux-validateurs-divergent
-- GitHub Action that runs the same official ConnectingEurope 1.3.16 XSLT: https://github.com/facturxapi/validate-einvoice
+- GitHub Action that runs the same official ConnectingEurope 1.3.16 XSLT artefacts: https://github.com/facturxapi/validate-einvoice
 - Sourced map of the European e-invoicing ecosystem: https://github.com/facturxapi/awesome-einvoicing
 
 ## BR-FR Flux2 pack (`brfr/`)
