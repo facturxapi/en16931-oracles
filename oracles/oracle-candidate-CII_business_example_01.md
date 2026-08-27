@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — CII_business_example_01.xml
 
-**Statut :** CANDIDAT — le founder/lead arbitre. Rien n’entre au corpus sans signature.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Identité de la fixture
 - Nom : `CII_business_example_01.xml`
@@ -94,4 +95,4 @@ Générable. Facture avec retours (quantités négatives) et une ligne exonéré
 ## (4) Verdict candidat + confiance
 - Verdict : **VALIDE EN16931 1.3.16**
 - Confiance : **haute** — mis à jour 1.3.16, 0 failed-assert, BR-E-09/10 satisfaits.
-- Ce que le founder doit trancher : un seul oracle pour example2 / business_01 (doublon).
+- Question ouverte : un seul oracle pour example2 / business_01 (doublon).
