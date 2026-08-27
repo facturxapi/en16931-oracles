@@ -3,7 +3,7 @@
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT  
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)  
 **XSLT :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`  
-**Statut :** préparation, pas une publication. Aucun `git init`. Aucun lot privé / FNFE / FeRD.
+**Statut :** notes de corpus. Aucun lot privé / FNFE / FeRD n'est redistribué.
 
 ## Discipline
 
@@ -85,7 +85,7 @@ SHA256 des 10 fichiers = table du brief (inchangés).
 
 ## Reproduire
 
-À la racine de `repo-v1/` :
+À la racine du dépôt :
 
 ```bash
 # mutants (10 XML, imprime les ids failed-assert, ignore expected.json)

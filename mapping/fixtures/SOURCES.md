@@ -3,7 +3,7 @@
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
 
 Copies **mutées** d'exemples officiels CEN EN16931 validation-1.3.16.
-Pas des factures privées. `repo-v1/fixtures/` n'est **pas** modifié.
+Pas des factures privées. Les fixtures CEN racine (`fixtures/`) n'ont pas été modifiées.
 
 | Fichier | Base officielle | Mutation |
 |---|---|---|

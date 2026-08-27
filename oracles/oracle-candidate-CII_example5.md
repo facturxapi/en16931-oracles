@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — CII_example5.xml
 
-**Statut :** CANDIDAT — le founder/lead arbitre. Rien n’entre au corpus sans signature.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Identité de la fixture
 - Nom : `CII_example5.xml`
@@ -95,4 +96,4 @@ Pas de désaccord SVRL / texte de règle (0 failed-assert).
 ## (4) Verdict candidat + confiance
 - Verdict : **VALIDE EN16931 1.3.16**
 - Confiance : **haute** — fixture retouchée dans 1.3.16, 0 failed-assert, totaux et double TVA DKK/EUR cohérents.
-- Ce que le founder doit trancher : oracle « facture multi-taux + BT-6/BT-111 + acompte ».
+- Question ouverte : oracle « facture multi-taux + BT-6/BT-111 + acompte ».

@@ -3,10 +3,10 @@
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)
 **XSLT :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`
-**Schematron cité :** `/workspace/en16931-src/cii/schematron/preprocessed/EN16931-CII-validation-preprocessed.sch` et pendant UBL `…/ubl/schematron/preprocessed/EN16931-UBL-validation-preprocessed.sch` (release 1.3.16)
-**Statut :** préparation, pas une publication. Aucun `git init`. Aucun site externe.
-
-Sources primaires seulement pour les claims normatifs. Les notes `local-prep` ne sont pas une autorité — chaque test et chaque `id` ont été relus dans le sch/XSLT vendored, puis rejoués.
+**Schematron cité :** artefacts vendored 1.3.16 sous `vendor/en16931-1.3.16/`
+(XSLT exécuté ; le Schematron préprocessé amont n'est pas redistribué ici).
+**Statut :** notes de corpus publiques. Les claims normatifs s'appuient
+uniquement sur le sch/XSLT vendored et les recettes rejouées.
 
 ## Discipline
 
@@ -232,7 +232,7 @@ BR-DEC-14 (`substring-after(.,'.')`) n'aurait *pas* tiré : pas de `.` dans `1E+
 
 ## Reproduire
 
-À la racine de `repo-v1/` :
+À la racine du dépôt :
 
 ```bash
 # 23 sondes (lot principal, ignore expected.json)

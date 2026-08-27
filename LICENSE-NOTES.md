@@ -102,7 +102,7 @@ l'origine du Work.
 | 10 XML `fixtures/*.xml` (exemples ZIP 1.3.16) | oui (release + LICENSE.txt) | **aucune** — copies non modifiées | oui, avec notices + Licence |
 | 2 XSLT `vendor/en16931-1.3.16/xslt/*.xslt` | oui | **aucune** — copies non modifiées | oui, avec notices + Licence |
 | `NOTICE`, `LICENSE-*.txt`, `third-party/` | notices / Licence elles-mêmes | — | jointes (art. 5 attribution) |
-| `oracles/*.md`, `oracles/INDEX.md` | **non** | — | licence du *texte* = **À-TRANCHER (founder)** |
+| `oracles/*.md`, `oracles/INDEX.md` | **non** | — | licence du *texte* = **non décidée** |
 | `oracles/receipts/*.svrl.xml` | sortie machine de l'XSLT officiel sur un exemple officiel ; pas une modification du Work | — | recette de reproduction, pas un fork XSLT |
 | `scripts/validate.py`, `README.md`, `LICENSE-NOTES.md` | **non** (textes / outils de ce pack) | — | licence du *dépôt* = **non décidée** |
 
@@ -114,14 +114,15 @@ ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
 
 ## 4. Ce que cette note ne décide pas
 
-- **Licence du dépôt** : non décidée. Ce fichier n'en choisit aucune
-  (ni MIT, ni Apache-2.0, ni EUPL pour le repo).
-- **Licence du texte des oracles** : **À-TRANCHER (founder)**. L'EUPL
+- **Licence du dépôt** (code / prose FacturXAPI) : non décidée.
+  Ce fichier n'en choisit aucune (ni MIT, ni Apache-2.0, ni EUPL pour le repo).
+- **Licence du texte des oracles** : non décidée. L'EUPL 1.2
   du Work ConnectingEurope ne s'étend pas à nos markdowns.
 - **Factur-X / ZUGFeRD / FNFE / FeRD / lots 001–015 / AFNOR** : hors
   périmètre. Aucun de ces binaires n'est redistribué ici.
-- **Publication** : cette arborescence est une **préparation**. Pas de
-  `git init`, pas de dépôt GitHub, pas de remote.
+- **Publication** : ce dépôt public est `facturxapi/en16931-oracles`.
+  La note ci-dessus documente les licences des artefacts redistribués ;
+  elle ne date pas d'une préparation hors git.
 
 ---
 

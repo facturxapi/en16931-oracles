@@ -11,7 +11,7 @@ Licence: `vendor/LICENSE-APACHE-2.0-France_RFE.txt` + root `LICENSE-NOTES.md`.
 
 ---
 
-| Élément | URL primaire | Mesure (cette session) |
+| Élément | URL primaire | Mesure |
 |---|---|---|
 | Dépôt | https://github.com/fnfempe/France_RFE | — |
 | Release `.02` | https://github.com/fnfempe/France_RFE/releases/tag/v1.4.0.02 | `published_at` 2026-07-14T17:20:22Z = **19:20 PT** |
@@ -23,9 +23,9 @@ Licence: `vendor/LICENSE-APACHE-2.0-France_RFE.txt` + root `LICENSE-NOTES.md`.
 | Zipball `.02` | https://api.github.com/repos/fnfempe/France_RFE/zipball/v1.4.0.02 | SHA256 **mesuré** `9ba5d5550f0504a067a431339a7d17c122eda9a7031eab0b0a453b78af3e037d` — racine `fnfempe-France_RFE-e9520ce` |
 | Zipball `.03` | https://api.github.com/repos/fnfempe/France_RFE/zipball/v1.4.0.03 | SHA256 **mesuré** `2c247a25691ab72d2c0ddf72d1957673b7d427b0775508da3ef6810a71863019` — racine `fnfempe-France_RFE-a63e6b5` |
 
-**Écart zipball vs notes internes :** les notes citaient `506a5b98…` (.02) et `ee8c29e0…` (.03).  
+**Écart zipball vs une mesure antérieure** (SHA cités `506a5b98…` / `ee8c29e0…`).  
 Les SHA **mesurés aujourd’hui** diffèrent (les zipballs GitHub ne sont pas byte-stables : horodatage / commentaire ZIP).  
-Les **commits de tag** sont identiques à ceux des notes. L’autorité d’exécution est le SHA des **XSLT extraits**, pas celui du zipball.
+Les **commits de tag** sont identiques à ceux de la mesure antérieure. L’autorité d’exécution est le SHA des **XSLT extraits**, pas celui du zipball.
 
 Licence des artefacts France_RFE : Apache 2.0 (`LICENSE` du zipball) ; en-tête Schematron Flux2 : EUPL 1.4.0 (citation brute du fichier).
 
@@ -171,13 +171,12 @@ sha256sum -c fixtures/SHA256SUMS
 - **XP Z12-012 texte AFNOR :** non récupéré (payant). Aucune citation d’Annexe A.
 - Issue #25 (BY/SE BR-CL-10 UBL) : **hors Objectif A** ; non rejouée ici.
 - Libellé d’assert `.02` `BR-FR-02_EXT-FR-FE-136` : le texte dit `[BR-FR-03/EXT-FR-FE-136]` — décalage texte/id **dans l’artefact**, cité tel quel.
-- Zipball SHA ≠ notes internes : reporté ci-dessus ; commits de tag et SHA XSLT font foi.
+- Zipball SHA ≠ mesure antérieure : reporté ci-dessus ; commits de tag et SHA XSLT font foi.
 
 ---
 
 ## Interdits respectés
 
-- pas de `git init`, pas de remote, pas de publication
-- pas de facturxapi.com, pas de compte / paiement
 - pas de donnée client réelle
-- `repo-v1/fixtures/` **non touché**
+- fixtures CEN du dépôt racine (`fixtures/`) non touchées
+- pas d'usage du nom FNFE comme marque

@@ -1,13 +1,14 @@
 # Preuve de mappings d'identifiants de règles — EN16931 1.3.16
 
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT  
-**Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`, venv `repo-v1/.venv`)  
+**Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)  
 **XSLT CII exécuté :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt`  
 **SHA256 XSLT CII :** `0b234dea2bbfee739b7761e607a992c17fab88773014ef56355b6158cfb1cc53`  
 **XSLT UBL exécuté :** `vendor/en16931-1.3.16/xslt/EN16931-UBL-validation.xslt`  
 **SHA256 XSLT UBL :** `39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd`  
-**Schematron préprocessé CII :** `/workspace/en16931-src/cii/schematron/preprocessed/EN16931-CII-validation-preprocessed.sch`  
-**Statut :** préparation. Aucun git, aucune publication, aucun facturxapi.com.  
+**Schematron / XSLT :** `vendor/en16931-1.3.16/` (XSLT exécuté ; SHA ci-dessus)
+**Statut :** notes de corpus. Claims d'équivalence uniquement sur textes
+officiels + id SVRL réellement tiré.
 **`fixtures/` officiel :** non modifié (`sha256sum -c fixtures/SHA256SUMS` : 10 × OK après ce travail).
 
 Trois classes, jamais mélangées :
@@ -262,5 +263,5 @@ ba152efc389aa9ea13f96e05704e13629188d446d61b5c8fd2763dac44027d4f  ubl-BR-61-no-b
 7a1393d6f50f5b96bd7bc7c20ca32954e01831eebafcde9a0075da8cbcb0cd35  ubl-SR-47-divergent-bt81.xml
 ```
 
-Commande : `repo-v1/.venv/bin/python scripts/validate.py --mode reference --dir mapping/fixtures --out-dir mapping/receipts --no-expected`  
+Commande : `.venv/bin/python scripts/validate.py --mode reference --dir mapping/fixtures --out-dir mapping/receipts --no-expected`  
 (16 Aug 2026 PT, `SOURCE_DATE_EPOCH=1771286400`).

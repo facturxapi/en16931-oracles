@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — huf_example_cii.xml
 
-**Statut :** CANDIDAT — le founder/lead arbitre. Rien n’entre au corpus sans signature.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Identité de la fixture
 - Nom : `huf_example_cii.xml`
@@ -89,4 +90,4 @@ Générable. Facture carburant en forint, TVA 27 %. L’arrondi 18678.6 → 1867
 ## (4) Verdict candidat + confiance
 - Verdict : **VALIDE EN16931 1.3.16** (avec mention UX « arrondi HUF dans la fenêtre ±1 »)
 - Confiance : **haute** sur la validité machine ; le slot ZUGFeRD reste **non-mesure** (e-mail gate)
-- Ce que le founder doit trancher : garder huf comme 10ᵉ oracle ; éventuellement relancer un téléchargement FeRD **humain** plus tard, hors automate.
+- Question ouverte : garder huf comme 10ᵉ oracle ; éventuellement relancer un téléchargement FeRD **humain** plus tard, hors automate.
