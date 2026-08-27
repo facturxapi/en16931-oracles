@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — XRechnung-O.xml
 
-**Statut :** CANDIDAT — le founder/lead arbitre. Rien n’entre au corpus sans signature.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Identité de la fixture
 - Nom : `XRechnung-O.xml`
@@ -90,4 +91,4 @@ Générable en core EN16931. Ce n’est **pas** une validation XRechnung (pas d�
 ## (4) Verdict candidat + confiance
 - Verdict : **VALIDE EN16931 1.3.16** (catégorie O) — **pas** une preuve de conformité XRechnung
 - Confiance : **haute** sur EN16931 core ; **basse** sur tout claim XRechnung
-- Ce que le founder doit trancher : libellé de l’oracle (« exemple O / assurance » vs « XRechnung »).
+- Question ouverte : libellé de l’oracle (« exemple O / assurance » vs « XRechnung »).
