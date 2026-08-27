@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Index des oracles candidats EN16931 1.3.16
 
-**Statut :** CANDIDAT — le founder/lead arbitre.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Artefacts téléchargés
 
@@ -40,7 +41,7 @@ Validation machine : XSLT officiels `xslt/EN16931-CII-validation.xslt` et `xslt/
 2. **BR-FR v1.4.0.03** : [fnfempe/France_RFE v1.4.0.03](https://github.com/fnfempe/France_RFE/releases/tag/v1.4.0.03) (16 août 2026). Aucune des 10 fixtures n’est un document CTC-FR / EXTENDED-CTC-FR. BR-FR non appliqué.
 3. **CII_example2.xml** : doublon binaire de `CII_business_example_01.xml`. Remplacé par `CII_example3.xml`. Aucun CII du ZIP n’a BT-3 ≠ 380 ; l’avoir est le UBL `ubl-tc434-creditnote1.xml`.
 4. **BR-CO-25** : cité dans les notes de release 1.3.16 (issue #477) mais **id absent** du Schematron préprocessé → non-mesure, non inventé.
-5. **Saxon JAR Maven** : téléchargement `Saxon-HE-12.5.jar` bloqué par Auto-review ; runner effectif = `saxonche` 13.0 (Saxonica) via pip. Même famille XSLT 2.0, artefact XSLT = celui du ZIP officiel.
+5. **Saxon JAR Maven** : `Saxon-HE-12.5.jar` n'est pas le runner de ce dépôt ; runner effectif = `saxonche` 13.0 (Saxonica) via pip. Même famille XSLT 2.0, artefact XSLT = celui du ZIP officiel.
 
 ## Recette SVRL (tous 0 failed-assert)
 
