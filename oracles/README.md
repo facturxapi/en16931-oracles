@@ -1,17 +1,18 @@
 # oracles/
 
-**Statut :** CANDIDAT. Pas une signature founder. Pas une publication.
+**machine-verified candidate — EN16931 1.3.16 official XSLT**
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 Chaque fichier `oracle-candidate-*.md` porte en tête la bannière :
 
 ```
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 ```
 
-La doctrine existante n'a pas été réécrite. Licence du *texte* :
-**À-TRANCHER (founder)**. L'EUPL 1.2 couvre les XML/XSLT CEN, pas ces
-markdowns.
+La doctrine existante n'a pas été réécrite. Licence du *texte* : non décidée. L'EUPL 1.2 couvre les XML/XSLT CEN, pas ces markdowns.
 
 `INDEX.md` est la copie de l'index des 10 candidats (16 août 2026).
 
