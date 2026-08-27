@@ -7,7 +7,7 @@
 **Schematron cité :** `vendor/v1.4.0.03/ubl-flux2/BR-FR-Flux2-Schematron-UBL.sch` / `…/cii-flux2/BR-FR-Flux2-Schematron-CII.sch` (tag France_RFE `v1.4.0.03`, commit `a63e6b538bdaff460f17c38dc1bc5455cf1ba35a`)
 **Scope:** documented Flux2 gaps. Synthetic probes only.
 
-Sources primaires seulement pour les claims normatifs : les `.sch` à côté des XSLT exécutés. Working notes are not normative authority. XP Z12-012 (AFNOR, payant) n’a **pas** été récupéré — aucune citation d’Annexe A.
+Sources primaires seulement pour les claims normatifs : les `.sch` à côté des XSLT exécutés. Les notes de travail ne sont pas une autorité normative. XP Z12-012 (AFNOR, payant) n’a **pas** été récupéré — aucune citation d’Annexe A.
 
 Ce n’est **pas** un scoop « France 2026 » au-delà de ce qui est démontré ci-dessous sur Flux2 v1.4.0.03.
 
@@ -15,7 +15,7 @@ Ce n’est **pas** un scoop « France 2026 » au-delà de ce qui est démontré 
 
 - Une ligne sémantique par sonde (copie, jamais l’original). Détail : `gaps-fr/DIFFS.md`.
 - Originaux dans `fixtures/` **non modifiés**. Contrôle final : `sha256sum -c fixtures/SHA256SUMS` (4 × OK).
-- `repo-v1/fixtures/` **non touché**.
+- Les fixtures CEN racine (`fixtures/`) n'ont pas été modifiées.
 - Un verdict **angle mort** exige (1) le texte/test officiel de la règle et (2) un contre-test machine à 0 `svrl:failed-assert` pertinent.
 - Sinon : **observation** (pas de règle qui *prétend* couvrir le cas) ou **couvert** (un `failed-assert` a tiré) ou **erreur moteur** (pas de SVRL).
 - Distinction explicite : « la règle devrait normativement couvrir ce cas » vs « simple attente de test ».
@@ -273,7 +273,7 @@ ubl-synth-S1-bt128-pass.xml: OK
 ubl-synth-S1-pass.xml: OK
 ```
 
-SHA256 des 4 fichiers = table du README / `SHA256SUMS` racine (inchangés). Aucune écriture dans `fixtures/` ni dans `repo-v1/fixtures/`.
+SHA256 des 4 fichiers = table du README / `SHA256SUMS` racine (inchangés). Aucune écriture dans `fixtures/`. Les fixtures CEN racine (`fixtures/`) n'ont pas été modifiées.
 
 ---
 
