@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — CII_business_example_Z.xml
 
-**Statut :** CANDIDAT — le founder/lead arbitre. Rien n’entre au corpus sans signature.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Identité de la fixture
 - Nom : `CII_business_example_Z.xml`
@@ -88,4 +89,4 @@ Générable. La ligne négative « Abzug » n’en fait pas un avoir (BT-3 = 380
 ## (4) Verdict candidat + confiance
 - Verdict : **LIMITE** (machine VALIDE ; profil FeRD 1.0 + identifiant fiscal atypique)
 - Confiance : **moyenne**
-- Ce que le founder doit trancher : oracle « catégorie Z + profil FeRD 1.0 » vs scinder profil et TVA Z.
+- Question ouverte : oracle « catégorie Z + profil FeRD 1.0 » vs scinder profil et TVA Z.
