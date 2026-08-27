@@ -1,12 +1,13 @@
 **machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : CANDIDAT. Pas une signature founder. Pas une publication.
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — CII_business_example_02.xml
 
-**Statut :** CANDIDAT — le founder/lead arbitre. Rien n’entre au corpus sans signature.
+**Statut :** candidat machine-vérifié — le verdict définitif d'admission
+au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
-**Interdit respecté :** aucune consultation de facturxapi.com.
 
 ## Identité de la fixture
 - Nom : `CII_business_example_02.xml`
@@ -81,4 +82,4 @@ Pas de désaccord SVRL / texte BR-01 : les deux lectures portent sur *ce que BR-
 ## (4) Verdict candidat + confiance
 - Verdict : **LIMITE** (machine VALIDE EN16931 1.3.16 ; profil déclaré hors EN16931)
 - Confiance : **moyenne** — 0 failed-assert est un fait ; l’interprétation « EST une facture EN16931 » dépend de la lecture de BT-24.
-- Ce que le founder doit trancher : oracle « LIMITE profil FeRD 1.0 » ou « VALIDE car BR-01 ne contraint pas l’URN ».
+- Question ouverte : oracle « LIMITE profil FeRD 1.0 » ou « VALIDE car BR-01 ne contraint pas l’URN ».
