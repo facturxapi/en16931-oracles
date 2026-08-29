@@ -18,9 +18,9 @@ PYTHON = str(VENV_PY if VENV_PY.is_file() else Path(sys.executable))
 VERIFY_GAPS = REPO / "scripts" / "verify_gaps_receipts.py"
 GAPS_RECEIPTS = REPO / "gaps" / "receipts"
 EXPECTED_GAPS_SHA256 = (
-    "9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1"
+    "f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5"
 )
-GAPS_FIXTURE_COUNT = 27
+GAPS_FIXTURE_COUNT = 30
 
 
 def run_verify(root: Path, *, env: dict | None = None) -> subprocess.CompletedProcess[str]:

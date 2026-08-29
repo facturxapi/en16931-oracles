@@ -2,6 +2,7 @@
 
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
 **Addendum runtime #509 :** 29 Aug 2026 PT (pas un 5e finding)
+**Addendum runtime #510 :** 29 Aug 2026 PT (pas un 5e finding ; BR-CL-08 / BT-21 BAT)
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)
 **XSLT :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`
 **Schematron cité :** artefacts vendored 1.3.16 sous `vendor/en16931-1.3.16/`
@@ -18,7 +19,7 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 - Distinction explicite : « la règle devrait normativement couvrir ce cas » vs « simple attente de test ».
 - Les `id` viennent de l'attribut `id` du SVRL officiel. Les octets des factures ne sont pas journalisés.
 
-## Comptage (29 sondes)
+## Comptage (32 sondes)
 
 | Classe | n | Sens |
 |---|---:|---|
@@ -27,9 +28,10 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 | **Couvert** | **5** | `svrl:failed-assert` a tiré — ce n'est pas un trou |
 | **Voisin valide** | **1** | date calendaire réelle, 0 failed-assert attendu (contrôle) |
 | **Runtime #509** | **4** | repro indépendante BR-CL-15 / BT-159 `AN`/`SS` (pas un 5e finding) |
+| **Runtime #510** | **3** | repro indépendante BR-CL-08 / BT-21 `BAT` + wrap UBL `#AAI#`/`#BAT#` (pas un 5e finding) |
 | **Erreur moteur** | **2** | Saxon FORG0001, pas de SVRL (pas un passage silencieux) |
 
-4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles où la règle tire. 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 2 erreurs `xs:decimal`. Lot principal **27** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
+4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles où la règle tire. 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 2 erreurs `xs:decimal`. Lot principal **30** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
 
 ## Table des sondes
 
@@ -62,10 +64,13 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 | `gaps/ubl-tc434-example5-bt159-origin-SS.xml` | ubl ex5 | L324 BT-159 `NL` → `SS` (ligne 2 reste `NL`) | 0 | — | **runtime #509** | `gaps/receipts/ubl-tc434-example5-bt159-origin-SS.svrl.xml` |
 | `gaps/CII_example5-bt159-origin-AN.xml` | ex5 | L51 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 0 | — | **runtime #509** | `gaps/receipts/CII_example5-bt159-origin-AN.svrl.xml` |
 | `gaps/ubl-tc434-example5-bt159-origin-AN.xml` | ubl ex5 | L324 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 1 | `BR-CL-15` | **runtime #509** | `gaps/receipts/ubl-tc434-example5-bt159-origin-AN.svrl.xml` |
+| `gaps/CII_example5-bt21-subject-BAT.xml` | ex5 | L29 BT-21 `AAI` → `BAT` | 0 | — | **runtime #510** | `gaps/receipts/CII_example5-bt21-subject-BAT.svrl.xml` |
+| `gaps/ubl-tc434-example5-bt21-note-AAI-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#AAI#` | 0 | — | **runtime #510** | `gaps/receipts/ubl-tc434-example5-bt21-note-AAI-wrap.svrl.xml` |
+| `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#BAT#` | 1 | `BR-CL-08` | **runtime #510** | `gaps/receipts/ubl-tc434-example5-bt21-note-BAT-wrap.svrl.xml` |
 | `gaps/engine-errors/CII_business_example_Z-dec-1E100.xml` | Z | L190 BT-112 → `1E+100` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-1E100.engine-error.txt` |
 | `gaps/engine-errors/CII_business_example_Z-dec-sci.xml` | Z | L190 BT-112 → `1169387E-2` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-sci.engine-error.txt` |
 
-`gaps/receipts/RESULTS.sha256` (27 XML du lot, hors engine-errors) = `9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1`
+`gaps/receipts/RESULTS.sha256` (30 XML du lot, hors engine-errors) = `f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`
 
 ---
 
@@ -275,7 +280,58 @@ KoSIT 1.6.3 (scénarios EN) corrobore les mêmes verdicts (CII SS REJECT / UBL S
 - **BR-CL-14** = la même paire 251-token sur les pays d'adresse (`ram:CountryID` · `cac:Country/cbc:IdentificationCode`). Listé sur #509. IMPACT_MAP seulement. **Non minté.**
 - **BR-CO-09** = listé sur #509 (préfixe d'identifiant TVA / ISO 3166-1). Mention de suivi seulement. **Non minté.**
 
-Gate #4 : `GAPS_FIXTURE_COUNT` **27**, pin `gaps/receipts/RESULTS.sha256` = `9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate #4 : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+
+
+---
+
+## Runtime reproduction — BR-CL-08 / BT-21 subject `BAT` (ConnectingEurope #510)
+
+<!-- Licence: original FacturX prose = CC-BY-4.0 only. XML/fixtures/SVRL/XSLT keep EUPL-1.2 (CEN). Do not relicense XML under CC-BY. -->
+
+**Ce n'est pas le FINDING 5.** Reproduction runtime indépendante de [ConnectingEurope/eInvoicing-EN16931#510](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/510) (auteur **bgo-mat**, créé 2026-07-12, ouvert). **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Ne pas commenter #510 depuis ce dépôt.
+
+**Date runtime Lab :** 29 Aug 2026 PT. Recettes rejouées ici avec `SOURCE_DATE_EPOCH=1771286400` / `RECEIPT_DATE=16 Aug 2026 PT` (hermétique du dépôt). Moteur SaxonC-HE 13.0 (`saxonche==13.0.0`). XSLT 1.3.16 : `EN16931-CII-validation.xslt` SHA `0b234dea2bbfee739b7761e607a992c17fab88773014ef56355b6158cfb1cc53` · `EN16931-UBL-validation.xslt` SHA `39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd`.
+
+Prose de cette section = **CC-BY-4.0**. XML / SVRL / XSLT = **EUPL-1.2** (CEN Work et dérivés one-field / wrap de l'exemple officiel 5). Ne pas relicencier les XML sous CC-BY.
+
+### Ce que #510 affirme déjà (snapshot, pas Lab)
+
+Le XSLT officiel EN16931 1.3.16 `BR-CL-08` revendique UNTDID 4451 sur le code sujet de la note (BT-21). **#510** établit que les deux syntaxes figent deux révisions sous un même `id` : CII porte **401** codes (`cii/schematron/codelist/EN16931-CII-codes.sch`, contexte `ram:IncludedNote/ram:SubjectCode`) ; UBL porte **383** codes (liste inline dans le param `BR-CL-08` de `ubl/schematron/UBL/EN16931-UBL-model.sch`, préfixe `#CODE#` de `cbc:Note`).
+
+Les 18 codes acceptés par CII et rejetés par UBL :
+
+```
+BAT BAU BAV BAW BAX BAY BAZ BBA BBB BMF BMG BMH CCJ CCK CCL CCM CCN CCO
+```
+
+**Cause historique** créditée à **#510 / Paula-Agent** (commentaire 2026-08-11), **pas** au Lab : l'issue **#309** (2022-03-25) a ajouté ces 18 codes. Le commit `690b70c1` (2022-03-28, *"updating code list rules. closes #309 and #306"*) a mis à jour les deux fichiers *codelist* ; la liste UBL de BR-CL-08 ne vit **pas** dans le fichier codelist UBL, mais dans `EN16931-UBL-model.sch`. Paula-Agent a comparé source + XSLT livré ; pas d'exécution de validateur.
+
+### Contribution Lab (runtime seulement)
+
+Un seul jeton **BAT** (les 17 autres codes IMPACT_MAP ne sont **pas mintés**). Jumeaux one-field / wrap de CEN example 5 (TOSL110, Guideline `urn:cen.eu:en16931:2017`). Snapshot = **#510**. Preuve runtime = Lab.
+
+Contrôle **AAI** CII : parent déjà public `fixtures/CII_example5.xml` SHA `473b2f9bd47b807804db7f8729eecbdd4b404c6232aca31262897bd5371d802b` (L29 `ram:SubjectCode` = `AAI`, **0 fail / 248 fired**). **Ne pas copier le parent AAI dans `gaps/`.** Contrôle **AAI** UBL : wrap `#AAI#` sur la première Invoice Note (le parent UBL example 5 n'est pas dans `fixtures/` de ce dépôt).
+
+UBL : wrap `#AAI#` / `#BAT#` sur la première `cbc:Note` (`#CODE#` + texte existant). CII : un champ, `SubjectCode` `AAI` → `BAT`.
+
+| BT-21 | fichier | SHA256 | CII 1.3.16 | UBL 1.3.16 |
+|---|---|---|---|---|
+| **AAI** contrôle CII (parent, pas un XML `gaps/` nouveau) | `fixtures/CII_example5.xml` | `473b2f9bd47b807804db7f8729eecbdd4b404c6232aca31262897bd5371d802b` | **0 / 248** | — |
+| **AAI** wrap UBL | `gaps/ubl-tc434-example5-bt21-note-AAI-wrap.xml` | `66141952729ddf5bfa4b5916f7982196750d2f933febc083ac354d96784a4a6e` | — | **0 / 156** |
+| **BAT** | `gaps/CII_example5-bt21-subject-BAT.xml` · `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | `97587d713955175e6016d7800acea0a7c7253abb32417f1ac37f532568ad7de2` · `12d77bf554a18b13c0407735aba4b5ae3d6ea25ef33c3cf1d5cfdbb415e079fe` | **0 / 248** | **1 / 156** `BR-CL-08` fatal |
+
+`svrl:text` normatif UBL : `[BR-CL-08]-Invoiced note subject code shall be coded using UNCL4451`.
+
+Gate polarité : `scripts/check_brcl08_polarity.py` parse les SVRL commités (pas seulement les comptes `RESULTS.json`). Invariant : parent AAI 0-fail, CII BAT 0-fail, UBL AAI wrap 0-fail, UBL BAT wrap 1-fail `id=BR-CL-08`. Si CII BAT se met à échouer, ou si UBL BAT passe à 0-fail, ou si UBL BAT tire un autre `id`, le checker sort non-zéro. Un test mutant (`tests/test_brcl08_bt21_polarity.py`) inverse cette polarité dans une copie et exige un exit ≠ 0.
+
+### IMPACT_MAP (pas de mint extra)
+
+- **BR-CL-08** cellule principale = BT-21 (`ram:IncludedNote/ram:SubjectCode` · préfixe `#CODE#` de `cbc:Note`). Un jeton **BAT** + wrap AAI de contrôle. Ces trois XML `gaps/`.
+- Les **17** autres codes de la liste #510 (`BAU` … `CCO`) : IMPACT_MAP seulement. **Non mintés.**
+- **BR-CL-14** / **BR-CO-09** : **non mintés** (hors périmètre #510).
+
+Gate : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
 
 ---
 
@@ -284,8 +340,11 @@ Gate #4 : `GAPS_FIXTURE_COUNT` **27**, pin `gaps/receipts/RESULTS.sha256` = `9e4
 À la racine du dépôt :
 
 ```bash
-# 27 sondes (lot principal, ignore expected.json)
+# 30 sondes (lot principal, ignore expected.json)
 .venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected
+
+# polarité BR-CL-08 / BT-21 BAT (casse si CII accept / UBL reject s'inverse)
+.venv/bin/python scripts/check_brcl08_polarity.py
 
 # les 2 notations scientifiques (exception Saxon, pas de SVRL)
 .venv/bin/python -c "
