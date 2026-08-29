@@ -1,6 +1,7 @@
 # Angles morts EN16931 1.3.16 — ce que le XSLT officiel ne teste pas (ou teste trop peu)
 
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
+**Addendum runtime #509 :** 29 Aug 2026 PT (pas un 5e finding)
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)
 **XSLT :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`
 **Schematron cité :** artefacts vendored 1.3.16 sous `vendor/en16931-1.3.16/`
@@ -17,7 +18,7 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 - Distinction explicite : « la règle devrait normativement couvrir ce cas » vs « simple attente de test ».
 - Les `id` viennent de l'attribut `id` du SVRL officiel. Les octets des factures ne sont pas journalisés.
 
-## Comptage (25 sondes)
+## Comptage (29 sondes)
 
 | Classe | n | Sens |
 |---|---:|---|
@@ -25,9 +26,10 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 | **Observation** | **8** | vert, mais aucune règle 1.3.16 ne *prétend* tester le cas |
 | **Couvert** | **5** | `svrl:failed-assert` a tiré — ce n'est pas un trou |
 | **Voisin valide** | **1** | date calendaire réelle, 0 failed-assert attendu (contrôle) |
+| **Runtime #509** | **4** | repro indépendante BR-CL-15 / BT-159 `AN`/`SS` (pas un 5e finding) |
 | **Erreur moteur** | **2** | Saxon FORG0001, pas de SVRL (pas un passage silencieux) |
 
-4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles où la règle tire. 1 voisin leap-valide. 2 erreurs `xs:decimal`.
+4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles où la règle tire. 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 2 erreurs `xs:decimal`. Lot principal **27** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
 
 ## Table des sondes
 
@@ -56,10 +58,14 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 | `gaps/CII_business_example_Z-dec-3frac.xml` | Z | L190 BT-112 `11693.87` → `11693.870` | 1 | `BR-DEC-14` | **couvert** | `gaps/receipts/CII_business_example_Z-dec-3frac.svrl.xml` |
 | `gaps/CII_business_example_Z-dec-0.001.xml` | Z | L189 BT-110 `0.0` → `0.001` | 2 | `BR-DEC-13`, `BR-CO-14` | **couvert** | `gaps/receipts/CII_business_example_Z-dec-0.001.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-type-380.xml` | ubl | L14 `381` → `380` | 1 | `BR-CL-01` | **couvert** | `gaps/receipts/ubl-tc434-creditnote1-type-380.svrl.xml` |
+| `gaps/CII_example5-bt159-origin-SS.xml` | ex5 | L51 BT-159 `NL` → `SS` (ligne 2 reste `NL`) | 1 | `BR-CL-15` | **runtime #509** | `gaps/receipts/CII_example5-bt159-origin-SS.svrl.xml` |
+| `gaps/ubl-tc434-example5-bt159-origin-SS.xml` | ubl ex5 | L324 BT-159 `NL` → `SS` (ligne 2 reste `NL`) | 0 | — | **runtime #509** | `gaps/receipts/ubl-tc434-example5-bt159-origin-SS.svrl.xml` |
+| `gaps/CII_example5-bt159-origin-AN.xml` | ex5 | L51 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 0 | — | **runtime #509** | `gaps/receipts/CII_example5-bt159-origin-AN.svrl.xml` |
+| `gaps/ubl-tc434-example5-bt159-origin-AN.xml` | ubl ex5 | L324 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 1 | `BR-CL-15` | **runtime #509** | `gaps/receipts/ubl-tc434-example5-bt159-origin-AN.svrl.xml` |
 | `gaps/engine-errors/CII_business_example_Z-dec-1E100.xml` | Z | L190 BT-112 → `1E+100` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-1E100.engine-error.txt` |
 | `gaps/engine-errors/CII_business_example_Z-dec-sci.xml` | Z | L190 BT-112 → `1169387E-2` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-sci.engine-error.txt` |
 
-`gaps/receipts/RESULTS.sha256` (23 XML du lot, hors engine-errors) = `363eeba0e2f2774b60cf99a39fb996f1ac80c53de4421c63e7c513fc20b9c825`
+`gaps/receipts/RESULTS.sha256` (27 XML du lot, hors engine-errors) = `9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1`
 
 ---
 
@@ -228,6 +234,49 @@ Présence seulement. Aucune assert 1.3.16 ne calcule la clé IBAN, ni la longueu
 
 BR-DEC-14 (`substring-after(.,'.')`) n'aurait *pas* tiré : pas de `.` dans `1E+100`. L'échec vient de la conversion XPath, pas d'un filet décimal. Classé **erreur moteur / observation**, pas angle mort (le document ne passe pas) et pas « couvert » (pas d'`id` SVRL).
 
+
+---
+
+## Runtime reproduction — BR-CL-15 / BT-159 origin `AN` vs `SS` (ConnectingEurope #509)
+
+<!-- Licence: original FacturX prose = CC-BY-4.0 only. XML/fixtures/SVRL/XSLT keep EUPL-1.2 (CEN). Do not relicense XML under CC-BY. -->
+
+**Ce n'est pas le FINDING 5.** Reproduction runtime indépendante de [ConnectingEurope/eInvoicing-EN16931#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509) (auteur **bgo-mat**, créé 2026-07-12, ouvert). **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Ne pas commenter #509 depuis ce dépôt.
+
+**Date runtime Lab :** 29 Aug 2026 PT. Recettes rejouées ici avec `SOURCE_DATE_EPOCH=1771286400` / `RECEIPT_DATE=16 Aug 2026 PT` (hermétique du dépôt). Moteur SaxonC-HE 13.0 (`saxonche==13.0.0`). XSLT 1.3.16 : `EN16931-CII-validation.xslt` SHA `0b234dea2bbfee739b7761e607a992c17fab88773014ef56355b6158cfb1cc53` · `EN16931-UBL-validation.xslt` SHA `39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd`.
+
+Prose de cette section = **CC-BY-4.0**. XML / SVRL / XSLT = **EUPL-1.2** (CEN Work et dérivés one-field de l'exemple officiel 5). Ne pas relicencier les XML sous CC-BY.
+
+### Ce que #509 affirme déjà (snapshot, pas Lab)
+
+Le XSLT officiel EN16931 1.3.16 `BR-CL-15` revendique ISO 3166-1 sur le pays d'origine de l'article (BT-159). **#509** établit que les deux syntaxes figent deux snapshots ISO 3166-1 sous un même `id` : CII inclut `AN` retiré (Antilles néerlandaises, 2010) et omet `SS` assigné (Soudan du Sud, 2011) ; UBL inclut `SS` et omet `AN`. Voisins cités depuis le pin : CII `AM AN AO` · `SO SR ST` ; UBL `AM AO` · `SR SS ST`.
+
+**Cause historique** créditée à **#509 / Paula-Agent** (commentaire 2026-08-11), **pas** au Lab : l'issue **#91** a été corrigée dans le binding UBL seulement (commits `9639cbde`, `f05b15b3`, `ubl/schematron/codelist/EN16931-UBL-codes.sch`) ; le CII est resté avec `AN`, sans `SS`. Paula-Agent a comparé source + XSLT livré ; pas d'exécution de validateur.
+
+### Contribution Lab (runtime seulement)
+
+Même classe de document : jumeaux one-field de CEN example 5 (TOSL110, Guideline `urn:cen.eu:en16931:2017`), premier BT-159 seulement (origine ligne 2 reste `NL`). Snapshot = **#509**. Preuve runtime = Lab.
+
+Contrôle **NL** : parents déjà publics (`fixtures/CII_example5.xml` SHA `473b2f9bd47b807804db7f8729eecbdd4b404c6232aca31262897bd5371d802b` ; parent UBL example 5 SHA `6e27a93287a9866cebb2560d0028602a0984f1402b5b577332ce43e99bb83098`). **Ne pas copier les parents NL dans `gaps/`.**
+
+| origin | fichier | SHA256 | CII 1.3.16 | UBL 1.3.16 |
+|---|---|---|---|---|
+| **NL** contrôle (parent, pas un XML `gaps/` nouveau) | `CII_example5.xml` / UBL example 5 | `473b2f9bd47b807804db7f8729eecbdd4b404c6232aca31262897bd5371d802b` · `6e27a93287a9866cebb2560d0028602a0984f1402b5b577332ce43e99bb83098` | **0 / 248** | **0 / 156** |
+| **SS** | `gaps/CII_example5-bt159-origin-SS.xml` · `gaps/ubl-tc434-example5-bt159-origin-SS.xml` | `4a59fb7f721dd1f63fa62e9734a6b04111eb16ef8f5df81d24013fbbd7b7c772` · `54ea96e762aefdf1168272b1894fc7af66da032c1ab1eafae9ceb9f516ab6aa1` | **1 / 248** `BR-CL-15` fatal | **0 / 156** |
+| **AN** | `gaps/CII_example5-bt159-origin-AN.xml` · `gaps/ubl-tc434-example5-bt159-origin-AN.xml` | `14847ccf02f064f1e50e72ac7b56422fea7f4d247c7067d8ecdb82932b6d391e` · `c1f9f42598902d598c9022d64081a9d1a61bbd2c65df7631d2599fbb5268647f` | **0 / 248** | **1 / 156** `BR-CL-15` fatal |
+
+`svrl:text` normatif (les deux syntaxes) : `[BR-CL-15]-Country codes in an invoice MUST be coded using ISO code list 3166-1`.
+
+KoSIT 1.6.3 (scénarios EN) corrobore les mêmes verdicts (CII SS REJECT / UBL SS ACCEPTABLE ; CII AN ACCEPTABLE / UBL AN REJECT). SHA des XSLT de config = pin ConnectingEurope 1.3.16. **ENGINE_CORROBORATION : mêmes listes publiées, second hôte, pas un second snapshot. Pas un oracle indépendant.** Pas de rapports KoSIT dans ce dépôt.
+
+### IMPACT_MAP (pas de mint extra)
+
+- **BR-CL-15** cellule principale = BT-159 (`ram:OriginTradeCountry/ram:ID` · `cac:OriginCountry/cbc:IdentificationCode`). Ces quatre XML.
+- **BR-CL-14** = la même paire 251-token sur les pays d'adresse (`ram:CountryID` · `cac:Country/cbc:IdentificationCode`). Listé sur #509. IMPACT_MAP seulement. **Non minté.**
+- **BR-CO-09** = listé sur #509 (préfixe d'identifiant TVA / ISO 3166-1). Mention de suivi seulement. **Non minté.**
+
+Gate #4 : `GAPS_FIXTURE_COUNT` **27**, pin `gaps/receipts/RESULTS.sha256` = `9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+
 ---
 
 ## Reproduire
@@ -235,7 +284,7 @@ BR-DEC-14 (`substring-after(.,'.')`) n'aurait *pas* tiré : pas de `.` dans `1E+
 À la racine du dépôt :
 
 ```bash
-# 23 sondes (lot principal, ignore expected.json)
+# 27 sondes (lot principal, ignore expected.json)
 .venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected
 
 # les 2 notations scientifiques (exception Saxon, pas de SVRL)
