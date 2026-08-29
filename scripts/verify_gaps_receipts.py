@@ -25,9 +25,9 @@ from svrl_hermetic import (
 from tree_fingerprint import diff_fingerprints, fingerprint_tree, sha256_file
 
 EXPECTED_GAPS_RESULTS_SHA256 = (
-    "9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1"
+    "f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5"
 )
-GAPS_FIXTURE_COUNT = 27
+GAPS_FIXTURE_COUNT = 30
 RESULTS_NAMES = ("RESULTS.json", "RESULTS.sha256")
 EXIT_OK = 0
 EXIT_DIVERGE = 1

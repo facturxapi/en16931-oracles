@@ -27,6 +27,10 @@ jobs:
         env:
           ORACLE_ROOT: ${{ github.workspace }}
         run: python3 scripts/verify_gaps_receipts.py
+      - name: BR-CL-08 / BT-21 BAT polarity
+        env:
+          ORACLE_ROOT: ${{ github.workspace }}
+        run: python3 scripts/check_brcl08_polarity.py
       - name: Gaps proof gate unit tests
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
       - name: Checkout must stay clean after all replays
