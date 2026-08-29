@@ -75,15 +75,15 @@ Mutants :
 .venv/bin/python scripts/validate.py --dir mutants --out-dir mutants/receipts --no-expected
 ```
 
-## Gate gaps/ (23 sondes)
+## Gate gaps/ (27 sondes)
 
 ```bash
 .venv/bin/python scripts/verify_gaps_receipts.py
 python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
-Rejoue les 23 fixtures `gaps/`, compare `gaps/receipts/RESULTS.sha256`
-(`363eeba0e2f2774b60cf99a39fb996f1ac80c53de4421c63e7c513fc20b9c825`) et
+Rejoue les 27 fixtures `gaps/`, compare `gaps/receipts/RESULTS.sha256`
+(`9e42443b4b014a46f24705b24c4e8100ddd8e142e3f754c4bc191b2581e701e1`) et
 tous les artefacts `*.svrl.xml` / `*.receipt.md` versionnés. Vérifie aussi que
 `gaps/RESULTS.*` est byte-identique à `gaps/receipts/RESULTS.*`. Le replay est
 strictement non-mutateur (écriture uniquement dans un répertoire temporaire).
