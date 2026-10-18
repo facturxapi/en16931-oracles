@@ -4,6 +4,7 @@
 **Addendum runtime #509 :** 29 Aug 2026 PT (pas un 5e finding)
 **Addendum runtime #510 :** 29 Aug 2026 PT (pas un 5e finding ; BR-CL-08 / BT-21 BAT)
 **Mise à jour 1.3.17 :** 18 Oct 2026 PT — les 32 sondes rejouées sur `validation-1.3.17` (§ « Mise à jour 1.3.17 »)
+**Addendum runtime 533 :** 18 Oct 2026 PT (pas un 5e finding ; IGIC / IPSI `BR-IG` / `BR-IP`, divergence CII / UBL en 1.3.17)
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)
 **XSLT :** `vendor/en16931-1.3.17/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt` (recettes du 18 Oct 2026 ; analyses du 16 et 29 août sur 1.3.16)
 **Schematron cité :** artefacts 1.3.16 (ZIP officiel `validation-1.3.16`) pour les analyses ; XSLT 1.3.17 vendored sous `vendor/en16931-1.3.17/` pour les recettes
@@ -33,7 +34,7 @@ Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résul
 - Distinction explicite : « la règle devrait normativement couvrir ce cas » vs « simple attente de test ».
 - Les `id` viennent de l'attribut `id` du SVRL officiel. Les octets des factures ne sont pas journalisés.
 
-## Comptage (32 sondes)
+## Comptage (36 sondes)
 
 | Classe | n | Sens |
 |---|---:|---|
@@ -43,9 +44,10 @@ Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résul
 | **Voisin valide** | **1** | date calendaire réelle, 0 failed-assert attendu (contrôle) |
 | **Runtime #509** | **4** | repro indépendante BR-CL-15 / BT-159 `AN`/`SS` (pas un 5e finding) — **corrigé en 1.3.17** : les deux syntaxes rejettent `AN` et acceptent `SS` |
 | **Runtime #510** | **3** | repro indépendante BR-CL-08 / BT-21 `BAT` + wrap UBL `#AAI#`/`#BAT#` (pas un 5e finding) — **corrigé en 1.3.17** : les deux syntaxes acceptent `BAT` |
+| **Runtime 533** | **4** | repro indépendante IGIC / IPSI `L` / `M` (pas un 5e finding) — **ouvert en 1.3.17** : même mutation d'une ligne, ids ou verdict différents selon la syntaxe |
 | **Erreur moteur** | **2** | Saxon FORG0001, pas de SVRL (pas un passage silencieux) |
 
-4 *findings* d'angle mort (plusieurs sondes par finding ; FINDING 2 corrigé en 1.3.17). 8 observations. 6 contrôles où la règle tire (5 en 1.3.16). 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 2 erreurs `xs:decimal`. Lot principal **30** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
+4 *findings* d'angle mort (plusieurs sondes par finding ; FINDING 2 corrigé en 1.3.17). 8 observations. 6 contrôles où la règle tire (5 en 1.3.16). 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 4 sondes runtime 533 (IGIC / IPSI, BT-151 `L` / `M`). 2 erreurs `xs:decimal`. Lot principal **34** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
 
 ## Table des sondes
 
@@ -81,10 +83,14 @@ Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résul
 | `gaps/CII_example5-bt21-subject-BAT.xml` | ex5 | L29 BT-21 `AAI` → `BAT` | 0 | — | **runtime #510** | `gaps/receipts/CII_example5-bt21-subject-BAT.svrl.xml` |
 | `gaps/ubl-tc434-example5-bt21-note-AAI-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#AAI#` | 0 | — | **runtime #510** | `gaps/receipts/ubl-tc434-example5-bt21-note-AAI-wrap.svrl.xml` |
 | `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#BAT#` | 0 | — | **runtime #510** (1 `BR-CL-08` en 1.3.16) | `gaps/receipts/ubl-tc434-example5-bt21-note-BAT-wrap.svrl.xml` |
+| `gaps/CII_business_example_Z-bt151-L.xml` | Z | L62 BT-151 `Z` → `L` (IGIC, taux ligne déjà `0.00`) | 3 | `BR-IP-01`, `BR-IP-05`, `BR-Z-08` | **runtime 533** | `gaps/receipts/CII_business_example_Z-bt151-L.svrl.xml` |
+| `gaps/CII_business_example_Z-bt151-M.xml` | Z | L62 BT-151 `Z` → `M` (IPSI, taux ligne déjà `0.00`) | 2 | `BR-IG-01`, `BR-Z-08` | **runtime 533** | `gaps/receipts/CII_business_example_Z-bt151-M.svrl.xml` |
+| `gaps/ubl-tc434-creditnote1-bt151-L.xml` | ubl | L121 BT-151 `E` → `L` (IGIC, taux ligne déjà `0.00`) | 2 | `BR-IG-01`, `BR-E-08` | **runtime 533** | `gaps/receipts/ubl-tc434-creditnote1-bt151-L.svrl.xml` |
+| `gaps/ubl-tc434-creditnote1-bt151-M.xml` | ubl | L121 BT-151 `E` → `M` (IPSI, taux ligne déjà `0.00`) | 2 | `BR-IP-01`, `BR-E-08` | **runtime 533** | `gaps/receipts/ubl-tc434-creditnote1-bt151-M.svrl.xml` |
 | `gaps/engine-errors/CII_business_example_Z-dec-1E100.xml` | Z | L190 BT-112 → `1E+100` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-1E100.engine-error.txt` |
 | `gaps/engine-errors/CII_business_example_Z-dec-sci.xml` | Z | L190 BT-112 → `1169387E-2` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-sci.engine-error.txt` |
 
-`gaps/receipts/RESULTS.sha256` (30 XML du lot, hors engine-errors) = `958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`
+`gaps/receipts/RESULTS.sha256` (34 XML du lot, hors engine-errors) = `8f17d3896af7941c4ef6118d8ec6bceedb286b1d2d7a4a8941e026536ba678da`
 
 ---
 
@@ -302,7 +308,7 @@ KoSIT 1.6.3 (scénarios EN) corrobore les mêmes verdicts (CII SS REJECT / UBL S
 - **BR-CL-14** = la même paire 251-token sur les pays d'adresse (`ram:CountryID` · `cac:Country/cbc:IdentificationCode`). Listé sur #509. IMPACT_MAP seulement. **Non minté.**
 - **BR-CO-09** = listé sur #509 (préfixe d'identifiant TVA / ISO 3166-1). Mention de suivi seulement. **Non minté.**
 
-Gate #4 : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate #4 : `GAPS_FIXTURE_COUNT` **34**, pin `gaps/receipts/RESULTS.sha256` = `8f17d3896af7941c4ef6118d8ec6bceedb286b1d2d7a4a8941e026536ba678da`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
 
 
 ---
@@ -355,7 +361,50 @@ Gate polarité : `scripts/check_brcl08_polarity.py` parse les SVRL commités (pa
 - Les **17** autres codes de la liste #510 (`BAU` … `CCO`) : IMPACT_MAP seulement. **Non mintés.**
 - **BR-CL-14** / **BR-CO-09** : **non mintés** (hors périmètre #510).
 
-Gate : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate : `GAPS_FIXTURE_COUNT` **34**, pin `gaps/receipts/RESULTS.sha256` = `8f17d3896af7941c4ef6118d8ec6bceedb286b1d2d7a4a8941e026536ba678da`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+
+---
+
+## Runtime reproduction — IGIC / IPSI : ids inversés entre CII et UBL, et BR-05 IGIC refuse le taux 0 en CII (upstream issue 533)
+
+**Mesuré le 18 Oct 2026 PT** sur le XSLT 1.3.17 vendored (CII `0757f079…`, UBL `fc4e6cfa…`). Origine : le renommage `BR-AF-*` / `BR-AG-*` de [#519](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/519).
+
+**Ce n'est pas un 5e finding.** Reproduction runtime indépendante de l'issue amont 533 de ConnectingEurope/eInvoicing-EN16931 (auteur **greedwhale**, créée 2026-10-13, ouverte, sans réponse au 18 oct.), qui décrit les deux constats ci-dessous à partir du Schematron. **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Contribution ici : la mesure sur le XSLT, avec reçus SVRL, et la comparaison 1.3.16 / 1.3.17. L'issue voisine 534 (ventilations `L` / `M` en CII) n'est pas mesurée ici.
+
+**Sondes.** Une ligne chacune : la catégorie TVA (BT-151) de la première ligne de facture passe à `L` (IGIC) ou `M` (IPSI). Le taux de ligne (BT-152) vaut déjà `0.00` dans l'original, et la ventilation (BG-23) n'est pas touchée.
+
+| Sonde | Régime | ids 1.3.17 | ids 1.3.16 (pour mémoire) |
+|---|---|---|---|
+| `CII_business_example_Z-bt151-L.xml` | IGIC | `BR-IP-01`, `BR-IP-05`, `BR-Z-08` | `BR-AF-01`, `BR-AF-05`, `BR-Z-08` |
+| `ubl-tc434-creditnote1-bt151-L.xml` | IGIC | `BR-IG-01`, `BR-E-08` | `BR-AF-01`, `BR-E-08` |
+| `CII_business_example_Z-bt151-M.xml` | IPSI | `BR-IG-01`, `BR-Z-08` | `BR-AG-01`, `BR-Z-08` |
+| `ubl-tc434-creditnote1-bt151-M.xml` | IPSI | `BR-IP-01`, `BR-E-08` | `BR-AG-01`, `BR-E-08` |
+
+`BR-Z-08` / `BR-E-08` viennent de la ventilation laissée en `Z` / `E` ; ils sont identiques entre les deux régimes et hors sujet ici.
+
+**Règles officielles, XSLT 1.3.17 :**
+
+```
+CII L2146  BR-IP-05  contexte …/ram:ApplicableTradeTax[ram:CategoryCode = 'L']  test="ram:RateApplicablePercent > 0"
+           [BR-IP-05]-… VAT category code (BT-151) is "IGIC" the invoiced item VAT rate (BT-152) shall be greater than 0 (zero).
+CII L2305  BR-IG-05  contexte …/ram:ApplicableTradeTax[ram:CategoryCode = 'M']  test="ram:RateApplicablePercent >= 0"
+           [BR-IG-05]-… VAT category code (BT-151) is "IPSI" the Invoiced item VAT rate (BT-152) shall be 0 (zero) or greater than zero.
+UBL L3150  BR-IG-05  contexte cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'L']…  test="(cbc:Percent) >= 0"
+           [BR-IG-05]-… VAT category code (BT-151) is "IGIC" the invoiced item VAT rate (BT-152) shall be 0 (zero) or greater than zero.
+UBL L3264  BR-IP-05  contexte cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'M']…  test="(cbc:Percent) >= 0"
+           [BR-IP-05]-… VAT category code (BT-151) is "IPSI" the Invoiced item VAT rate (BT-152) shall be 0 (zero) or greater than zero.
+```
+
+Sources Schematron des zips de la release : CII `schematron/CII/EN16931-CII-model.sch` L145 (`BR-IP-05` = `&gt; 0`) et L156 (`BR-IG-05` = `&gt;= 0`) ; UBL `schematron/UBL/EN16931-UBL-model.sch` L165 (`BR-IG-05`) et L175 (`BR-IP-05`), tous deux `&gt;= 0`. Les 20 règles `-01` à `-10` suivent le même schéma : chaque texte de règle 1.3.16 se retrouve en 1.3.17 sous `BR-IP` en CII et sous `BR-IG` en UBL pour IGIC, et l'inverse pour IPSI.
+
+**Deux constats :**
+
+1. **Même défaut, deux ids.** Une ligne IGIC sans ventilation IGIC tire `BR-IP-01` en CII et `BR-IG-01` en UBL. Le même id `BR-IP-01` désigne IGIC en CII et IPSI en UBL. En 1.3.16, les deux syntaxes disaient `BR-AF-01`. Un filtre ou une table d'ids commune aux deux syntaxes vise donc le mauvais régime.
+2. **Taux 0 IGIC.** Une ligne IGIC à taux `0.00` échoue en CII (`BR-IP-05`, test `> 0`) et passe en UBL (`BR-IG-05`, test `>= 0`). L'écart existait déjà en 1.3.16 (`BR-AF-05` : `> 0` en CII, `>= 0` en UBL). Le point 2 de #519 n'est donc pas corrigé côté CII.
+
+**Texte EN 16931.** Les extraits du texte de la norme joints à #519 donnent `BR-IG-5` = IGIC et `BR-IP-5` = IPSI, chacun « shall be 0 (zero) or greater than zero ». La liste des règles retirées d'EN 16931-1:2026 (annexe A.4, d'après [eConnect](https://econnect.eu/en/docs/knowledge/document-formats/formats/en-16931-2026-wijzigingen)) donne aussi `BR-IG-10` = IGIC et `BR-IP-10` = IPSI. Le texte CEN lui-même (payant) n'a pas été lu ici : deux sources concordantes, pas une lecture directe.
+
+**Classe : runtime 533 (divergence CII / UBL), pas un angle mort.** Les règles tirent, mais sous un autre nom et, pour `-05`, avec un autre test. Le nommage UBL suit EN 16931, le nommage CII est inversé, et le test CII `-05` IGIC est plus strict que le texte (taux 0 refusé).
 
 ---
 
@@ -364,7 +413,7 @@ Gate : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `958af6
 À la racine du dépôt :
 
 ```bash
-# 30 sondes (lot principal, ignore expected.json)
+# 34 sondes (lot principal, ignore expected.json)
 .venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected
 
 # polarité BR-CL-08 / BT-21 BAT (casse si une sonde AAI/BAT se met à échouer)
