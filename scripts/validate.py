@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Reproducteur EN16931 1.3.16 — XSLT officiel, SaxonC-HE 13.0.
+"""Reproducteur EN16931 1.3.17 — XSLT officiel, SaxonC-HE 13.0.
 
 Bi-mode :
   --mode reference (défaut)
-      XSLT vendored : vendor/en16931-1.3.16/xslt/
+      XSLT vendored : vendor/en16931-1.3.17/xslt/
       Verdict normatif.
   --mode cross-platform
       Mêmes octets XSLT. Si vendor/ est absent, télécharge les deux ZIP
@@ -35,38 +35,38 @@ os.environ.setdefault("SOURCE_DATE_EPOCH", SOURCE_DATE_EPOCH)
 
 ENGINE = "SaxonC-HE 13.0"
 ENGINE_PKG = "saxonche 13.0.0"
-RECEIPT_DATE = "16 Aug 2026 PT"
-PHRASE = "machine-verified candidate — EN16931 1.3.16 official XSLT"
+RECEIPT_DATE = "18 Oct 2026 PT"
+PHRASE = "machine-verified candidate — EN16931 1.3.17 official XSLT"
 
 CII_ZIP_URL = (
     "https://github.com/ConnectingEurope/eInvoicing-EN16931/"
-    "releases/download/validation-1.3.16/en16931-cii-1.3.16.zip"
+    "releases/download/validation-1.3.17/en16931-cii-1.3.17.zip"
 )
 UBL_ZIP_URL = (
     "https://github.com/ConnectingEurope/eInvoicing-EN16931/"
-    "releases/download/validation-1.3.16/en16931-ubl-1.3.16.zip"
+    "releases/download/validation-1.3.17/en16931-ubl-1.3.17.zip"
 )
-CII_ZIP_SHA256 = "1cd53cb8a84d38aedc82c0caede217da983a7934dd663f793a092fd66443c561"
-UBL_ZIP_SHA256 = "bafada015efbc5248bf5e05ad2191e1d9833ef96e9dd5f4bce420a747342da85"
+CII_ZIP_SHA256 = "e5f3235824b6b38454b1d54cf3f14e01efb5b33971fbefc4e64997d0ef619e89"
+UBL_ZIP_SHA256 = "bf02a0e3f6cbe692a4a28e70be7bdcaded5612b4169b543e13d6cb4f33c29e92"
 
 CII_XSLT_NAME = "EN16931-CII-validation.xslt"
 UBL_XSLT_NAME = "EN16931-UBL-validation.xslt"
 CII_XSLT_ZIP_PATH = "xslt/EN16931-CII-validation.xslt"
 UBL_XSLT_ZIP_PATH = "xslt/EN16931-UBL-validation.xslt"
-CII_XSLT_SHA256 = "0b234dea2bbfee739b7761e607a992c17fab88773014ef56355b6158cfb1cc53"
-UBL_XSLT_SHA256 = "39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd"
+CII_XSLT_SHA256 = "0757f07909938b1b297b8356ab7b66406c89f1b342325385d6a2def998c817f0"
+UBL_XSLT_SHA256 = "fc4e6cfa8596bba0c2abd19038a98960c6ee9fc1f44566787c115efd4f4aca7c"
 
-LOGICAL_CII_XSLT = "vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt"
-LOGICAL_UBL_XSLT = "vendor/en16931-1.3.16/xslt/EN16931-UBL-validation.xslt"
+LOGICAL_CII_XSLT = "vendor/en16931-1.3.17/xslt/EN16931-CII-validation.xslt"
+LOGICAL_UBL_XSLT = "vendor/en16931-1.3.17/xslt/EN16931-UBL-validation.xslt"
 
-USER_AGENT = "en16931-repo-v1-validate/1.0 (+reproducible CEN 1.3.16 runner)"
+USER_AGENT = "en16931-repo-v1-validate/1.0 (+reproducible CEN 1.3.17 runner)"
 
 FIRED_RE = re.compile(r"<svrl:fired-rule\b")
 FAILED_RE = re.compile(r"<svrl:failed-assert\b")
 FAILED_OPEN_RE = re.compile(r"<svrl:failed-assert\b([^>]*)>")
 ID_ATTR_RE = re.compile(r'\bid="([^"]+)"')
 EXPECTED_RESULTS_SHA256 = (
-    "dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab"
+    "7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d"
 )
 
 
@@ -186,7 +186,7 @@ def download(url: str, dest: Path) -> None:
             "ERREUR: téléchargement impossible (mode cross-platform, pas de saut).\n"
             f"  URL : {url}\n"
             f"  Cause : {exc}\n"
-            "  Placez vendor/en16931-1.3.16/xslt/ ou réessayez le réseau.",
+            "  Placez vendor/en16931-1.3.17/xslt/ ou réessayez le réseau.",
             file=sys.stderr,
         )
         sys.exit(2)
@@ -217,15 +217,15 @@ def extract_xslt_from_zip(zip_path: Path, inner: str, dest: Path, expected_sha: 
 
 
 def resolve_xslt(repo: Path, mode: str) -> tuple[Path, Path]:
-    vendor_cii = repo / "vendor" / "en16931-1.3.16" / "xslt" / CII_XSLT_NAME
-    vendor_ubl = repo / "vendor" / "en16931-1.3.16" / "xslt" / UBL_XSLT_NAME
+    vendor_cii = repo / "vendor" / "en16931-1.3.17" / "xslt" / CII_XSLT_NAME
+    vendor_ubl = repo / "vendor" / "en16931-1.3.17" / "xslt" / UBL_XSLT_NAME
 
     if mode == "reference":
         if not vendor_cii.is_file() or not vendor_ubl.is_file():
             print(
                 "ERREUR: mode reference — XSLT vendored manquant.\n"
-                "  Attendu : vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt\n"
-                "            vendor/en16931-1.3.16/xslt/EN16931-UBL-validation.xslt\n"
+                "  Attendu : vendor/en16931-1.3.17/xslt/EN16931-CII-validation.xslt\n"
+                "            vendor/en16931-1.3.17/xslt/EN16931-UBL-validation.xslt\n"
                 "  Relancez avec --mode cross-platform pour télécharger les ZIP officiels.",
                 file=sys.stderr,
             )
@@ -253,12 +253,12 @@ def resolve_xslt(repo: Path, mode: str) -> tuple[Path, Path]:
             file=sys.stderr,
         )
 
-    cache = repo / ".cache" / "en16931-1.3.16"
-    cii_zip = cache / "en16931-cii-1.3.16.zip"
-    ubl_zip = cache / "en16931-ubl-1.3.16.zip"
+    cache = repo / ".cache" / "en16931-1.3.17"
+    cii_zip = cache / "en16931-cii-1.3.17.zip"
+    ubl_zip = cache / "en16931-ubl-1.3.17.zip"
 
     if not (cii_zip.is_file() and sha256_file(cii_zip) == CII_ZIP_SHA256):
-        print(f"Téléchargement ZIP CII 1.3.16 → {cii_zip}")
+        print(f"Téléchargement ZIP CII 1.3.17 → {cii_zip}")
         download(CII_ZIP_URL, cii_zip)
         got = sha256_file(cii_zip)
         if got != CII_ZIP_SHA256:
@@ -268,7 +268,7 @@ def resolve_xslt(repo: Path, mode: str) -> tuple[Path, Path]:
             )
             sys.exit(2)
     if not (ubl_zip.is_file() and sha256_file(ubl_zip) == UBL_ZIP_SHA256):
-        print(f"Téléchargement ZIP UBL 1.3.16 → {ubl_zip}")
+        print(f"Téléchargement ZIP UBL 1.3.17 → {ubl_zip}")
         download(UBL_ZIP_URL, ubl_zip)
         got = sha256_file(ubl_zip)
         if got != UBL_ZIP_SHA256:
@@ -604,7 +604,7 @@ def run_hash_probe(repo: Path, args) -> int:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="Valide les 10 fixtures CEN EN16931 1.3.16 (XSLT officiel, SaxonC-HE 13.0)."
+        description="Valide les 10 fixtures CEN EN16931 1.3.17 (XSLT officiel, SaxonC-HE 13.0)."
     )
     parser.add_argument(
         "--mode",

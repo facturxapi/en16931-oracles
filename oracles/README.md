@@ -1,18 +1,18 @@
 # oracles/
 
-**machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+**machine-verified candidate — EN16931 1.3.17 official XSLT**
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.17).
 Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 Chaque fichier `oracle-candidate-*.md` porte en tête la bannière :
 
 ```
-**machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+**machine-verified candidate — EN16931 1.3.17 official XSLT**
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.17).
 Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 ```
 
-La doctrine existante n'a pas été réécrite. Licence du *texte* : non décidée. L'EUPL 1.2 couvre les XML/XSLT CEN, pas ces markdowns.
+Les notes `oracle-candidate-*.md` datent du 16 août 2026 (1.3.16) ; chacune porte en tête un bloc « Mise à jour 1.3.17 » avec la mesure du 18 octobre 2026. La doctrine existante n'a pas été réécrite. Licence du *texte* : non décidée. L'EUPL 1.2 couvre les XML/XSLT CEN, pas ces markdowns.
 
 `INDEX.md` est la copie de l'index des 10 candidats (16 août 2026).
 
@@ -22,8 +22,8 @@ Pour chaque fixture :
 
 | Fichier | Contenu |
 |---|---|
-| `<stem>.svrl.xml` | SVRL brut, XSLT officiel 1.3.16, SaxonC-HE 13.0 |
-| `<stem>.receipt.md` | SHA256 fixture, chemin + SHA256 XSLT, moteur, date 16 Aug 2026 PT, comptes `fired-rule` / `failed-assert`, phrase machine-verified |
+| `<stem>.svrl.xml` | SVRL brut, XSLT officiel 1.3.17, SaxonC-HE 13.0 |
+| `<stem>.receipt.md` | SHA256 fixture, chemin + SHA256 XSLT, moteur, date 18 Oct 2026 PT, comptes `fired-rule` / `failed-assert`, phrase machine-verified |
 
 Normatif pour la reproduction :
 

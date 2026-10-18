@@ -2,7 +2,7 @@
 
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
 
-Copies **mutées** d'exemples officiels CEN EN16931 validation-1.3.16.
+Copies **mutées** d'exemples officiels CEN EN16931 validation-1.3.16. Les trois bases `CII_example3.xml` sont la copie 1.3.16 (`eda939773fa9556acb411555ef2e73df8d1eabe1d2c9ba99445a00abf889db6d`) ; la copie 1.3.17 de `fixtures/` a perdu un bloc `SpecifiedTradeSettlementPaymentMeans`, ces sondes n'ont pas été redérivées. Rejouées sur le XSLT 1.3.17 le 18 oct. 2026 : mêmes `id` qu'en 1.3.16 (voir `../receipts/`).
 Pas des factures privées. Les fixtures CEN racine (`fixtures/`) n'ont pas été modifiées.
 
 | Fichier | Base officielle | Mutation |
