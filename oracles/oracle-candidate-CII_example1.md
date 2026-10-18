@@ -1,5 +1,5 @@
-**machine-verified candidate — EN16931 1.3.16 official XSLT**
-Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.16).
+**machine-verified candidate — EN16931 1.3.17 official XSLT**
+Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.17).
 Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 
 # Oracle candidat — CII_example1.xml
@@ -8,6 +8,7 @@ Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 au corpus reste ouvert (voir la question en fin de note).
 **Date de construction :** 16 août 2026 (Europe/Paris)
 **Doctrine :** oracle-first. Dérivé de la norme, jamais d’un produit.
+**Mise à jour 1.3.17 :** 18 octobre 2026 — XSLT officiel [validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17) (`vendor/en16931-1.3.17/`), SaxonC-HE 13.0 : **0 `svrl:failed-assert`**, 403 `fired-rule` (423 en 1.3.16). Recette : [`receipts/CII_example1.receipt.md`](receipts/CII_example1.receipt.md). Fixture octet-identique dans le ZIP 1.3.17. Le corps ci-dessous est la note du 16 août 2026 (1.3.16).
 
 ## Identité de la fixture
 - Nom : `CII_example1.xml`

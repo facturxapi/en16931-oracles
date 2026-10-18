@@ -18,7 +18,7 @@ PYTHON = str(VENV_PY if VENV_PY.is_file() else Path(sys.executable))
 VERIFY_GAPS = REPO / "scripts" / "verify_gaps_receipts.py"
 GAPS_RECEIPTS = REPO / "gaps" / "receipts"
 EXPECTED_GAPS_SHA256 = (
-    "f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5"
+    "958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027"
 )
 GAPS_FIXTURE_COUNT = 30
 

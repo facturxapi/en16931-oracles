@@ -1,14 +1,28 @@
-# Angles morts EN16931 1.3.16 — ce que le XSLT officiel ne teste pas (ou teste trop peu)
+# Angles morts EN16931 (1.3.16, rejoué en 1.3.17) — ce que le XSLT officiel ne teste pas (ou teste trop peu)
 
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
 **Addendum runtime #509 :** 29 Aug 2026 PT (pas un 5e finding)
 **Addendum runtime #510 :** 29 Aug 2026 PT (pas un 5e finding ; BR-CL-08 / BT-21 BAT)
+**Mise à jour 1.3.17 :** 18 Oct 2026 PT — les 32 sondes rejouées sur `validation-1.3.17` (§ « Mise à jour 1.3.17 »)
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)
-**XSLT :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`
-**Schematron cité :** artefacts vendored 1.3.16 sous `vendor/en16931-1.3.16/`
+**XSLT :** `vendor/en16931-1.3.17/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt` (recettes du 18 Oct 2026 ; analyses du 16 et 29 août sur 1.3.16)
+**Schematron cité :** artefacts 1.3.16 (ZIP officiel `validation-1.3.16`) pour les analyses ; XSLT 1.3.17 vendored sous `vendor/en16931-1.3.17/` pour les recettes
 (XSLT exécuté ; le Schematron préprocessé amont n'est pas redistribué ici).
 **Statut :** notes de corpus publiques. Les claims normatifs s'appuient
 uniquement sur le sch/XSLT vendored et les recettes rejouées.
+
+## Mise à jour 1.3.17 (18 oct. 2026)
+
+Release [validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17), publiée le 12 octobre 2026. Les 30 sondes principales et les 2 erreurs moteur ont été rejouées sur le XSLT 1.3.17 vendored (SaxonC-HE 13.0). Quatre verdicts changent, tous annoncés par les notes de version :
+
+| Sonde | 1.3.16 | 1.3.17 | Correctif amont |
+|---|---|---|---|
+| `gaps/ubl-tc434-creditnote1-bt31-A.xml` | 0 | 1 `BR-CO-09` | [#515](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/515) — FINDING 2 corrigé |
+| `gaps/CII_example5-bt159-origin-AN.xml` | 0 | 1 `BR-CL-15` | [#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509) |
+| `gaps/CII_example5-bt159-origin-SS.xml` | 1 `BR-CL-15` | 0 | [#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509) |
+| `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | 1 `BR-CL-08` | 0 | [#510](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/510) |
+
+Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résultat qu'en 1.3.16. Les FINDINGS 1, 3 et 4 restent ouverts en 1.3.17 (mêmes contre-tests à 0 `svrl:failed-assert`). Les colonnes `fail` / `ids` de la table des sondes sont celles de 1.3.17 ; les sections FINDING et Runtime gardent leur mesure 1.3.16, avec une ligne de mise à jour.
 
 ## Discipline
 
@@ -23,15 +37,15 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 
 | Classe | n | Sens |
 |---|---:|---|
-| **Angle mort** | **9** | règle officielle citée + contre-test vert (0 failed-assert pertinent) |
+| **Angle mort** | **8** | règle officielle citée + contre-test vert (0 failed-assert pertinent) ; 9 en 1.3.16 |
 | **Observation** | **8** | vert, mais aucune règle 1.3.16 ne *prétend* tester le cas |
-| **Couvert** | **5** | `svrl:failed-assert` a tiré — ce n'est pas un trou |
+| **Couvert** | **6** | `svrl:failed-assert` a tiré — ce n'est pas un trou ; 5 en 1.3.16 (+ `ubl-…-bt31-A`, #515) |
 | **Voisin valide** | **1** | date calendaire réelle, 0 failed-assert attendu (contrôle) |
-| **Runtime #509** | **4** | repro indépendante BR-CL-15 / BT-159 `AN`/`SS` (pas un 5e finding) |
-| **Runtime #510** | **3** | repro indépendante BR-CL-08 / BT-21 `BAT` + wrap UBL `#AAI#`/`#BAT#` (pas un 5e finding) |
+| **Runtime #509** | **4** | repro indépendante BR-CL-15 / BT-159 `AN`/`SS` (pas un 5e finding) — **corrigé en 1.3.17** : les deux syntaxes rejettent `AN` et acceptent `SS` |
+| **Runtime #510** | **3** | repro indépendante BR-CL-08 / BT-21 `BAT` + wrap UBL `#AAI#`/`#BAT#` (pas un 5e finding) — **corrigé en 1.3.17** : les deux syntaxes acceptent `BAT` |
 | **Erreur moteur** | **2** | Saxon FORG0001, pas de SVRL (pas un passage silencieux) |
 
-4 *findings* d'angle mort (plusieurs sondes par finding). 8 observations. 5 contrôles où la règle tire. 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 2 erreurs `xs:decimal`. Lot principal **30** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
+4 *findings* d'angle mort (plusieurs sondes par finding ; FINDING 2 corrigé en 1.3.17). 8 observations. 6 contrôles où la règle tire (5 en 1.3.16). 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 2 erreurs `xs:decimal`. Lot principal **30** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
 
 ## Table des sondes
 
@@ -41,7 +55,7 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 | `gaps/CII_example5-bt31-NL1.xml` | ex5 | L232 BT-31 `NL16356706` → `NL1` | 0 | — | **angle mort** BR-CO-09 | `gaps/receipts/CII_example5-bt31-NL1.svrl.xml` |
 | `gaps/CII_example5-bt48-DK1.xml` | ex5 | L266 BT-48 `DK16356607` → `DK1` | 0 | — | **angle mort** BR-CO-09 | `gaps/receipts/CII_example5-bt48-DK1.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-bt31-BE00.xml` | ubl | L36 BT-31 `BE0000000196` → `BE00` | 0 | — | **angle mort** BR-CO-09 | `gaps/receipts/ubl-tc434-creditnote1-bt31-BE00.svrl.xml` |
-| `gaps/ubl-tc434-creditnote1-bt31-A.xml` | ubl | L36 BT-31 → `A` | 0 | — | **angle mort** BR-CO-09 UBL (`contains` sans bornes) | `gaps/receipts/ubl-tc434-creditnote1-bt31-A.svrl.xml` |
+| `gaps/ubl-tc434-creditnote1-bt31-A.xml` | ubl | L36 BT-31 → `A` | 1 | `BR-CO-09` | **couvert** en 1.3.17 (angle mort UBL en 1.3.16, corrigé par #515) | `gaps/receipts/ubl-tc434-creditnote1-bt31-A.svrl.xml` |
 | `gaps/CII_business_example_Z-date-20260231.xml` | Z | L20 BT-2 `20150109` → `20260231` | 0 | — | **angle mort** CII-DT-097 | `gaps/receipts/CII_business_example_Z-date-20260231.svrl.xml` |
 | `gaps/CII_business_example_Z-date-20260229.xml` | Z | L20 BT-2 `20150109` → `20260229` | 0 | — | **angle mort** CII-DT-097 (classe 3) | `gaps/receipts/CII_business_example_Z-date-20260229.svrl.xml` |
 | `gaps/CII_business_example_Z-date-20260431.xml` | Z | L183 échéance `20150109` → `20260431` | 0 | — | **angle mort** CII-DT-097 | `gaps/receipts/CII_business_example_Z-date-20260431.svrl.xml` |
@@ -60,23 +74,23 @@ uniquement sur le sch/XSLT vendored et les recettes rejouées.
 | `gaps/CII_business_example_Z-dec-3frac.xml` | Z | L190 BT-112 `11693.87` → `11693.870` | 1 | `BR-DEC-14` | **couvert** | `gaps/receipts/CII_business_example_Z-dec-3frac.svrl.xml` |
 | `gaps/CII_business_example_Z-dec-0.001.xml` | Z | L189 BT-110 `0.0` → `0.001` | 2 | `BR-DEC-13`, `BR-CO-14` | **couvert** | `gaps/receipts/CII_business_example_Z-dec-0.001.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-type-380.xml` | ubl | L14 `381` → `380` | 1 | `BR-CL-01` | **couvert** | `gaps/receipts/ubl-tc434-creditnote1-type-380.svrl.xml` |
-| `gaps/CII_example5-bt159-origin-SS.xml` | ex5 | L51 BT-159 `NL` → `SS` (ligne 2 reste `NL`) | 1 | `BR-CL-15` | **runtime #509** | `gaps/receipts/CII_example5-bt159-origin-SS.svrl.xml` |
+| `gaps/CII_example5-bt159-origin-SS.xml` | ex5 | L51 BT-159 `NL` → `SS` (ligne 2 reste `NL`) | 0 | — | **runtime #509** (1 `BR-CL-15` en 1.3.16) | `gaps/receipts/CII_example5-bt159-origin-SS.svrl.xml` |
 | `gaps/ubl-tc434-example5-bt159-origin-SS.xml` | ubl ex5 | L324 BT-159 `NL` → `SS` (ligne 2 reste `NL`) | 0 | — | **runtime #509** | `gaps/receipts/ubl-tc434-example5-bt159-origin-SS.svrl.xml` |
-| `gaps/CII_example5-bt159-origin-AN.xml` | ex5 | L51 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 0 | — | **runtime #509** | `gaps/receipts/CII_example5-bt159-origin-AN.svrl.xml` |
+| `gaps/CII_example5-bt159-origin-AN.xml` | ex5 | L51 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 1 | `BR-CL-15` | **runtime #509** (0 en 1.3.16) | `gaps/receipts/CII_example5-bt159-origin-AN.svrl.xml` |
 | `gaps/ubl-tc434-example5-bt159-origin-AN.xml` | ubl ex5 | L324 BT-159 `NL` → `AN` (ligne 2 reste `NL`) | 1 | `BR-CL-15` | **runtime #509** | `gaps/receipts/ubl-tc434-example5-bt159-origin-AN.svrl.xml` |
 | `gaps/CII_example5-bt21-subject-BAT.xml` | ex5 | L29 BT-21 `AAI` → `BAT` | 0 | — | **runtime #510** | `gaps/receipts/CII_example5-bt21-subject-BAT.svrl.xml` |
 | `gaps/ubl-tc434-example5-bt21-note-AAI-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#AAI#` | 0 | — | **runtime #510** | `gaps/receipts/ubl-tc434-example5-bt21-note-AAI-wrap.svrl.xml` |
-| `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#BAT#` | 1 | `BR-CL-08` | **runtime #510** | `gaps/receipts/ubl-tc434-example5-bt21-note-BAT-wrap.svrl.xml` |
+| `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | ubl ex5 | L21 first Invoice Note wrap `#BAT#` | 0 | — | **runtime #510** (1 `BR-CL-08` en 1.3.16) | `gaps/receipts/ubl-tc434-example5-bt21-note-BAT-wrap.svrl.xml` |
 | `gaps/engine-errors/CII_business_example_Z-dec-1E100.xml` | Z | L190 BT-112 → `1E+100` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-1E100.engine-error.txt` |
 | `gaps/engine-errors/CII_business_example_Z-dec-sci.xml` | Z | L190 BT-112 → `1169387E-2` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-sci.engine-error.txt` |
 
-`gaps/receipts/RESULTS.sha256` (30 XML du lot, hors engine-errors) = `f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`
+`gaps/receipts/RESULTS.sha256` (30 XML du lot, hors engine-errors) = `958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`
 
 ---
 
 ## FINDING 1 — BR-CO-09 ne teste que le préfixe pays (CII et UBL)
 
-**Contre-test principal (rejoué, pas repris des notes) :** sur une copie de `CII_business_example_Z.xml`, BT-31 `DE37/302/30168` → `DE37`. XSLT 1.3.16 : **0 `svrl:failed-assert`** (106 fired-rule). Recette : `gaps/receipts/CII_business_example_Z-bt31-DE37.svrl.xml`.
+**Contre-test principal (rejoué, pas repris des notes) :** sur une copie de `CII_business_example_Z.xml`, BT-31 `DE37/302/30168` → `DE37`. XSLT 1.3.16 : **0 `svrl:failed-assert`** (106 fired-rule). Recette : `gaps/receipts/CII_business_example_Z-bt31-DE37.svrl.xml`. **1.3.17 (18 oct. 2026) : toujours 0** sur les quatre contre-tests ci-dessous — ouvert.
 
 Même silence, même règle, autres BT / syntaxes :
 
@@ -108,7 +122,9 @@ test="( contains( ' 1A AD AE … ZW ', substring(cbc:CompanyID,1,2) ) )"
 
 ---
 
-## FINDING 2 — UBL BR-CO-09 : `contains` sans bornes (lettre unique `A`)
+## FINDING 2 — UBL BR-CO-09 : `contains` sans bornes (lettre unique `A`) — corrigé en 1.3.17
+
+**Corrigé en 1.3.17** ([#515](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/515), [notes de version](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17)) : le test UBL encadre maintenant le préfixe, `contains( ' 1A AD AE … ZW ', concat(' ', substring(cbc:CompanyID,1,2), ' '))`, comme le CII. Rejoué le 18 oct. 2026 : `gaps/ubl-tc434-creditnote1-bt31-A.xml` → **1 failed-assert `BR-CO-09`**. Le texte ci-dessous décrit 1.3.16.
 
 **Contre-test :** `ubl-tc434-creditnote1` BT-31 → `A`. **0 failed-assert** (53 fired-rule).
 
@@ -123,6 +139,8 @@ test="( contains( ' 1A AD AE … ZW ', substring(cbc:CompanyID,1,2) ) )"
 ---
 
 ## FINDING 3 — CII-DT-097 accepte des dates calendaires impossibles
+
+**1.3.17 (18 oct. 2026) : toujours ouvert** — les trois contre-tests restent à 0 failed-assert.
 
 **Contre-tests :**
 
@@ -155,6 +173,8 @@ Le 26 Aug 2026, [@victor-emmanuel-c](https://github.com/victor-emmanuel-c) a pub
 ---
 
 ## FINDING 4 — BR-DEC-13 (numérique) laisse passer 3 décimales nulles
+
+**1.3.17 (18 oct. 2026) : toujours ouvert** — `0.000` reste à 0 failed-assert.
 
 **Contre-test :** BT-110 `0.0` → `0.000` sur Z. **0 failed-assert.**
 
@@ -246,11 +266,13 @@ BR-DEC-14 (`substring-after(.,'.')`) n'aurait *pas* tiré : pas de `.` dans `1E+
 
 <!-- Licence: original FacturX prose = CC-BY-4.0 only. XML/fixtures/SVRL/XSLT keep EUPL-1.2 (CEN). Do not relicense XML under CC-BY. -->
 
-**Ce n'est pas le FINDING 5.** Reproduction runtime indépendante de [ConnectingEurope/eInvoicing-EN16931#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509) (auteur **bgo-mat**, créé 2026-07-12, ouvert). **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Ne pas commenter #509 depuis ce dépôt.
+**Ce n'est pas le FINDING 5.** Reproduction runtime indépendante de [ConnectingEurope/eInvoicing-EN16931#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509) (auteur **bgo-mat**, créé 2026-07-12, fermé depuis). **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Ne pas commenter #509 depuis ce dépôt.
 
 **Date runtime Lab :** 29 Aug 2026 PT. Recettes rejouées ici avec `SOURCE_DATE_EPOCH=1771286400` / `RECEIPT_DATE=16 Aug 2026 PT` (hermétique du dépôt). Moteur SaxonC-HE 13.0 (`saxonche==13.0.0`). XSLT 1.3.16 : `EN16931-CII-validation.xslt` SHA `0b234dea2bbfee739b7761e607a992c17fab88773014ef56355b6158cfb1cc53` · `EN16931-UBL-validation.xslt` SHA `39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd`.
 
 Prose de cette section = **CC-BY-4.0**. XML / SVRL / XSLT = **EUPL-1.2** (CEN Work et dérivés one-field de l'exemple officiel 5). Ne pas relicencier les XML sous CC-BY.
+
+**Corrigé en 1.3.17** ([#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509), [notes de version](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17)) : le binding CII reprend la liste ISO 3166-1 du binding UBL pour `BR-CL-14` et `BR-CL-15` (251 codes, `SS` présent, `AN` retiré). Rejoué le 18 oct. 2026 : `AN` → 1 `BR-CL-15` et `SS` → 0 dans les **deux** syntaxes. Les deux bindings concordent. La table ci-dessous est la mesure 1.3.16.
 
 ### Ce que #509 affirme déjà (snapshot, pas Lab)
 
@@ -280,7 +302,7 @@ KoSIT 1.6.3 (scénarios EN) corrobore les mêmes verdicts (CII SS REJECT / UBL S
 - **BR-CL-14** = la même paire 251-token sur les pays d'adresse (`ram:CountryID` · `cac:Country/cbc:IdentificationCode`). Listé sur #509. IMPACT_MAP seulement. **Non minté.**
 - **BR-CO-09** = listé sur #509 (préfixe d'identifiant TVA / ISO 3166-1). Mention de suivi seulement. **Non minté.**
 
-Gate #4 : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate #4 : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
 
 
 ---
@@ -289,11 +311,13 @@ Gate #4 : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `f8c
 
 <!-- Licence: original FacturX prose = CC-BY-4.0 only. XML/fixtures/SVRL/XSLT keep EUPL-1.2 (CEN). Do not relicense XML under CC-BY. -->
 
-**Ce n'est pas le FINDING 5.** Reproduction runtime indépendante de [ConnectingEurope/eInvoicing-EN16931#510](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/510) (auteur **bgo-mat**, créé 2026-07-12, ouvert). **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Ne pas commenter #510 depuis ce dépôt.
+**Ce n'est pas le FINDING 5.** Reproduction runtime indépendante de [ConnectingEurope/eInvoicing-EN16931#510](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/510) (auteur **bgo-mat**, créé 2026-07-12, fermé depuis). **INDEPENDENT_RUNTIME_REPRO.** On ne revendique pas la découverte amont. Pas de ticket nouveau. Ne pas commenter #510 depuis ce dépôt.
 
 **Date runtime Lab :** 29 Aug 2026 PT. Recettes rejouées ici avec `SOURCE_DATE_EPOCH=1771286400` / `RECEIPT_DATE=16 Aug 2026 PT` (hermétique du dépôt). Moteur SaxonC-HE 13.0 (`saxonche==13.0.0`). XSLT 1.3.16 : `EN16931-CII-validation.xslt` SHA `0b234dea2bbfee739b7761e607a992c17fab88773014ef56355b6158cfb1cc53` · `EN16931-UBL-validation.xslt` SHA `39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd`.
 
 Prose de cette section = **CC-BY-4.0**. XML / SVRL / XSLT = **EUPL-1.2** (CEN Work et dérivés one-field / wrap de l'exemple officiel 5). Ne pas relicencier les XML sous CC-BY.
+
+**Corrigé en 1.3.17** ([#510](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/510), [notes de version](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17)) : le binding UBL porte maintenant les **401** codes UNTDID 4451 du CII (les 18 codes listés ci-dessous, dont `BAT`, ajoutés). Rejoué le 18 oct. 2026 : le wrap UBL `#BAT#` → 0 failed-assert, comme le CII. Le garde de polarité vérifie désormais que les quatre sondes restent à 0. La table ci-dessous est la mesure 1.3.16.
 
 ### Ce que #510 affirme déjà (snapshot, pas Lab)
 
@@ -323,7 +347,7 @@ UBL : wrap `#AAI#` / `#BAT#` sur la première `cbc:Note` (`#CODE#` + texte exist
 
 `svrl:text` normatif UBL : `[BR-CL-08]-Invoiced note subject code shall be coded using UNCL4451`.
 
-Gate polarité : `scripts/check_brcl08_polarity.py` parse les SVRL commités (pas seulement les comptes `RESULTS.json`). Invariant : parent AAI 0-fail, CII BAT 0-fail, UBL AAI wrap 0-fail, UBL BAT wrap 1-fail `id=BR-CL-08`. Si CII BAT se met à échouer, ou si UBL BAT passe à 0-fail, ou si UBL BAT tire un autre `id`, le checker sort non-zéro. Un test mutant (`tests/test_brcl08_bt21_polarity.py`) inverse cette polarité dans une copie et exige un exit ≠ 0.
+Gate polarité : `scripts/check_brcl08_polarity.py` parse les SVRL commités (pas seulement les comptes `RESULTS.json`). Invariant 1.3.17 : parent AAI, CII BAT, UBL AAI wrap et UBL BAT wrap à 0 failed-assert. Si l'une de ces sondes se met à échouer (retour de la divergence #510), le garde échoue. En 1.3.16, l'invariant était UBL BAT wrap = 1 failed-assert `BR-CL-08`.
 
 ### IMPACT_MAP (pas de mint extra)
 
@@ -331,7 +355,7 @@ Gate polarité : `scripts/check_brcl08_polarity.py` parse les SVRL commités (pa
 - Les **17** autres codes de la liste #510 (`BAU` … `CCO`) : IMPACT_MAP seulement. **Non mintés.**
 - **BR-CL-14** / **BR-CO-09** : **non mintés** (hors périmètre #510).
 
-Gate : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
 
 ---
 
@@ -343,14 +367,14 @@ Gate : `GAPS_FIXTURE_COUNT` **30**, pin `gaps/receipts/RESULTS.sha256` = `f8c434
 # 30 sondes (lot principal, ignore expected.json)
 .venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected
 
-# polarité BR-CL-08 / BT-21 BAT (casse si CII accept / UBL reject s'inverse)
+# polarité BR-CL-08 / BT-21 BAT (casse si une sonde AAI/BAT se met à échouer)
 .venv/bin/python scripts/check_brcl08_polarity.py
 
 # les 2 notations scientifiques (exception Saxon, pas de SVRL)
 .venv/bin/python -c "
 from pathlib import Path
 from saxonche import PySaxonProcessor, PySaxonApiError
-xslt='vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt'
+xslt='vendor/en16931-1.3.17/xslt/EN16931-CII-validation.xslt'
 with PySaxonProcessor(license=False) as p:
     x=p.new_xslt30_processor().compile_stylesheet(stylesheet_file=xslt)
     for f in Path('gaps/engine-errors').glob('*.xml'):
@@ -368,7 +392,7 @@ with PySaxonProcessor(license=False) as p:
 
 ## `sha256sum -c fixtures/SHA256SUMS` (après tout travail)
 
-Exécuté depuis `fixtures/` le 16 Aug 2026 PT :
+Exécuté depuis `fixtures/` le 18 Oct 2026 PT :
 
 ```
 CII-BR-CO-10-RoundingIssue.xml: OK
@@ -383,10 +407,10 @@ huf_example_cii.xml: OK
 ubl-tc434-creditnote1.xml: OK
 ```
 
-SHA256 des 10 fichiers = table du README (inchangés). `SHA256SUMS` racine (fixtures + 2 XSLT) : OK. Aucune écriture dans `fixtures/`.
+SHA256 des 10 fichiers = table de `fixtures/README.md` (`CII_example3.xml` = copie 1.3.17). `SHA256SUMS` racine (fixtures + 2 XSLT) : OK. Aucune écriture dans `fixtures/`.
 
 ---
 
 ## Méthode (rappel)
 
-Généralisation du trou BR-CO-09 : pour chaque famille (corps d'identifiant, IBAN, code « légal mais absurde », date impossible, précision d'un montant), (1) lire le `test` officiel, (2) muter une copie d'une fixture CEN d'une ligne, (3) rejouer le XSLT 1.3.16, (4) classer seulement si le texte de règle *et* le contre-test s'accordent. Les 5 `failed-assert` obtenus sont des *contrôles* (la sonde n'est pas un trou), pas des findings.
+Généralisation du trou BR-CO-09 : pour chaque famille (corps d'identifiant, IBAN, code « légal mais absurde », date impossible, précision d'un montant), (1) lire le `test` officiel, (2) muter une copie d'une fixture CEN d'une ligne, (3) rejouer le XSLT officiel vendored (1.3.16 à l'origine, 1.3.17 depuis le 18 oct. 2026), (4) classer seulement si le texte de règle *et* le contre-test s'accordent. Les 5 `failed-assert` obtenus sont des *contrôles* (la sonde n'est pas un trou), pas des findings.

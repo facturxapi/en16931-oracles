@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 """BR-CL-08 / BT-21 BAT polarity gate.
 
-CII parent AAI and CII BAT must stay 0-fail; UBL #AAI# wrap 0-fail;
-UBL #BAT# wrap must be exactly 1 failed-assert whose id is BR-CL-08.
+EN16931 1.3.16 split the bindings (ConnectingEurope #510): CII accepted
+BAT, UBL rejected it with BR-CL-08. 1.3.17 aligns the UBL code list on
+CII, so every probe must now be 0-fail: CII parent AAI, CII BAT, UBL
+#AAI# wrap and UBL #BAT# wrap.
 
 Parses committed SVRL (gaps/receipts/*.svrl.xml and the parent
 oracles/receipts/CII_example5.svrl.xml). Not a file-presence check.
-Exits non-zero if CII BAT starts failing, UBL BAT becomes 0-fail,
-or UBL BAT fails a different id.
+Exits non-zero if any probe has a failed-assert, i.e. if the #510
+divergence comes back.
 
 Runnable outside GitHub Actions. Set ORACLE_ROOT to the checkout root.
 """
@@ -42,7 +44,6 @@ UBL_BAT = "ubl-tc434-example5-bt21-note-BAT-wrap.xml"
 UBL_BAT_SHA256 = (
     "12d77bf554a18b13c0407735aba4b5ae3d6ea25ef33c3cf1d5cfdbb415e079fe"
 )
-BRCL08 = "BR-CL-08"
 EXIT_OK = 0
 EXIT_DIVERGE = 1
 EXIT_CONFIG = 2
@@ -139,7 +140,7 @@ def main() -> int:
     probes = (
         (CII_BAT, CII_BAT_SHA256, 0, None, None),
         (UBL_AAI, UBL_AAI_SHA256, 0, None, None),
-        (UBL_BAT, UBL_BAT_SHA256, 1, (BRCL08,), "fatal"),
+        (UBL_BAT, UBL_BAT_SHA256, 0, None, None),
     )
     for name, digest, expect_fail, expect_ids, expect_flag in probes:
         errors.extend(check_sha(gaps / name, digest, f"gaps/{name}"))
@@ -175,7 +176,7 @@ def main() -> int:
             f"- parent AAI fixtures/{PARENT_CII} SHA `{PARENT_CII_SHA256}` failed_assert=0",
             f"- gaps/{CII_BAT} failed_assert=0 (CII BAT accepted)",
             f"- gaps/{UBL_AAI} failed_assert=0 (UBL #AAI# wrap accepted)",
-            f"- gaps/{UBL_BAT} failed_assert=1 id={BRCL08} fatal (UBL #BAT# wrap rejected)",
+            f"- gaps/{UBL_BAT} failed_assert=0 (UBL #BAT# wrap accepted, #510 aligned in 1.3.17)",
         ]
     )
     return EXIT_OK

@@ -24,7 +24,7 @@ L640. DuePayableAmount reste 250.33. Attendus : BR-CO-15, BR-CO-16.
 +                <ram:CalculatedAmount>226</ram:CalculatedAmount>
 ```
 
-L111. `TaxTotalAmount` (BT-110) reste 225. Attendus : BR-CO-14, BR-S-09.
+L105 (copie 1.3.17 ; L111 sur la copie 1.3.16). `TaxTotalAmount` (BT-110) reste 225. Attendus : BR-CO-14, BR-S-09.
 
 ## 3. CII_example5.xml — MANDATORY (BT-1)
 
