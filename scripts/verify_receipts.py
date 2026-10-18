@@ -23,7 +23,7 @@ from svrl_hermetic import fixture_xml_name_from_svrl_path, validate_document_uri
 from tree_fingerprint import diff_fingerprints, fingerprint_tree, sha256_file
 
 EXPECTED_RESULTS_SHA256 = (
-    "dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab"
+    "7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d"
 )
 FIXTURE_COUNT = 10
 EXIT_OK = 0

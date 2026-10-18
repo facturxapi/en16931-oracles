@@ -1,10 +1,10 @@
 # mutants/
 
-Dix copies des fixtures CEN EN16931 1.3.16, **une mutation sémantique d'une ligne chacune**.
+Dix copies des fixtures CEN EN16931 (exemples 1.3.17), **une mutation sémantique d'une ligne chacune**.
 
 Ce n'est pas un corpus officiel. Les originaux restent dans `fixtures/` (SHA256 inchangés).
 
-| Fichier | Classe | ids 1.3.16 |
+| Fichier | Classe | ids 1.3.16 = 1.3.17 |
 |---|---|---|
 | `CII_example1.xml` | TOTAL BT-112 | BR-CO-15, BR-CO-16 |
 | `CII_example3.xml` | VAT BT-117 | BR-S-09, BR-CO-14 |

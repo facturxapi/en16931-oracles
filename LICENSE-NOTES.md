@@ -1,8 +1,8 @@
 # LICENSE-NOTES.md
 
-**Date de lecture des textes :** 16 août 2026 (Europe/Paris).  
+**Date de lecture des textes :** 16 août 2026 (Europe/Paris) ; release 1.3.17 lue le 18 oct. 2026.  
 **Objet :** obligations de redistribution des **seuls** fichiers CEN
-ConnectingEurope EN16931 1.3.16 (exemples XML + XSLT officiels).  
+ConnectingEurope EN16931 1.3.17 (exemples XML + XSLT officiels).  
 **Hors périmètre :** aucune licence n'est choisie pour le *dépôt* ;
 aucune licence n'est choisie pour le *texte* des oracles.
 
@@ -21,11 +21,13 @@ fichiers CEN.
 | Texte EUPL 1.2 anglais (liste SPDX, fichier `EUPL-1.2.txt`) | https://raw.githubusercontent.com/spdx/license-list-data/main/text/EUPL-1.2.txt | `57fb42fbcd0b037ce528ed8f72f1ec095d67bc6825ecf1448ff39be1fe68a4b4` | lu |
 | Page EUPL 1.2 EN | https://eupl.eu/1.2/en/ | — (HTML) | lue |
 | Release `validation-1.3.16` | https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.16 | — | lue |
+| Release `validation-1.3.17` | https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17 | — | lue le 18 oct. 2026 |
+| `LICENSE.txt` au tag `validation-1.3.17` | https://raw.githubusercontent.com/ConnectingEurope/eInvoicing-EN16931/validation-1.3.17/LICENSE.txt | `fc22ec1dcd8bee4636a395fb332e2308cde870fb3fdc71a2e260b919877cdef5` (identique) | lu le 18 oct. 2026 |
 
 Copies jointes dans cette arborescence :
 
 - `LICENSE-EUPL-1.2.txt` — texte EUPL 1.2 anglais (fichier SPDX ci-dessus).
-- `vendor/en16931-1.3.16/LICENSE.txt` — `LICENSE.txt` ConnectingEurope, octets identiques à l'URL brute.
+- `vendor/en16931-1.3.17/LICENSE.txt` — `LICENSE.txt` ConnectingEurope, octets identiques à l'URL brute.
 - `third-party/LICENSE-ConnectingEurope-EN16931.txt` — même fichier.
 
 Le corps de `LICENSE.txt` ConnectingEurope **est** le texte EUPL 1.2
@@ -52,6 +54,13 @@ licence de release.
 
 Publication de la release : 13 avril 2026, 12:58:43 UTC
 (14:58 PT). Tag : `validation-1.3.16`.
+
+### 2.2 bis Corps de la release `validation-1.3.17` (citation, page lue le 18 oct. 2026)
+
+> For both syntaxes, example documents are contained in the folder "examples".  
+> This release of the EN16931 validation artefacts is licensed using European Union Public Licence (EUPL) version 1.2.
+
+Publication : 12 octobre 2026, 12:28:45 UTC. Tag : `validation-1.3.17`. Même licence que 1.3.16.
 
 ### 2.3 EUPL 1.2 — article 2 (extrait, texte officiel lu)
 
@@ -87,7 +96,7 @@ Les XML d'exemple et les XSLT **sont** le Source Code. Pointeur amont
 (dépôt / release officiels) :
 
 - https://github.com/ConnectingEurope/eInvoicing-EN16931
-- https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.16
+- https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17
 
 **Protection des signes :** l'article 5 n'accorde pas le droit d'utiliser
 les noms ou marques du Licensor, hors usage raisonnable pour décrire
@@ -99,8 +108,8 @@ l'origine du Work.
 
 | Fichier / famille | Couvert par EUPL 1.2 ? | Modification | Redistribution ici |
 |---|---|---|---|
-| 10 XML `fixtures/*.xml` (exemples ZIP 1.3.16) | oui (release + LICENSE.txt) | **aucune** — copies non modifiées | oui, avec notices + Licence |
-| 2 XSLT `vendor/en16931-1.3.16/xslt/*.xslt` | oui | **aucune** — copies non modifiées | oui, avec notices + Licence |
+| 10 XML `fixtures/*.xml` (exemples ZIP 1.3.17) | oui (release + LICENSE.txt) | **aucune** — copies non modifiées | oui, avec notices + Licence |
+| 2 XSLT `vendor/en16931-1.3.17/xslt/*.xslt` | oui | **aucune** — copies non modifiées | oui, avec notices + Licence |
 | `NOTICE`, `LICENSE-*.txt`, `third-party/` | notices / Licence elles-mêmes | — | jointes (art. 5 attribution) |
 | `oracles/*.md`, `oracles/INDEX.md` | **non** | — | licence du *texte* = **non décidée** |
 | `oracles/receipts/*.svrl.xml` | sortie machine de l'XSLT officiel sur un exemple officiel ; pas une modification du Work | — | recette de reproduction, pas un fork XSLT |
@@ -108,7 +117,7 @@ l'origine du Work.
 
 **Copies non modifiées.** Les 10 XML et les 2 XSLT ont les SHA256 du
 ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
-`vendor/en16931-1.3.16/XSLT.SHA256SUMS`). Aucun octet n'a été édité.
+`vendor/en16931-1.3.17/XSLT.SHA256SUMS`). Aucun octet n'a été édité.
 
 ---
 
@@ -131,11 +140,11 @@ ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
 1. Conserver les notices (ce `NOTICE`, l'en-tête ConnectingEurope, le
    présent fichier).
 2. Joindre la Licence (`LICENSE-EUPL-1.2.txt` et/ou
-   `vendor/en16931-1.3.16/LICENSE.txt`).
+   `vendor/en16931-1.3.17/LICENSE.txt`).
 3. Redistribuer ces fichiers du Work sous EUPL 1.2 (ou version
    ultérieure, le texte amont n'ayant pas dit « 1.2 only »).
 4. Fournir le Source Code (les XML/XSLT eux-mêmes) ou un pointeur vers
-   le dépôt ConnectingEurope / la release `validation-1.3.16`.
+   le dépôt ConnectingEurope / la release `validation-1.3.17`.
 5. Si l'on **modifie** un XML ou un XSLT : mentionner la modification
    et sa date (art. 5). **Ce pack ne le fait pas.**
 

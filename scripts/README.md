@@ -1,7 +1,7 @@
 # scripts/
 
 Runner reproductible des 10 fixtures CEN sous le XSLT officiel
-EN16931 1.3.16.
+EN16931 1.3.17.
 
 ## Une commande
 
@@ -17,16 +17,16 @@ python3 -m venv .venv && .venv/bin/pip install -r scripts/requirements.txt && .v
 
 | Mode | Comportement |
 |---|---|
-| `--mode reference` (défaut) | XSLT vendored `vendor/en16931-1.3.16/xslt/`. Verdict **normatif**. Échec si vendor/ manque ou si le SHA256 XSLT diverge. |
-| `--mode cross-platform` | Mêmes octets XSLT. Si vendor/ est absent (ou SHA inattendu), télécharge les deux ZIP officiels dans `.cache/en16931-1.3.16/`, vérifie le SHA256 des ZIP (épinglé dans `validate.py`), n'extrait que les deux XSLT, puis valide. **Pas de saut silencieux** : réseau impossible → exit ≠ 0. |
+| `--mode reference` (défaut) | XSLT vendored `vendor/en16931-1.3.17/xslt/`. Verdict **normatif**. Échec si vendor/ manque ou si le SHA256 XSLT diverge. |
+| `--mode cross-platform` | Mêmes octets XSLT. Si vendor/ est absent (ou SHA inattendu), télécharge les deux ZIP officiels dans `.cache/en16931-1.3.17/`, vérifie le SHA256 des ZIP (épinglé dans `validate.py`), n'extrait que les deux XSLT, puis valide. **Pas de saut silencieux** : réseau impossible → exit ≠ 0. |
 
 ZIP épinglés :
 
-- CII `1cd53cb8a84d38aedc82c0caede217da983a7934dd663f793a092fd66443c561`
-- UBL `bafada015efbc5248bf5e05ad2191e1d9833ef96e9dd5f4bce420a747342da85`
+- CII `e5f3235824b6b38454b1d54cf3f14e01efb5b33971fbefc4e64997d0ef619e89`
+- UBL `bf02a0e3f6cbe692a4a28e70be7bdcaded5612b4169b543e13d6cb4f33c29e92`
 
 URL : release
-[validation-1.3.16](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.16).
+[validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17).
 
 ## Contrôles
 
@@ -53,11 +53,11 @@ validateur commercial.
 |---|---|
 | `validate.py` | runner |
 | `requirements.txt` | `saxonche==13.0.0` |
-| `expected.json` | `fired-rule` / `failed-assert` verrouillés (nuit du 16 août 2026) |
+| `expected.json` | `fired-rule` / `failed-assert` verrouillés (16 août 2026 ; `fired-rule` remesurés sur 1.3.17 le 18 oct. 2026) |
 
 ## Options ajoutées (16 Aug 2026 PT)
 
-Le comportement par défaut (sans option) est **inchangé** : `fixtures/` + `expected.json` + `oracles/receipts/RESULTS.json` byte-stable (`dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab`).
+Le comportement par défaut (sans option) est **inchangé** : `fixtures/` + `expected.json` + `oracles/receipts/RESULTS.json` byte-stable (`7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d`).
 
 | Option | Rôle |
 |---|---|
@@ -84,7 +84,7 @@ python3 -m unittest discover -s tests -p 'test_*.py' -v
 ```
 
 Rejoue les 30 fixtures `gaps/`, compare `gaps/receipts/RESULTS.sha256`
-(`f8c43469ba3c0538cf0cabf93f43378c3ed4644e98ef5d118d250b5e8741cef5`) et
+(`958af66d5705e80bd6a45128a8dfb59659fe485f5eb4e265d4ad25a19d79b027`) et
 tous les artefacts `*.svrl.xml` / `*.receipt.md` versionnés. Vérifie aussi que
 `gaps/RESULTS.*` est byte-identique à `gaps/receipts/RESULTS.*`. Le replay est
 strictement non-mutateur (écriture uniquement dans un répertoire temporaire).
@@ -101,7 +101,7 @@ dans `gaps/` : ajouter `--write-results-to-xml-dir` à `validate.py`.
 ```
 
 Rejoue les 10 fixtures `fixtures/`, compare `oracles/receipts/RESULTS.sha256`
-(`dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab`) et tous les
+(`7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d`) et tous les
 artefacts `*.svrl.xml` / `*.receipt.md` versionnés. Le replay est strictement
 non-mutateur (écriture uniquement dans un répertoire temporaire) : aucune
 réparation SVRL in-place. L'empreinte complète de `oracles/receipts/` est

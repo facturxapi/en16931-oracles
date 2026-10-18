@@ -27,8 +27,7 @@
    <svrl:ns-prefix-in-attribute-values prefix="ram"
                                        uri="urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"/>
    <svrl:ns-prefix-in-attribute-values prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
-   <svrl:active-pattern document="file:CII_example3.xml"
-                        documents="file:CII_example3.xml"
+   <svrl:active-pattern documents="file:CII_example3.xml"
                         id="EN16931-CII-Model"
                         name="EN16931-CII-Model"/>
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice"/>
@@ -39,11 +38,9 @@
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeDelivery"/>
    <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans"/>
    <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans[ram:TypeCode='30' or ram:TypeCode='58']/ram:PayeePartyCreditorFinancialAccount"/>
-   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans"/>
-   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans[ram:TypeCode='30' or ram:TypeCode='58']/ram:PayeePartyCreditorFinancialAccount"/>
    <svrl:fired-rule context="//ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax"/>
    <svrl:fired-rule context="//ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CategoryCode[.='S']"/>
-   <svrl:failed-assert test="(abs(xs:decimal(../ram:CalculatedAmount)) - 1 &lt; round(abs(xs:decimal(../ram:BasisAmount)) * ../ram:RateApplicablePercent) div 100 ) and (abs(xs:decimal(../ram:CalculatedAmount)) + 1 &gt; round(abs(xs:decimal(../ram:BasisAmount)) * ../ram:RateApplicablePercent) div 100 )"
+   <svrl:failed-assert test="(abs(xs:decimal(../ram:CalculatedAmount)) - 1 &lt; round(abs(xs:decimal(../ram:BasisAmount)) * xs:decimal(../ram:RateApplicablePercent)) div 100 ) and (abs(xs:decimal(../ram:CalculatedAmount)) + 1 &gt; round(abs(xs:decimal(../ram:BasisAmount)) * xs:decimal(../ram:RateApplicablePercent)) div 100 )"
                        id="BR-S-09"
                        flag="fatal"
                        location="/*:CrossIndustryInvoice[namespace-uri()='urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100'][1]/*:SupplyChainTradeTransaction[namespace-uri()='urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100'][1]/*:ApplicableHeaderTradeSettlement[namespace-uri()='urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100'][1]/*:ApplicableTradeTax[namespace-uri()='urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100'][1]/*:CategoryCode[namespace-uri()='urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100'][1]">
@@ -54,14 +51,13 @@
    <svrl:fired-rule context="//ram:SpecifiedTradeAllowanceCharge[ram:ChargeIndicator/udt:Indicator=true()]/ram:CategoryTradeTax[ram:CategoryCode = 'S'][upper-case(ram:TypeCode) = 'VAT']"/>
    <svrl:fired-rule context="//ram:SpecifiedTradeSettlementHeaderMonetarySummation"/>
    <svrl:fired-rule context="//ram:SpecifiedTradeSettlementHeaderMonetarySummation/ram:TaxTotalAmount[@currencyID=/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:InvoiceCurrencyCode]"/>
-   <svrl:failed-assert test=". = (round(sum(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CalculatedAmount)*10*10)div 100)"
+   <svrl:failed-assert test=". = (round(sum(/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:ApplicableHeaderTradeSettlement/ram:ApplicableTradeTax/ram:CalculatedAmount/xs:decimal(.))*10*10)div 100)"
                        id="BR-CO-14"
                        flag="fatal"
                        location="/*:CrossIndustryInvoice[namespace-uri()='urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100'][1]/*:SupplyChainTradeTransaction[namespace-uri()='urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100'][1]/*:ApplicableHeaderTradeSettlement[namespace-uri()='urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100'][1]/*:SpecifiedTradeSettlementHeaderMonetarySummation[namespace-uri()='urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100'][1]/*:TaxTotalAmount[namespace-uri()='urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100'][1]">
       <svrl:text>[BR-CO-14]-Invoice total VAT amount (BT-110) = Σ VAT category tax amount (BT-117).</svrl:text>
    </svrl:failed-assert>
-   <svrl:active-pattern document="file:CII_example3.xml"
-                        documents="file:CII_example3.xml"
+   <svrl:active-pattern documents="file:CII_example3.xml"
                         id="EN16931-CII-Syntax"
                         name="EN16931-CII-Syntax"/>
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice"/>
@@ -73,7 +69,6 @@
    <svrl:fired-rule context="//ram:TypeCode"/>
    <svrl:fired-rule context="//udt:DateTimeString[@format = '102']"/>
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:IncludedNote"/>
-   <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem"/>
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument"/>
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:ExchangedDocumentContext/ram:GuidelineSpecifiedDocumentContextParameter/ram:ID |            /rsm:CrossIndustryInvoice/rsm:ExchangedDocument/ram:ID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:AssociatedDocumentLineDocument/ram:LineID |            /rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct/ram:SellerAssignedID"/>
    <svrl:fired-rule context="/rsm:CrossIndustryInvoice/rsm:SupplyChainTradeTransaction/ram:IncludedSupplyChainTradeLineItem/ram:SpecifiedTradeProduct"/>
@@ -102,9 +97,6 @@
    <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans"/>
    <svrl:fired-rule context="//ram:TypeCode"/>
    <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
-   <svrl:fired-rule context="//ram:SpecifiedTradeSettlementPaymentMeans"/>
-   <svrl:fired-rule context="//ram:TypeCode"/>
-   <svrl:fired-rule context="//ram:*[ends-with(name(), 'ID')]"/>
    <svrl:fired-rule context="//ram:*[ends-with(name(), 'TradeTax')]"/>
    <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
    <svrl:fired-rule context="//ram:TypeCode"/>
@@ -123,8 +115,7 @@
    <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
    <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
    <svrl:fired-rule context="//ram:*[ends-with(name(), 'Amount') and not (self::ram:TaxTotalAmount)]"/>
-   <svrl:active-pattern document="file:CII_example3.xml"
-                        documents="file:CII_example3.xml"
+   <svrl:active-pattern documents="file:CII_example3.xml"
                         id="EN16931-Codes"
                         name="EN16931-Codes"/>
    <svrl:fired-rule context="rsm:ExchangedDocument/ram:TypeCode"/>
@@ -134,7 +125,6 @@
    <svrl:fired-rule context="//ram:GlobalID[@schemeID][not(ancestor::ram:SpecifiedTradeProduct) and not(ancestor::ram:ShipToTradeParty)]"/>
    <svrl:fired-rule context="ram:CountryID"/>
    <svrl:fired-rule context="ram:InvoiceCurrencyCode"/>
-   <svrl:fired-rule context="ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode"/>
    <svrl:fired-rule context="ram:SpecifiedTradeSettlementPaymentMeans/ram:TypeCode"/>
    <svrl:fired-rule context="ram:ApplicableTradeTax/ram:CategoryCode"/>
    <svrl:fired-rule context="ram:SpecifiedTradeAllowanceCharge[ram:ChargeIndicator/udt:Indicator = true()]/ram:ReasonCode"/>

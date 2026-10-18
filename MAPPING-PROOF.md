@@ -7,6 +7,7 @@
 **XSLT UBL exécuté :** `vendor/en16931-1.3.16/xslt/EN16931-UBL-validation.xslt`  
 **SHA256 XSLT UBL :** `39f9d282867f1a49e7708d9e29a53da89643e1ee56f10cec1ebcf1277595fcbd`  
 **Schematron / XSLT :** `vendor/en16931-1.3.16/` (XSLT exécuté ; SHA ci-dessus)
+**Mise à jour 1.3.17 :** 18 Oct 2026 PT — les 5 sondes `mapping/fixtures/` rejouées sur `vendor/en16931-1.3.17/` : mêmes `id` qu'en 1.3.16 (`CII-SR-467`, `CII-SR-470`, `BR-61`, `UBL-SR-47` ; `CII-BR-CO-25-absent` = 0). `BR-CO-27` et `BR-CO-25` restent absents des XSLT 1.3.17 (0 occurrence). Le reste de cette note décrit 1.3.15 / 1.3.16.  
 **Statut :** notes de corpus. Claims d'équivalence uniquement sur textes
 officiels + id SVRL réellement tiré.
 **`fixtures/` officiel :** non modifié (`sha256sum -c fixtures/SHA256SUMS` : 10 × OK après ce travail).

@@ -33,8 +33,7 @@
    <svrl:ns-prefix-in-attribute-values prefix="ubl"
                                        uri="urn:oasis:names:specification:ubl:schema:xsd:Invoice-2"/>
    <svrl:ns-prefix-in-attribute-values prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
-   <svrl:active-pattern document="file:ubl-SR-47-divergent-bt81.xml"
-                        documents="file:ubl-SR-47-divergent-bt81.xml"
+   <svrl:active-pattern documents="file:ubl-SR-47-divergent-bt81.xml"
                         id="UBL-model"
                         name="UBL-model"/>
    <svrl:fired-rule context="/ubl:Invoice | /cn:CreditNote"/>
@@ -56,8 +55,7 @@
    <svrl:fired-rule context="cac:InvoiceLine | cac:CreditNoteLine"/>
    <svrl:fired-rule context="cac:InvoiceLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT'] | cac:CreditNoteLine/cac:Item/cac:ClassifiedTaxCategory[normalize-space(cbc:ID) = 'E'][cac:TaxScheme/normalize-space(upper-case(cbc:ID))='VAT']"/>
    <svrl:fired-rule context="//cac:AdditionalItemProperty"/>
-   <svrl:active-pattern document="file:ubl-SR-47-divergent-bt81.xml"
-                        documents="file:ubl-SR-47-divergent-bt81.xml"
+   <svrl:active-pattern documents="file:ubl-SR-47-divergent-bt81.xml"
                         id="UBL-syntax"
                         name="UBL-syntax"/>
    <svrl:fired-rule context="/ubl:Invoice | /cn:CreditNote"/>
@@ -84,8 +82,7 @@
    <svrl:fired-rule context="//*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]"/>
    <svrl:fired-rule context="cac:InvoiceLine | cac:CreditNoteLine"/>
    <svrl:fired-rule context="//*[ends-with(name(), 'Amount') and not(ends-with(name(),'PriceAmount')) and not(ancestor::cac:Price/cac:AllowanceCharge)]"/>
-   <svrl:active-pattern document="file:ubl-SR-47-divergent-bt81.xml"
-                        documents="file:ubl-SR-47-divergent-bt81.xml"
+   <svrl:active-pattern documents="file:ubl-SR-47-divergent-bt81.xml"
                         id="Codesmodel"
                         name="Codesmodel"/>
    <svrl:fired-rule context="cbc:InvoiceTypeCode | cbc:CreditNoteTypeCode"/>

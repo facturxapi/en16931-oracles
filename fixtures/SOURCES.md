@@ -1,5 +1,20 @@
 # SOURCES.md
 
+## Mise à jour validation-1.3.17 (18 oct. 2026)
+
+- Release : https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17 — publiée le 12 octobre 2026, 12:28:45 UTC.
+
+| ZIP | URL | SHA256 | Taille |
+|---|---|---|---|
+| CII 1.3.17 | https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/download/validation-1.3.17/en16931-cii-1.3.17.zip | `e5f3235824b6b38454b1d54cf3f14e01efb5b33971fbefc4e64997d0ef619e89` | 227 817 o |
+| UBL 1.3.17 | https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/download/validation-1.3.17/en16931-ubl-1.3.17.zip | `bf02a0e3f6cbe692a4a28e70be7bdcaded5612b4169b543e13d6cb4f33c29e92` | 2 651 001 o |
+
+- Les 9 autres fixtures sont octet-identiques dans le ZIP 1.3.17 (comparées le 18 oct. 2026).
+- `CII_example3.xml` recopié depuis `examples/CII_example3.xml` du ZIP CII 1.3.17 : `5c2e9de624dc72fcc7249cb82924fd443aa140b04b30da2a8549775d39caa377` (un bloc `SpecifiedTradeSettlementPaymentMeans` retiré par l'amont).
+- XSLT 1.3.17 vendored sous `/vendor/en16931-1.3.17/xslt/` : CII `0757f07909938b1b297b8356ab7b66406c89f1b342325385d6a2def998c817f0`, UBL `fc4e6cfa8596bba0c2abd19038a98960c6ee9fc1f44566787c115efd4f4aca7c`.
+
+Les sections ci-dessous décrivent la copie initiale du 16 août 2026 (1.3.16).
+
 **Date :** 16 août 2026 (Europe/Paris).
 
 Les 10 XML de `fixtures/` sont extraits, octets pour octets, des ZIP

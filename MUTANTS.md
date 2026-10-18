@@ -1,8 +1,9 @@
-# Mutants EN16931 1.3.16 — preuve que le runner détecte les faux documents
+# Mutants EN16931 — preuve que le runner détecte les faux documents
 
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT  
 **Moteur :** SaxonC-HE 13.0 (`saxonche==13.0.0`)  
-**XSLT :** `vendor/en16931-1.3.16/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`  
+**XSLT :** `vendor/en16931-1.3.17/xslt/EN16931-CII-validation.xslt` / `EN16931-UBL-validation.xslt`  
+**Mise à jour 1.3.17 :** 18 Oct 2026 PT — les 10 mutants rejoués sur `validation-1.3.17` : mêmes `id` qu'en 1.3.16 pour chacun. `mutants/CII_example3.xml` redérivé de la copie 1.3.17 de la fixture (même mutation, L105).  
 **Statut :** notes de corpus. Aucun lot privé / FNFE / FeRD n'est redistribué.
 
 ## Discipline
@@ -18,7 +19,7 @@
 | Mutant | Fixture source | Classe | Diff (une ligne) | fail | ids SVRL | SVRL |
 |---|---|---|---|---:|---|---|
 | `mutants/CII_example1.xml` | `CII_example1.xml` | TOTAL (BT-112) | L640 `SpecifiedTradeSettlementHeaderMonetarySummation/GrandTotalAmount` : `250.33` → `250.34` | 2 | `BR-CO-15`, `BR-CO-16` | `mutants/receipts/CII_example1.svrl.xml` |
-| `mutants/CII_example3.xml` | `CII_example3.xml` | VAT (BT-117 ≠ BT-110) | L111 `ApplicableTradeTax/CalculatedAmount` : `225` → `226` (TaxTotalAmount reste 225) | 2 | `BR-S-09`, `BR-CO-14` | `mutants/receipts/CII_example3.svrl.xml` |
+| `mutants/CII_example3.xml` | `CII_example3.xml` | VAT (BT-117 ≠ BT-110) | L105 `ApplicableTradeTax/CalculatedAmount` : `225` → `226` (TaxTotalAmount reste 225) | 2 | `BR-S-09`, `BR-CO-14` | `mutants/receipts/CII_example3.svrl.xml` |
 | `mutants/CII_example5.xml` | `CII_example5.xml` | MANDATORY (BT-1) | L22 `rsm:ExchangedDocument/ram:ID` (BT-1, **pas** BT-24) : `TOSL110` → vide | 1 | `BR-02` | `mutants/receipts/CII_example5.svrl.xml` |
 | `mutants/CII_business_example_01.xml` | `CII_business_example_01.xml` | LINE-SUM (BT-106) | L473 header `LineTotalAmount` : `1436.5` → `1436.51` (Σ BT-131 inchangée) | 2 | `BR-CO-10`, `BR-CO-13` | `mutants/receipts/CII_business_example_01.svrl.xml` |
 | `mutants/CII_business_example_02.xml` | `CII_business_example_02.xml` | TYPE (BT-3) | L20 `rsm:ExchangedDocument/ram:TypeCode` : `380` → `999` | 1 | `BR-CL-01` | `mutants/receipts/CII_business_example_02.svrl.xml` |
@@ -31,13 +32,13 @@
 Diffs complets : `mutants/DIFFS.md`. Recettes une ligne : `mutants/receipts/<stem>.oneline.txt`.
 
 **Résultat mutants :** 10 fichiers, **10 × ≥1 `svrl:failed-assert`**, 0 vert.  
-`mutants/RESULTS.sha256` = `babed63a0a4f304466d23ba7f1a1a781730e8c489eb9b775464910b1a43c5e55`
+`mutants/RESULTS.sha256` = `231c090a3eac7653295156e11ecf41aeb3a1e3e364b92d3d6a2ddd0b7f1d2ae5`
 
 ## FINDING MAJEUR (observé, puis remplacé)
 
 **Tentative 1 sur `CII_business_example_Z` :** troncature BT-31 `DE37/302/30168` → `DE37` (élément conservé, préfixe pays ISO intact).
 
-- Verdict XSLT 1.3.16 : **0 `svrl:failed-assert`** (vert).
+- Verdict XSLT 1.3.16 : **0 `svrl:failed-assert`** (vert). Toujours 0 en 1.3.17 (sonde `gaps/CII_business_example_Z-bt31-DE37.xml`, 18 oct. 2026).
 - Analyse **(a)** — trou Schematron officiel, pas une mutation cosmétique.
   - `BR-CO-09` lit BT-31 mais ne teste que `substring(.,1,2)` ∈ codes pays ISO. Le corps de l'identifiant (longueur, format, clé) n'est pas testé.
   - Aucune règle CII 1.3.16 ne vérifie un SIRET/VAT « trop court » si le préfixe reste `DE`.
@@ -54,9 +55,9 @@ Les fixtures n'ont **jamais** été écrasées. `--hash-probe` copie 9 originaux
 
 | Étape | Ensemble | `RESULTS.sha256` (full) |
 |---|---|---|
-| 1. avant | 10 fixtures officielles | `dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab` |
+| 1. avant | 10 fixtures officielles | `7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d` |
 | 2. sonde | 9 originaux + `mutants/CII_example1.xml` (même basename) | `d3e201c0313de6f6bb588ad7ec5213637fb6ef5a9365f42df81a7e0fa5259079` |
-| 3. après | 10 fixtures officielles (inchangées) | `dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab` |
+| 3. après | 10 fixtures officielles (inchangées) | `7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d` |
 
 - Étape 2 **diffère** de l'étape 1 (le runner hashe `failed_assert` + `sha256` de chaque fichier).
 - Étape 3 **revient** à l'épingle. Les originaux n'ont pas été restaurés depuis une copie cassée : ils n'ont pas été touchés.
@@ -93,7 +94,7 @@ SHA256 des 10 fichiers = table du brief (inchangés).
 
 # fixtures (défaut, byte-stable)
 .venv/bin/python scripts/validate.py
-# → oracles/receipts/RESULTS.sha256 == dffb88780654fb4861df84bbd6df18aae5d89b0a5b8f4fd12ce5fb5f9a7f0dab
+# → oracles/receipts/RESULTS.sha256 == 7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d
 
 # preuve que le hash bouge puis revient (sans écrire dans fixtures/)
 .venv/bin/python scripts/validate.py --hash-probe --probe-mutant CII_example1.xml
