@@ -209,6 +209,8 @@ BR-DEC-09/10/11/12/14/16/17/18 sont des tests *chaîne*. BR-DEC-13/15 sont des t
 
 **Mesuré le 18 Oct 2026 PT** sur le XSLT 1.3.17 vendored (CII `0757f079…`, UBL `fc4e6cfa…`). Origine : le renommage `BR-AF-*` / `BR-AG-*` de [#519](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/519).
 
+**Déjà signalé en amont :** [#533](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/533) (13 oct. 2026, ouvert, sans réponse au 18 oct.) décrit les deux constats ci-dessous à partir du Schematron. Les sondes ici en sont une reproduction indépendante sur le XSLT, avec reçus SVRL. Le voisin [#534](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/534) (ventilations `L` / `M` en CII) n'est pas mesuré ici.
+
 **Sondes.** Une ligne chacune : la catégorie TVA (BT-151) de la première ligne de facture passe à `L` (IGIC) ou `M` (IPSI). Le taux de ligne (BT-152) vaut déjà `0.00` dans l'original, et la ventilation (BG-23) n'est pas touchée.
 
 | Sonde | Régime | ids 1.3.17 | ids 1.3.16 (pour mémoire) |
