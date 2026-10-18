@@ -18,4 +18,6 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compare pinned EN16931 XSLT to ConnectingEurope
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python3 scripts/check_upstream.py
