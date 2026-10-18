@@ -14,7 +14,7 @@ This repository publishes:
 
 It does **not** claim anything about a commercial product, API, or runtime.
 
-Updated to [validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17) on 18 Oct 2026. The 10 fixtures stay at 0 failed-assert and the 10 mutants fail on the same rule ids. `CII_example3.xml` is the new 1.3.17 copy (one `SpecifiedTradeSettlementPaymentMeans` block removed upstream); the other 9 fixtures are byte-identical to 1.3.16. Upstream renamed `BR-AF-*` to `BR-IP-*` and `BR-AG-*` to `BR-IG-*` (#519); no fixture, mutant or probe here cites those ids. Four `gaps/` probes changed verdict because upstream fixed #509, #510 and #515: see `GAPS.md`.
+Updated to [validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17) on 18 Oct 2026. The 10 fixtures stay at 0 failed-assert and the 10 mutants fail on the same rule ids. `CII_example3.xml` is the new 1.3.17 copy (one `SpecifiedTradeSettlementPaymentMeans` block removed upstream); the other 9 fixtures are byte-identical to 1.3.16. Upstream renamed the IGIC rules `BR-AF-*` and the IPSI rules `BR-AG-*` (#519), but not the same way in both syntaxes: IGIC became `BR-IP-*` in CII and `BR-IG-*` in UBL, IPSI the reverse (measured by matching rule texts across the two vendored XSLT). No fixture, mutant or probe here cites those ids. Four `gaps/` probes changed verdict because upstream fixed #509, #510 and #515: see `GAPS.md`.
 
 ## Which FacturX repo should I use?
 
