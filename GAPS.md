@@ -406,6 +406,8 @@ Sources Schematron des zips de la release : CII `schematron/CII/EN16931-CII-mode
 
 **Classe : runtime 533 (divergence CII / UBL), pas un angle mort.** Les règles tirent, mais sous un autre nom et, pour `-05`, avec un autre test. Le nommage UBL suit EN 16931, le nommage CII est inversé, et le test CII `-05` IGIC est plus strict que le texte (taux 0 refusé).
 
+**Correctifs testés (8 nov. 2026) :** [`variants/533/`](variants/533/README.md). V1 = renommage CII `BR-IP` ↔ `BR-IG` + `>= 0` sur `-06` / `-07` ; V2 = V1 + `>= 0` sur `-05`. Sources `validation-1.3.17` reconstruites par la chaîne amont (Maven, ph-schematron 10.2.0), 16 paires de sondes CII / UBL. V1 laisse le taux 0 IGIC refusé en ligne (`BR-IG-05`) ; V2 donne les mêmes ids qu'UBL, sauf `-08` sur une ligne à taux -1 ou absent (contexte `-08` L / M vide en CII). Non-régression : 15 exemples CII du tag, 9 fixtures, 9 documents `test/cii`, résultats identiques au XSLT publié.
+
 ---
 
 ## Reproduire

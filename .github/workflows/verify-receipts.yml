@@ -31,6 +31,8 @@ jobs:
         env:
           ORACLE_ROOT: ${{ github.workspace }}
         run: python3 scripts/check_brcl08_polarity.py
+      - name: Issue 533 variants (V1 / V2) replay
+        run: python3 variants/533/run_533.py --root . --check
       - name: Gaps proof gate unit tests
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
       - name: Checkout must stay clean after all replays

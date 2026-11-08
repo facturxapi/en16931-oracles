@@ -110,6 +110,8 @@ l'origine du Work.
 |---|---|---|---|
 | 10 XML `fixtures/*.xml` (exemples ZIP 1.3.17) | oui (release + LICENSE.txt) | **aucune** — copies non modifiées | oui, avec notices + Licence |
 | 2 XSLT `vendor/en16931-1.3.17/xslt/*.xslt` | oui | **aucune** — copies non modifiées | oui, avec notices + Licence |
+| `variants/533/` : `patches/*.patch`, `xslt/V1`, `xslt/V2`, `probes/` | oui (œuvre dérivée du Work 1.3.17) | **oui** — sources Schematron CII modifiées le 8 nov. 2026 (V1 / V2) et XSLT régénérés ; sondes = copies modifiées de 2 exemples ; mention de modification et date dans `variants/533/README.md` | oui, sous EUPL 1.2 (copyleft, art. 5) |
+| `variants/533/xslt/BASE` | oui | **aucune** sur les sources — tag `validation-1.3.17` reconstruit par la chaîne amont (sans l'en-tête de licence de 5 lignes) | oui, avec notices + Licence |
 | `NOTICE`, `LICENSE-*.txt`, `third-party/` | notices / Licence elles-mêmes | — | jointes (art. 5 attribution) |
 | `oracles/*.md`, `oracles/INDEX.md` | **non** | — | licence du *texte* = **non décidée** |
 | `oracles/receipts/*.svrl.xml` | sortie machine de l'XSLT officiel sur un exemple officiel ; pas une modification du Work | — | recette de reproduction, pas un fork XSLT |
