@@ -1,0 +1,1244 @@
+{
+  "engine": "SaxonC-HE 13.0 (saxonche 13.0.0)",
+  "upstream": {
+    "tag": "validation-1.3.17",
+    "commit": "d0dea7300c2ad60d50af4a4f31e122fdbf7c0ed3"
+  },
+  "xslt_sha256": {
+    "PUBLISHED": "0757f07909938b1b297b8356ab7b66406c89f1b342325385d6a2def998c817f0",
+    "BASE": "1f70b66f70c6913b6ff1a31c5cf978d89267edc4c3c58167f00e75e680f68079",
+    "V1": "687aafd64449793e1058c4747e8c8140aea6d8895337506fe15c6884d1607b30",
+    "V2": "20b6db96e845de6fbb9b322c0b49f23006e2acf569cf7da54279bce18a631456",
+    "UBL": "fc4e6cfa8596bba0c2abd19038a98960c6ee9fc1f44566787c115efd4f4aca7c"
+  },
+  "patch_sha256": {
+    "V1": "f1f4a68e925f1adee5f36fe178cc12f888bf50ab142cbf033531132d7139fbc5",
+    "V2": "c9e4489557b3fc420441597eac75496d0333279b0114eb1acfa200561eecc896"
+  },
+  "static": {
+    "UBL": {
+      "BR-IG-01": "IGIC",
+      "BR-IG-02": "IGIC",
+      "BR-IG-03": "IGIC",
+      "BR-IG-04": "IGIC",
+      "BR-IG-05": "IGIC",
+      "BR-IG-06": "IGIC",
+      "BR-IG-07": "IGIC",
+      "BR-IG-08": "IGIC",
+      "BR-IG-09": "IGIC",
+      "BR-IG-10": "IGIC",
+      "BR-IP-01": "IPSI",
+      "BR-IP-02": "IPSI",
+      "BR-IP-03": "IPSI",
+      "BR-IP-04": "IPSI",
+      "BR-IP-05": "IPSI",
+      "BR-IP-06": "IPSI",
+      "BR-IP-07": "IPSI",
+      "BR-IP-08": "IPSI",
+      "BR-IP-09": "IPSI",
+      "BR-IP-10": "IPSI"
+    },
+    "PUBLISHED": {
+      "BR-IG-01": "IPSI",
+      "BR-IG-02": "IPSI",
+      "BR-IG-03": "IPSI",
+      "BR-IG-04": "IPSI",
+      "BR-IG-05": "IPSI",
+      "BR-IG-06": "IPSI",
+      "BR-IG-07": "IPSI",
+      "BR-IG-08": "IPSI",
+      "BR-IG-09": "IPSI",
+      "BR-IG-10": "IPSI",
+      "BR-IP-01": "IGIC",
+      "BR-IP-02": "IGIC",
+      "BR-IP-03": "IGIC",
+      "BR-IP-04": "IGIC",
+      "BR-IP-05": "IGIC",
+      "BR-IP-06": "IGIC",
+      "BR-IP-07": "IGIC",
+      "BR-IP-08": "IGIC",
+      "BR-IP-09": "IGIC",
+      "BR-IP-10": "IGIC"
+    },
+    "BASE": {
+      "BR-IG-01": "IPSI",
+      "BR-IG-02": "IPSI",
+      "BR-IG-03": "IPSI",
+      "BR-IG-04": "IPSI",
+      "BR-IG-05": "IPSI",
+      "BR-IG-06": "IPSI",
+      "BR-IG-07": "IPSI",
+      "BR-IG-08": "IPSI",
+      "BR-IG-09": "IPSI",
+      "BR-IG-10": "IPSI",
+      "BR-IP-01": "IGIC",
+      "BR-IP-02": "IGIC",
+      "BR-IP-03": "IGIC",
+      "BR-IP-04": "IGIC",
+      "BR-IP-05": "IGIC",
+      "BR-IP-06": "IGIC",
+      "BR-IP-07": "IGIC",
+      "BR-IP-08": "IGIC",
+      "BR-IP-09": "IGIC",
+      "BR-IP-10": "IGIC"
+    },
+    "V1": {
+      "BR-IG-01": "IGIC",
+      "BR-IG-02": "IGIC",
+      "BR-IG-03": "IGIC",
+      "BR-IG-04": "IGIC",
+      "BR-IG-05": "IGIC",
+      "BR-IG-06": "IGIC",
+      "BR-IG-07": "IGIC",
+      "BR-IG-08": "IGIC",
+      "BR-IG-09": "IGIC",
+      "BR-IG-10": "IGIC",
+      "BR-IP-01": "IPSI",
+      "BR-IP-02": "IPSI",
+      "BR-IP-03": "IPSI",
+      "BR-IP-04": "IPSI",
+      "BR-IP-05": "IPSI",
+      "BR-IP-06": "IPSI",
+      "BR-IP-07": "IPSI",
+      "BR-IP-08": "IPSI",
+      "BR-IP-09": "IPSI",
+      "BR-IP-10": "IPSI"
+    },
+    "V2": {
+      "BR-IG-01": "IGIC",
+      "BR-IG-02": "IGIC",
+      "BR-IG-03": "IGIC",
+      "BR-IG-04": "IGIC",
+      "BR-IG-05": "IGIC",
+      "BR-IG-06": "IGIC",
+      "BR-IG-07": "IGIC",
+      "BR-IG-08": "IGIC",
+      "BR-IG-09": "IGIC",
+      "BR-IG-10": "IGIC",
+      "BR-IP-01": "IPSI",
+      "BR-IP-02": "IPSI",
+      "BR-IP-03": "IPSI",
+      "BR-IP-04": "IPSI",
+      "BR-IP-05": "IPSI",
+      "BR-IP-06": "IPSI",
+      "BR-IP-07": "IPSI",
+      "BR-IP-08": "IPSI",
+      "BR-IP-09": "IPSI",
+      "BR-IP-10": "IPSI"
+    }
+  },
+  "static_mismatch": {
+    "PUBLISHED": [
+      "BR-IG-01",
+      "BR-IG-02",
+      "BR-IG-03",
+      "BR-IG-04",
+      "BR-IG-05",
+      "BR-IG-06",
+      "BR-IG-07",
+      "BR-IG-08",
+      "BR-IG-09",
+      "BR-IG-10",
+      "BR-IP-01",
+      "BR-IP-02",
+      "BR-IP-03",
+      "BR-IP-04",
+      "BR-IP-05",
+      "BR-IP-06",
+      "BR-IP-07",
+      "BR-IP-08",
+      "BR-IP-09",
+      "BR-IP-10"
+    ],
+    "BASE": [
+      "BR-IG-01",
+      "BR-IG-02",
+      "BR-IG-03",
+      "BR-IG-04",
+      "BR-IG-05",
+      "BR-IG-06",
+      "BR-IG-07",
+      "BR-IG-08",
+      "BR-IG-09",
+      "BR-IG-10",
+      "BR-IP-01",
+      "BR-IP-02",
+      "BR-IP-03",
+      "BR-IP-04",
+      "BR-IP-05",
+      "BR-IP-06",
+      "BR-IP-07",
+      "BR-IP-08",
+      "BR-IP-09",
+      "BR-IP-10"
+    ],
+    "V1": [],
+    "V2": []
+  },
+  "probes": [
+    {
+      "probe": "L-line-0",
+      "cii_sha256": "a1cfd35cccc1fb51dc1dcf8f4247b343ffccad5b6ae6ace32705863306908a29",
+      "ubl_sha256": "88305484c5e1356aea75384e2a702cc748e3b27d0d5e5be7930a41ce3f0d8c4d",
+      "UBL": [],
+      "PUBLISHED": [
+        "BR-IP-05"
+      ],
+      "BASE": [
+        "BR-IP-05"
+      ],
+      "V1": [
+        "BR-IG-05"
+      ],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IP-05"
+        ],
+        "BASE": [
+          "BR-IP-05"
+        ],
+        "V1": [
+          "BR-IG-05"
+        ],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "BR-IP-05",
+        "BASE": "BR-IP-05",
+        "V1": "BR-IG-05",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "L-line-7",
+      "cii_sha256": "3885bbcbbbb6e75ef41fc594cb16bd930af72ad9012bf9fa73eac5dbdfac89d4",
+      "ubl_sha256": "26763e0d7de638061cde2caf7a3b84091414db3067aa77a56c872748f1d55f1d",
+      "UBL": [],
+      "PUBLISHED": [],
+      "BASE": [],
+      "V1": [],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": true,
+        "BASE": true,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [],
+        "BASE": [],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "none",
+        "BASE": "none",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "L-line-neg",
+      "cii_sha256": "8985a8060f0c9b864fe94fdbe7dd78c29afa71be86180edb1acf15f47ab9d8c0",
+      "ubl_sha256": "e7312e127038792b3a5141edaaa3a115a7135d379be352c6f82ed55d996b6ebb",
+      "UBL": [
+        "BR-IG-05",
+        "BR-IG-08"
+      ],
+      "PUBLISHED": [
+        "BR-IP-05"
+      ],
+      "BASE": [
+        "BR-IP-05"
+      ],
+      "V1": [
+        "BR-IG-05"
+      ],
+      "V2": [
+        "BR-IG-05"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": false
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-05",
+          "BR-IG-08",
+          "BR-IP-05"
+        ],
+        "BASE": [
+          "BR-IG-05",
+          "BR-IG-08",
+          "BR-IP-05"
+        ],
+        "V1": [
+          "BR-IG-08"
+        ],
+        "V2": [
+          "BR-IG-08"
+        ]
+      },
+      "rate_rule": {
+        "UBL": "BR-IG-05",
+        "PUBLISHED": "BR-IP-05",
+        "BASE": "BR-IP-05",
+        "V1": "BR-IG-05",
+        "V2": "BR-IG-05"
+      }
+    },
+    {
+      "probe": "L-line-absent",
+      "cii_sha256": "ce2e2b39f23f9c79b521313c70f92eff9e54350a4faa0623677203dde88616d4",
+      "ubl_sha256": "2e57119904b3c86d637960123fed8d1c539091fa4a6d3dcebfc58abb5df88996",
+      "UBL": [
+        "BR-IG-05",
+        "BR-IG-08"
+      ],
+      "PUBLISHED": [
+        "BR-IP-05"
+      ],
+      "BASE": [
+        "BR-IP-05"
+      ],
+      "V1": [
+        "BR-IG-05"
+      ],
+      "V2": [
+        "BR-IG-05"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": false
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-05",
+          "BR-IG-08",
+          "BR-IP-05"
+        ],
+        "BASE": [
+          "BR-IG-05",
+          "BR-IG-08",
+          "BR-IP-05"
+        ],
+        "V1": [
+          "BR-IG-08"
+        ],
+        "V2": [
+          "BR-IG-08"
+        ]
+      },
+      "rate_rule": {
+        "UBL": "BR-IG-05",
+        "PUBLISHED": "BR-IP-05",
+        "BASE": "BR-IP-05",
+        "V1": "BR-IG-05",
+        "V2": "BR-IG-05"
+      }
+    },
+    {
+      "probe": "L-doc-0",
+      "cii_sha256": "1cab3981e8ee1c8908e70ba35dc46d1a3316865934d66462cb2a1470572b0224",
+      "ubl_sha256": "e9f7768c9a6f58113bceb4067f14d10852877accbdf1e2046805952040250869",
+      "UBL": [],
+      "PUBLISHED": [
+        "BR-IP-05",
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "BASE": [
+        "BR-IP-05",
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "V1": [
+        "BR-IG-05"
+      ],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IP-05",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "BASE": [
+          "BR-IP-05",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "V1": [
+          "BR-IG-05"
+        ],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "BR-IP-06, BR-IP-07",
+        "BASE": "BR-IP-06, BR-IP-07",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "L-doc-7",
+      "cii_sha256": "62f4f958643cc20aebe03a8249231ccf2380ea5de47f10c7669db96135a8bfba",
+      "ubl_sha256": "49d8fc6d3c9109afe4ced2f274288aa09a9e985558b0c6559f1b84f5fa813573",
+      "UBL": [],
+      "PUBLISHED": [
+        "BR-IP-05"
+      ],
+      "BASE": [
+        "BR-IP-05"
+      ],
+      "V1": [
+        "BR-IG-05"
+      ],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IP-05"
+        ],
+        "BASE": [
+          "BR-IP-05"
+        ],
+        "V1": [
+          "BR-IG-05"
+        ],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "none",
+        "BASE": "none",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "L-doc-neg",
+      "cii_sha256": "f26e9195812a74d43a347e1f98ddb1878d7c94e925ad14d4478f6274025a66c5",
+      "ubl_sha256": "0e5b998137dc7730c59eba92fc45797324dd4d783bc8598f68e5f5cec5399634",
+      "UBL": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "PUBLISHED": [
+        "BR-IP-05",
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "BASE": [
+        "BR-IP-05",
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "V1": [
+        "BR-IG-05",
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "V2": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-05",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "BASE": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-05",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "V1": [
+          "BR-IG-05"
+        ],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "BR-IG-06, BR-IG-07",
+        "PUBLISHED": "BR-IP-06, BR-IP-07",
+        "BASE": "BR-IP-06, BR-IP-07",
+        "V1": "BR-IG-06, BR-IG-07",
+        "V2": "BR-IG-06, BR-IG-07"
+      }
+    },
+    {
+      "probe": "L-doc-absent",
+      "cii_sha256": "e0eba5304dd861f2fbdac86e18675852141bb1a550f57caa9a536a6b306ae5af",
+      "ubl_sha256": "5472106c260da506a5dbb5a359e4476ba641a63273e93d596013a2b1faff1874",
+      "UBL": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "PUBLISHED": [
+        "BR-IP-05",
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "BASE": [
+        "BR-IP-05",
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "V1": [
+        "BR-IG-05",
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "V2": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-05",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "BASE": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-05",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "V1": [
+          "BR-IG-05"
+        ],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "BR-IG-06, BR-IG-07",
+        "PUBLISHED": "BR-IP-06, BR-IP-07",
+        "BASE": "BR-IP-06, BR-IP-07",
+        "V1": "BR-IG-06, BR-IG-07",
+        "V2": "BR-IG-06, BR-IG-07"
+      }
+    },
+    {
+      "probe": "M-line-0",
+      "cii_sha256": "8c8437745ac37c5ee051e866bc9e14bbd063f20dc8825177a676e8b55e921e8f",
+      "ubl_sha256": "d8ac0e064007baa851470b8756be1ec47b151756368f33a717fb86f0d1aa657a",
+      "UBL": [],
+      "PUBLISHED": [],
+      "BASE": [],
+      "V1": [],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": true,
+        "BASE": true,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [],
+        "BASE": [],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "none",
+        "BASE": "none",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "M-line-7",
+      "cii_sha256": "eb9edf4f3f9847e3858d9f47732b7aba2626f20cf9e7067678e0e135a7a75236",
+      "ubl_sha256": "b93ff7c1d9947a6cb45bf1a64a38ce4647cf7e92390655a61f4bb08ceb2af447",
+      "UBL": [],
+      "PUBLISHED": [],
+      "BASE": [],
+      "V1": [],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": true,
+        "BASE": true,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [],
+        "BASE": [],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "none",
+        "BASE": "none",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "M-line-neg",
+      "cii_sha256": "b1077c816383e8017c0bcba0ca8596b143285ddf58cefa03830dc4db05a1ba41",
+      "ubl_sha256": "0fc936a77fcf2d7ec8e9edcc2e81ad9c670c8075ffbd3a5f1015d50cdf300175",
+      "UBL": [
+        "BR-IP-05",
+        "BR-IP-08"
+      ],
+      "PUBLISHED": [
+        "BR-IG-05"
+      ],
+      "BASE": [
+        "BR-IG-05"
+      ],
+      "V1": [
+        "BR-IP-05"
+      ],
+      "V2": [
+        "BR-IP-05"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": false
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-05",
+          "BR-IP-05",
+          "BR-IP-08"
+        ],
+        "BASE": [
+          "BR-IG-05",
+          "BR-IP-05",
+          "BR-IP-08"
+        ],
+        "V1": [
+          "BR-IP-08"
+        ],
+        "V2": [
+          "BR-IP-08"
+        ]
+      },
+      "rate_rule": {
+        "UBL": "BR-IP-05",
+        "PUBLISHED": "BR-IG-05",
+        "BASE": "BR-IG-05",
+        "V1": "BR-IP-05",
+        "V2": "BR-IP-05"
+      }
+    },
+    {
+      "probe": "M-line-absent",
+      "cii_sha256": "4a5ff67a447e1a172e88ee80df133d053757a7836b5b675d6b9ca2e8c3464f3f",
+      "ubl_sha256": "36bb994380378b63715b70ef091feea62bab7bd50e0b4367ab9c6ad02c2ccd14",
+      "UBL": [
+        "BR-IP-05",
+        "BR-IP-08"
+      ],
+      "PUBLISHED": [
+        "BR-IG-05"
+      ],
+      "BASE": [
+        "BR-IG-05"
+      ],
+      "V1": [
+        "BR-IP-05"
+      ],
+      "V2": [
+        "BR-IP-05"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": false,
+        "V2": false
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-05",
+          "BR-IP-05",
+          "BR-IP-08"
+        ],
+        "BASE": [
+          "BR-IG-05",
+          "BR-IP-05",
+          "BR-IP-08"
+        ],
+        "V1": [
+          "BR-IP-08"
+        ],
+        "V2": [
+          "BR-IP-08"
+        ]
+      },
+      "rate_rule": {
+        "UBL": "BR-IP-05",
+        "PUBLISHED": "BR-IG-05",
+        "BASE": "BR-IG-05",
+        "V1": "BR-IP-05",
+        "V2": "BR-IP-05"
+      }
+    },
+    {
+      "probe": "M-doc-0",
+      "cii_sha256": "6c329581dab691a72aee421c994280138ac5a2a0cd591b1863c1d561adb0e044",
+      "ubl_sha256": "62ddef02bf5f97bf8a3d494ef58a07926fe862a2cb62eebc090118ab321d3614",
+      "UBL": [],
+      "PUBLISHED": [],
+      "BASE": [],
+      "V1": [],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": true,
+        "BASE": true,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [],
+        "BASE": [],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "none",
+        "BASE": "none",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "M-doc-7",
+      "cii_sha256": "390a2bcac769cf996a0516e52e15fb6a180cab9f916307258d592aff3b339ccb",
+      "ubl_sha256": "c2fdccbc02b79df02bb4de4046f1ce542dd0ab9d9325bf036f3a1df0cd6e947d",
+      "UBL": [],
+      "PUBLISHED": [],
+      "BASE": [],
+      "V1": [],
+      "V2": [],
+      "family_match": {
+        "PUBLISHED": true,
+        "BASE": true,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [],
+        "BASE": [],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "none",
+        "PUBLISHED": "none",
+        "BASE": "none",
+        "V1": "none",
+        "V2": "none"
+      }
+    },
+    {
+      "probe": "M-doc-neg",
+      "cii_sha256": "1a51ec2335a1c6f8a79813ee1233a665b3dbec1d2f140eff622785d0b7a9e22d",
+      "ubl_sha256": "a1edf9c3fa31880849774e0f9678cd490d719b7580ed9730611b013f75b80425",
+      "UBL": [
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "PUBLISHED": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "BASE": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "V1": [
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "V2": [
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "BASE": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "BR-IP-06, BR-IP-07",
+        "PUBLISHED": "BR-IG-06, BR-IG-07",
+        "BASE": "BR-IG-06, BR-IG-07",
+        "V1": "BR-IP-06, BR-IP-07",
+        "V2": "BR-IP-06, BR-IP-07"
+      }
+    },
+    {
+      "probe": "M-doc-absent",
+      "cii_sha256": "a1e809d47e23b4320f9b20700c3da8981949494876b7fc8d58129b42fcd30108",
+      "ubl_sha256": "b30d7c38f9fa4208dfd2153ec4d1ea2e6843afc3a918bd04c14431285713da11",
+      "UBL": [
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "PUBLISHED": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "BASE": [
+        "BR-IG-06",
+        "BR-IG-07"
+      ],
+      "V1": [
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "V2": [
+        "BR-IP-06",
+        "BR-IP-07"
+      ],
+      "family_match": {
+        "PUBLISHED": false,
+        "BASE": false,
+        "V1": true,
+        "V2": true
+      },
+      "family_diff_vs_ubl": {
+        "PUBLISHED": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "BASE": [
+          "BR-IG-06",
+          "BR-IG-07",
+          "BR-IP-06",
+          "BR-IP-07"
+        ],
+        "V1": [],
+        "V2": []
+      },
+      "rate_rule": {
+        "UBL": "BR-IP-06, BR-IP-07",
+        "PUBLISHED": "BR-IG-06, BR-IG-07",
+        "BASE": "BR-IG-06, BR-IG-07",
+        "V1": "BR-IP-06, BR-IP-07",
+        "V2": "BR-IP-06, BR-IP-07"
+      }
+    }
+  ],
+  "nonreg": [
+    {
+      "doc": "fixtures/CII-BR-CO-10-RoundingIssue.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "04711e7a649e3f28bf4e54cff901fd8cab5e6fdc91141c60a0553b9f0784a998"
+    },
+    {
+      "doc": "fixtures/CII_business_example_01.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "2ce8286333f4c2019166c505642963e1222f54c18558ae4210fd41fd5d526b2f"
+    },
+    {
+      "doc": "fixtures/CII_business_example_02.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "53a636ac10592aa6fdc280190a366955380a64883519a4d58926b96802eb7163"
+    },
+    {
+      "doc": "fixtures/CII_business_example_Z.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "68222346e14dfff673ae32b349f4efef054bd8e55f10370d0fcba1ec55262d56"
+    },
+    {
+      "doc": "fixtures/CII_example1.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "0c12e3ca9aab58299e6271b89d061274694c62159510ca2d848f13d287ee4f99"
+    },
+    {
+      "doc": "fixtures/CII_example3.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "5c2e9de624dc72fcc7249cb82924fd443aa140b04b30da2a8549775d39caa377"
+    },
+    {
+      "doc": "fixtures/CII_example5.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "473b2f9bd47b807804db7f8729eecbdd4b404c6232aca31262897bd5371d802b"
+    },
+    {
+      "doc": "fixtures/XRechnung-O.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "399acf31a9c7ce4722b1362fe429f8326a132a0a9c01e5792e4f6bc266c982bb"
+    },
+    {
+      "doc": "fixtures/huf_example_cii.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "fad73604fc1ff6ac4c762687bdf394d1f4fe14b5b8830d607abf1c1cdfc68758"
+    },
+    {
+      "doc": "examples/CII-BR-CO-10-RoundingIssue.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "04711e7a649e3f28bf4e54cff901fd8cab5e6fdc91141c60a0553b9f0784a998"
+    },
+    {
+      "doc": "examples/CII_business_example_01.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "2ce8286333f4c2019166c505642963e1222f54c18558ae4210fd41fd5d526b2f"
+    },
+    {
+      "doc": "examples/CII_business_example_02.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "53a636ac10592aa6fdc280190a366955380a64883519a4d58926b96802eb7163"
+    },
+    {
+      "doc": "examples/CII_business_example_Z.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "68222346e14dfff673ae32b349f4efef054bd8e55f10370d0fcba1ec55262d56"
+    },
+    {
+      "doc": "examples/CII_example1.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "0c12e3ca9aab58299e6271b89d061274694c62159510ca2d848f13d287ee4f99"
+    },
+    {
+      "doc": "examples/CII_example2.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "2ce8286333f4c2019166c505642963e1222f54c18558ae4210fd41fd5d526b2f"
+    },
+    {
+      "doc": "examples/CII_example3.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "5c2e9de624dc72fcc7249cb82924fd443aa140b04b30da2a8549775d39caa377"
+    },
+    {
+      "doc": "examples/CII_example4.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "deb7101f27855d21f9b7678cc1ab713c5fa34f7471a68ff78601d77517dc872b"
+    },
+    {
+      "doc": "examples/CII_example5.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "473b2f9bd47b807804db7f8729eecbdd4b404c6232aca31262897bd5371d802b"
+    },
+    {
+      "doc": "examples/CII_example6.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "23ef86c42478edd7f8cb57da6637a6588f3c80546e2ba64149b21172c502eea8"
+    },
+    {
+      "doc": "examples/CII_example7.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "0f3ccc7dd0f96e871099f6bab84d6c80cb39e7cd87512d09a76b670338a9fd7f"
+    },
+    {
+      "doc": "examples/CII_example8.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "28af1d24e201be9c48fcef2091881bebe8b5323a2c6889abce9cdc1a613b37e2"
+    },
+    {
+      "doc": "examples/CII_example9.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "e43f32e9307d79772575d5d78d949879938a631f9d3ed0a7a6406115e1206433"
+    },
+    {
+      "doc": "examples/XRechnung-O.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "399acf31a9c7ce4722b1362fe429f8326a132a0a9c01e5792e4f6bc266c982bb"
+    },
+    {
+      "doc": "examples/huf_example_cii.xml",
+      "failed_asserts": 0,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "sha256": "fad73604fc1ff6ac4c762687bdf394d1f4fe14b5b8830d607abf1c1cdfc68758"
+    },
+    {
+      "doc": "vefa/BR-CO-15-2.xml#1",
+      "failed_asserts": 18,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-15-2.xml#2",
+      "failed_asserts": 19,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-15-2.xml#3",
+      "failed_asserts": 18,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-15-2.xml#4",
+      "failed_asserts": 20,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-17.xml#1",
+      "failed_asserts": 13,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-17.xml#2",
+      "failed_asserts": 14,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-17.xml#3",
+      "failed_asserts": 14,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-17.xml#4",
+      "failed_asserts": 15,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    },
+    {
+      "doc": "vefa/BR-CO-17.xml#5",
+      "failed_asserts": 15,
+      "same_as_published": {
+        "V1": true,
+        "V2": true
+      },
+      "vefa_expectations_met": {
+        "PUBLISHED": true,
+        "V1": true,
+        "V2": true
+      }
+    }
+  ],
+  "mismatches": [
+    "L-line-0: V1 BR-IG/BR-IP ids differ from UBL",
+    "L-line-neg: V1 BR-IG/BR-IP ids differ from UBL",
+    "L-line-neg: V2 BR-IG/BR-IP ids differ from UBL",
+    "L-line-absent: V1 BR-IG/BR-IP ids differ from UBL",
+    "L-line-absent: V2 BR-IG/BR-IP ids differ from UBL",
+    "L-doc-0: V1 BR-IG/BR-IP ids differ from UBL",
+    "L-doc-7: V1 BR-IG/BR-IP ids differ from UBL",
+    "L-doc-neg: V1 BR-IG/BR-IP ids differ from UBL",
+    "L-doc-absent: V1 BR-IG/BR-IP ids differ from UBL",
+    "M-line-neg: V1 BR-IG/BR-IP ids differ from UBL",
+    "M-line-neg: V2 BR-IG/BR-IP ids differ from UBL",
+    "M-line-absent: V1 BR-IG/BR-IP ids differ from UBL",
+    "M-line-absent: V2 BR-IG/BR-IP ids differ from UBL"
+  ]
+}
