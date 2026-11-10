@@ -34,7 +34,7 @@ Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résul
 - Distinction explicite : « la règle devrait normativement couvrir ce cas » vs « simple attente de test ».
 - Les `id` viennent de l'attribut `id` du SVRL officiel. Les octets des factures ne sont pas journalisés.
 
-## Comptage (36 sondes)
+## Comptage (38 sondes)
 
 | Classe | n | Sens |
 |---|---:|---|
@@ -45,9 +45,10 @@ Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résul
 | **Runtime #509** | **4** | repro indépendante BR-CL-15 / BT-159 `AN`/`SS` (pas un 5e finding) — **corrigé en 1.3.17** : les deux syntaxes rejettent `AN` et acceptent `SS` |
 | **Runtime #510** | **3** | repro indépendante BR-CL-08 / BT-21 `BAT` + wrap UBL `#AAI#`/`#BAT#` (pas un 5e finding) — **corrigé en 1.3.17** : les deux syntaxes acceptent `BAT` |
 | **Runtime 533** | **4** | repro indépendante IGIC / IPSI `L` / `M` (pas un 5e finding) — **ouvert en 1.3.17** : même mutation d'une ligne, ids ou verdict différents selon la syntaxe |
+| **Runtime 532** | **2** | suivi de l'issue amont 532 (pas un finding Lab) — BT-31 vendeur `EL` : 0 failed-assert en 1.3.16, 1 `BR-CO-09` fatal en 1.3.17, CII et UBL |
 | **Erreur moteur** | **2** | Saxon FORG0001, pas de SVRL (pas un passage silencieux) |
 
-4 *findings* d'angle mort (plusieurs sondes par finding ; FINDING 2 corrigé en 1.3.17). 8 observations. 6 contrôles où la règle tire (5 en 1.3.16). 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 4 sondes runtime 533 (IGIC / IPSI, BT-151 `L` / `M`). 2 erreurs `xs:decimal`. Lot principal **34** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
+4 *findings* d'angle mort (plusieurs sondes par finding ; FINDING 2 corrigé en 1.3.17). 8 observations. 6 contrôles où la règle tire (5 en 1.3.16). 1 voisin leap-valide. 4 sondes runtime #509 (BR-CL-15 / BT-159). 3 sondes runtime #510 (BR-CL-08 / BT-21 BAT). 4 sondes runtime 533 (IGIC / IPSI, BT-151 `L` / `M`). 2 sondes runtime 532 (BR-CO-09 / BT-31 `EL`). 2 erreurs `xs:decimal`. Lot principal **36** XML (`GAPS_FIXTURE_COUNT`) ; engine-errors restent **2**.
 
 ## Table des sondes
 
@@ -87,10 +88,12 @@ Les 26 autres sondes principales et les 2 erreurs moteur donnent le même résul
 | `gaps/CII_business_example_Z-bt151-M.xml` | Z | L62 BT-151 `Z` → `M` (IPSI, taux ligne déjà `0.00`) | 2 | `BR-IG-01`, `BR-Z-08` | **runtime 533** | `gaps/receipts/CII_business_example_Z-bt151-M.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-bt151-L.xml` | ubl | L121 BT-151 `E` → `L` (IGIC, taux ligne déjà `0.00`) | 2 | `BR-IG-01`, `BR-E-08` | **runtime 533** | `gaps/receipts/ubl-tc434-creditnote1-bt151-L.svrl.xml` |
 | `gaps/ubl-tc434-creditnote1-bt151-M.xml` | ubl | L121 BT-151 `E` → `M` (IPSI, taux ligne déjà `0.00`) | 2 | `BR-IP-01`, `BR-E-08` | **runtime 533** | `gaps/receipts/ubl-tc434-creditnote1-bt151-M.svrl.xml` |
+| `gaps/CII_example1-bt31-EL.xml` | ex1 | L586 BT-31 `NL8200.98.395.B.01` → `EL8200.98.395.B.01` | 1 | `BR-CO-09` | **runtime 532** (0 en 1.3.16) | `gaps/receipts/CII_example1-bt31-EL.svrl.xml` |
+| `gaps/ubl-tc434-creditnote1-bt31-EL.xml` | ubl | L36 BT-31 `BE0000000196` → `EL0000000196` | 1 | `BR-CO-09` | **runtime 532** (0 en 1.3.16) | `gaps/receipts/ubl-tc434-creditnote1-bt31-EL.svrl.xml` |
 | `gaps/engine-errors/CII_business_example_Z-dec-1E100.xml` | Z | L190 BT-112 → `1E+100` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-1E100.engine-error.txt` |
 | `gaps/engine-errors/CII_business_example_Z-dec-sci.xml` | Z | L190 BT-112 → `1169387E-2` | — | FORG0001 | erreur moteur | `gaps/engine-errors/receipts/CII_business_example_Z-dec-sci.engine-error.txt` |
 
-`gaps/receipts/RESULTS.sha256` (34 XML du lot, hors engine-errors) = `8f17d3896af7941c4ef6118d8ec6bceedb286b1d2d7a4a8941e026536ba678da`
+`gaps/receipts/RESULTS.sha256` (36 XML du lot, hors engine-errors) = `2c32ab6c3da8a6f3943457192cc63b8f82770af9846abcbde077c74f07ad1125`
 
 ---
 
@@ -131,6 +134,15 @@ test="( contains( ' 1A AD AE … ZW ', substring(cbc:CompanyID,1,2) ) )"
 ## FINDING 2 — UBL BR-CO-09 : `contains` sans bornes (lettre unique `A`) — corrigé en 1.3.17
 
 **Corrigé en 1.3.17** ([#515](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/515), [notes de version](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17)) : le test UBL encadre maintenant le préfixe, `contains( ' 1A AD AE … ZW ', concat(' ', substring(cbc:CompanyID,1,2), ' '))`, comme le CII. Rejoué le 18 oct. 2026 : `gaps/ubl-tc434-creditnote1-bt31-A.xml` → **1 failed-assert `BR-CO-09`**. Le texte ci-dessous décrit 1.3.16.
+
+**Effet de bord en 1.3.17 — préfixe `EL` (suivi de l'issue amont [#532](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/532), ouverte par greedwhale le 13 oct. 2026 ; pas un finding Lab) :** le commit amont `f55c0c65` (« aligns codelists for country codes #509 », correctif de [#509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509), issue ouverte par bgo-mat) retire `EL` de la liste de BR-CO-09, dans les deux syntaxes. Le texte de l'assert dit toujours *« Nevertheless, Greece may use the prefix ‘EL’ »*. Deux sondes du dépôt, une ligne chacune, seul le préfixe de BT-31 (vendeur) change, le reste de la valeur est conservé : `gaps/CII_example1-bt31-EL.xml` (`fixtures/CII_example1.xml` L586 `NL8200.98.395.B.01` → `EL8200.98.395.B.01`) et `gaps/ubl-tc434-creditnote1-bt31-EL.xml` (`fixtures/ubl-tc434-creditnote1.xml` L36 `BE0000000196` → `EL0000000196`). **La sonde UBL est un avoir (`CreditNote`), pas une `Invoice`** : `fixtures/` ne contient pas d'exemple UBL `Invoice`.
+
+| Sonde | 1.3.16 | 1.3.17 |
+|---|---|---|
+| `gaps/CII_example1-bt31-EL.xml` | 0 failed-assert (423 fired-rule) | **1 `BR-CO-09` fatal** (403 fired-rule) |
+| `gaps/ubl-tc434-creditnote1-bt31-EL.xml` | 0 failed-assert (53 fired-rule) | **1 `BR-CO-09` fatal** (53 fired-rule) |
+
+Contrôle hors `EL` : les originaux (`NL…` en CII, `BE…` en UBL) restent à 0 failed-assert en 1.3.17 (`oracles/receipts/CII_example1.svrl.xml`, `oracles/receipts/ubl-tc434-creditnote1.svrl.xml`) ; pas de sonde `GR` ajoutée. Recettes 1.3.17 : `gaps/receipts/CII_example1-bt31-EL.svrl.xml`, `gaps/receipts/ubl-tc434-creditnote1-bt31-EL.svrl.xml` (XSLT vendored CII `0757f079…`, UBL `fc4e6cfa…`). Colonne 1.3.16 : `scripts/validate.py` du commit `2bccec73` de ce dépôt (XSLT 1.3.16 vendored, CII `0b234dea…`, UBL `39f9d282…`), mêmes octets de sonde ; recettes 1.3.16 non versionnées. SaxonC-HE 13.0, deux passes identiques.
 
 **Contre-test :** `ubl-tc434-creditnote1` BT-31 → `A`. **0 failed-assert** (53 fired-rule).
 
@@ -308,7 +320,7 @@ KoSIT 1.6.3 (scénarios EN) corrobore les mêmes verdicts (CII SS REJECT / UBL S
 - **BR-CL-14** = la même paire 251-token sur les pays d'adresse (`ram:CountryID` · `cac:Country/cbc:IdentificationCode`). Listé sur #509. IMPACT_MAP seulement. **Non minté.**
 - **BR-CO-09** = listé sur #509 (préfixe d'identifiant TVA / ISO 3166-1). Mention de suivi seulement. **Non minté.**
 
-Gate #4 : `GAPS_FIXTURE_COUNT` **34**, pin `gaps/receipts/RESULTS.sha256` = `8f17d3896af7941c4ef6118d8ec6bceedb286b1d2d7a4a8941e026536ba678da`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate #4 : `GAPS_FIXTURE_COUNT` **36**, pin `gaps/receipts/RESULTS.sha256` = `2c32ab6c3da8a6f3943457192cc63b8f82770af9846abcbde077c74f07ad1125`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
 
 
 ---
@@ -361,7 +373,7 @@ Gate polarité : `scripts/check_brcl08_polarity.py` parse les SVRL commités (pa
 - Les **17** autres codes de la liste #510 (`BAU` … `CCO`) : IMPACT_MAP seulement. **Non mintés.**
 - **BR-CL-14** / **BR-CO-09** : **non mintés** (hors périmètre #510).
 
-Gate : `GAPS_FIXTURE_COUNT` **34**, pin `gaps/receipts/RESULTS.sha256` = `8f17d3896af7941c4ef6118d8ec6bceedb286b1d2d7a4a8941e026536ba678da`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
+Gate : `GAPS_FIXTURE_COUNT` **36**, pin `gaps/receipts/RESULTS.sha256` = `2c32ab6c3da8a6f3943457192cc63b8f82770af9846abcbde077c74f07ad1125`. Chaque `document` / `documents` SVRL = exactement `file:<basename.xml>`.
 
 ---
 
@@ -415,7 +427,7 @@ Sources Schematron des zips de la release : CII `schematron/CII/EN16931-CII-mode
 À la racine du dépôt :
 
 ```bash
-# 34 sondes (lot principal, ignore expected.json)
+# 36 sondes (lot principal, ignore expected.json)
 .venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected
 
 # polarité BR-CL-08 / BT-21 BAT (casse si une sonde AAI/BAT se met à échouer)
