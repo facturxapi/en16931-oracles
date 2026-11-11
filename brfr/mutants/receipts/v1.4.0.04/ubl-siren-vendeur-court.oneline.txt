@@ -1,0 +1,1 @@
+ubl-siren-vendeur-court.xml	tag=v1.4.0.04	syntax=ubl	failed=2	ids=BR-FR-10_BT-30,BR-FR-32-LEGALID	sha256=14eb33de033e420a5a3bd410792ae003fa4a5dcc7af86a8ecce2dccfeff3e9b1	xslt=5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631

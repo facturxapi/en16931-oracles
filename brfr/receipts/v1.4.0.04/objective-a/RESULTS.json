@@ -1,0 +1,1 @@
+{"date":"16 Aug 2026 PT","engine":"SaxonC-HE 13.0","results":[{"failed_assert":0,"file":"ubl-bt128-espace.xml","fired_rule":60,"ids":[],"sha256":"dbc90844873917001c30bb3046f9ccee8a12db4aad39431a0d47282f910449ef","syntax":"ubl","tag":"v1.4.0.04","xslt_sha256":"5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631"}],"tag":"v1.4.0.04"}

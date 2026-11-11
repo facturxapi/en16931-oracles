@@ -6,3 +6,7 @@ d1172c6e89cc17fcdafcaaaf2ad57c2d1d1a576ad7694b5a6e5514a7cec0c4db  vendor/v1.4.0.
 a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438  vendor/v1.4.0.02/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt
 d1172c6e89cc17fcdafcaaaf2ad57c2d1d1a576ad7694b5a6e5514a7cec0c4db  vendor/v1.4.0.03/cii-flux2/BR-FR-Flux2-Schematron-CII.sch
 a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438  vendor/v1.4.0.03/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt
+f31492eaa6ee5e0b8870128131a1ea2fce21a980d09897bcc386bc83a5e22cc5  vendor/v1.4.0.04/cii-flux2/BR-FR-Flux2-Schematron-CII.sch
+02c9b97965438c1f587269a07daa5191b15efd3408f913b57bd35570f439ef10  vendor/v1.4.0.04/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt
+b680823df7a6704f7e97ed6125f30ce33ca1d8ca7391e0572f8fc9a77fbc5eaf  vendor/v1.4.0.04/ubl-flux2/BR-FR-Flux2-Schematron-UBL.sch
+5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631  vendor/v1.4.0.04/ubl-flux2/BR-FR-Flux2-Schematron-UBL.xslt
