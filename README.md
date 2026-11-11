@@ -12,7 +12,7 @@ Upgrading to EN 16931 validation [1.3.17](https://github.com/ConnectingEurope/eI
 
 Use it to: check a validator upgrade before you ship it · run the probes against your own validator · cite a reproducible receipt in an upstream issue.
 
-Scope: this repository runs the vendored, unmodified ConnectingEurope EN 16931 validation-1.3.17 XSLT (and, in `brfr/`, the France_RFE Flux2 XSLT `v1.4.0.02` and `v1.4.0.03`; in `variants/533/`, two patched CII builds) with SaxonC-HE 13.0 on the files it contains, and states nothing about Factur-X / ZUGFeRD profile rulesets, other validators or commercial products.
+Scope: this repository runs the vendored, unmodified ConnectingEurope EN 16931 validation-1.3.17 XSLT (and, in `brfr/`, the France_RFE Flux2 XSLT `v1.4.0.02`, `v1.4.0.03` and `v1.4.0.04`; in `variants/533/`, two patched CII builds) with SaxonC-HE 13.0 on the files it contains, and states nothing about Factur-X / ZUGFeRD profile rulesets, other validators or commercial products.
 
 Maintained by FacturX API — https://facturxapi.com
 
@@ -81,16 +81,17 @@ Two more files in `gaps/engine-errors/` make Saxon stop before any SVRL (`FORG00
 
 ## Licences
 
-| Object | Licence |
-|---|---|
-| ConnectingEurope XML examples and XSLT (`fixtures/`, `vendor/`), unmodified | EUPL-1.2 — `LICENSE-EUPL-1.2.txt`, `NOTICE` |
-| Modified copies of those examples and XSLT (`gaps/`, `mutants/`, `variants/533/`) | EUPL-1.2 |
-| SVRL receipts | output of the official XSLT, see `LICENSE-NOTES.md` § 3 |
-| France_RFE Flux2 Schematron / XSLT under `brfr/vendor/` | Apache-2.0 — `brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt` |
-| FacturX prose in the `GAPS.md` sections marked CC-BY-4.0 | CC-BY-4.0 |
-| Other original prose and scripts | not decided yet — `LICENSE-NOTES.md` § 4 |
+Decision of 11 Nov 2026. Attribution: FacturX API (facturxapi.com).
 
-Details: [`LICENSE-NOTES.md`](LICENSE-NOTES.md).
+| Content | Licence |
+|---|---|
+| Unmodified ConnectingEurope files (`fixtures/`, `vendor/en16931-*`) | EUPL-1.2 (upstream, unchanged) |
+| Probes, mutants and variants (`gaps/`, `mutants/`, `variants/533/`): modified copies of CEN examples and artefacts | EUPL-1.2 (derivative works, art. 5) |
+| Our scripts, tests, workflows, receipts and `RESULTS` files | EUPL-1.2 |
+| Prose: `README.md`, `GAPS.md`, `oracles/*.md` and other notes | CC-BY-4.0 |
+| `brfr/vendor/` (unmodified France_RFE files) | Apache-2.0 (upstream, unchanged) |
+
+Texts: [`LICENSE`](LICENSE) (EUPL-1.2), [`LICENSE-CC-BY-4.0.txt`](LICENSE-CC-BY-4.0.txt), [`brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt`](brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt). Attributions: [`NOTICE`](NOTICE). Details: [`LICENSE-NOTES.md`](LICENSE-NOTES.md).
 
 ## Layout
 
@@ -101,7 +102,7 @@ Details: [`LICENSE-NOTES.md`](LICENSE-NOTES.md).
 - `gaps/` — one-line probes with receipts ([`GAPS.md`](GAPS.md))
 - `variants/533/` — CII fixes V1 / V2 for upstream issue 533, tested at runtime
 - `mapping/` — rule-id mapping proof, measured on 1.3.16 ([`MAPPING-PROOF.md`](MAPPING-PROOF.md))
-- `brfr/` — France_RFE Flux2 pack ([`brfr/README.md`](brfr/README.md))
+- `brfr/` — France_RFE Flux2 pack, `v1.4.0.02`, `v1.4.0.03` and `v1.4.0.04` ([`brfr/README.md`](brfr/README.md))
 - `scripts/` — runner and CI checks ([`scripts/README.md`](scripts/README.md))
 - `tests/` — unit tests for the CI checks
 
@@ -112,6 +113,8 @@ Details: [`LICENSE-NOTES.md`](LICENSE-NOTES.md).
 
 ## Changelog
 
+- **11 Nov 2026** — licence decision: EUPL-1.2 for code, data and receipts, CC-BY-4.0 for prose (see Licences); root `LICENSE` and `LICENSE-CC-BY-4.0.txt` added.
+- **11 Nov 2026** — `brfr/`: France_RFE `v1.4.0.04` replayed (artefacts, receipts, 24 probes), PR #16.
 - **10 Nov 2026** — two `EL` probes for upstream issue 532 (`gaps/`, 34 → 36 probes), PR #15.
 - **8 Nov 2026** — `variants/533/`: CII fixes V1 / V2 for upstream issue 533 tested at runtime, PR #14.
 - **18 Oct 2026** — four IGIC / IPSI probes for upstream issue 533 (`gaps/*-bt151-L/M`), PR #11.

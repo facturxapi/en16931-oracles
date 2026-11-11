@@ -2,6 +2,8 @@
 
 Dix copies des fixtures CEN EN16931 (exemples 1.3.17), **une mutation sémantique d'une ligne chacune**.
 
+**Modified work notice (EUPL 1.2, art. 5).** The 10 XML files in this folder are modified copies of the ConnectingEurope EN16931 validation examples in `../fixtures/` (one line changed in each, see `DIFFS.md`), modified on 16 Aug 2026. They stay under EUPL 1.2 (`../LICENSE-EUPL-1.2.txt`, `../NOTICE`).
+
 Ce n'est pas un corpus officiel. Les originaux restent dans `fixtures/` (SHA256 inchangés).
 
 | Fichier | Classe | ids 1.3.16 = 1.3.17 |
