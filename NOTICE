@@ -18,7 +18,13 @@ Le texte de la Licence accompagne cette arborescence :
   vendor/en16931-1.3.17/LICENSE.txt
   third-party/LICENSE-ConnectingEurope-EN16931.txt
 
-Le texte des oracles (oracles/*.md) n'est pas couvert par l'EUPL 1.2
-des artefacts ConnectingEurope.
-Licence du texte d'oracle : non décidée.
-Licence du code et de la prose originaux FacturXAPI : non décidée.
+Décision de licence du 11 novembre 2026 (FacturX API, facturxapi.com) :
+  - copies modifiées des exemples / artefacts CEN (gaps/, mutants/,
+    variants/533/) : EUPL 1.2 (œuvres dérivées, art. 5) ;
+  - scripts, tests, workflows, recettes SVRL et fichiers RESULTS : EUPL 1.2
+    (LICENSE, LICENSE-EUPL-1.2.txt) ;
+  - prose (README.md, GAPS.md, oracles/*.md et autres notes) : CC-BY-4.0
+    (LICENSE-CC-BY-4.0.txt). Attribution : « FacturX API (facturxapi.com) ».
+
+Les fichiers France_RFE sous brfr/vendor/ restent sous Apache-2.0
+(brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt), copies non modifiées.

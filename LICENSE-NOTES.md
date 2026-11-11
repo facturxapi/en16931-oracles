@@ -1,10 +1,10 @@
 # LICENSE-NOTES.md
 
 **Date de lecture des textes :** 16 août 2026 (Europe/Paris) ; release 1.3.17 lue le 18 oct. 2026.  
-**Objet :** obligations de redistribution des **seuls** fichiers CEN
-ConnectingEurope EN16931 1.3.17 (exemples XML + XSLT officiels).  
-**Hors périmètre :** aucune licence n'est choisie pour le *dépôt* ;
-aucune licence n'est choisie pour le *texte* des oracles.
+**Objet :** obligations de redistribution des fichiers CEN
+ConnectingEurope EN16931 1.3.17 (exemples XML + XSLT officiels) et des
+fichiers France_RFE Flux2 `v1.4.0.02`, `v1.4.0.03` et `v1.4.0.04` (`brfr/vendor/`) ;
+licence du dépôt (décision du 11 novembre 2026, § 4).
 
 Doctrine : on ne cite que des textes **effectivement lus** ce jour.
 On n'invente pas un « oui on peut » au-delà de l'EUPL 1.2 pour ces
@@ -113,9 +113,11 @@ l'origine du Work.
 | `variants/533/` : `patches/*.patch`, `xslt/V1`, `xslt/V2`, `probes/` | oui (œuvre dérivée du Work 1.3.17) | **oui** — sources Schematron CII modifiées le 8 nov. 2026 (V1 / V2) et XSLT régénérés ; sondes = copies modifiées de 2 exemples ; mention de modification et date dans `variants/533/README.md` | oui, sous EUPL 1.2 (copyleft, art. 5) |
 | `variants/533/xslt/BASE` | oui | **aucune** sur les sources — tag `validation-1.3.17` reconstruit par la chaîne amont (sans l'en-tête de licence de 5 lignes) | oui, avec notices + Licence |
 | `NOTICE`, `LICENSE-*.txt`, `third-party/` | notices / Licence elles-mêmes | — | jointes (art. 5 attribution) |
-| `oracles/*.md`, `oracles/INDEX.md` | **non** | — | licence du *texte* = **non décidée** |
-| `oracles/receipts/*.svrl.xml` | sortie machine de l'XSLT officiel sur un exemple officiel ; pas une modification du Work | — | recette de reproduction, pas un fork XSLT |
-| `scripts/validate.py`, `README.md`, `LICENSE-NOTES.md` | **non** (textes / outils de ce pack) | — | licence du *dépôt* = **non décidée** |
+| `gaps/*.xml`, `gaps/engine-errors/*.xml`, `mutants/*.xml` | oui (œuvres dérivées des exemples 1.3.16 / 1.3.17) | **oui** — une ligne modifiée par fichier ; mention de modification dans `gaps/README.md` et `mutants/README.md` | oui, sous EUPL 1.2 (art. 5) |
+| `oracles/*.md`, `oracles/INDEX.md` | **non** | — | prose FacturX API = **CC-BY-4.0** (décision du 11 nov. 2026) |
+| `*/receipts/*`, `RESULTS.json`, `RESULTS.sha256` | sortie machine de l'XSLT officiel ; pas une modification du Work | — | **EUPL 1.2** (décision du 11 nov. 2026) |
+| `scripts/`, `tests/`, `.github/workflows/`, `variants/533/*.py`, `brfr/scripts/` | **non** (outils FacturX API) | — | **EUPL 1.2** (décision du 11 nov. 2026) |
+| `README.md`, `GAPS.md`, `MUTANTS.md`, `MAPPING-PROOF.md`, `LICENSE-NOTES.md` et autres notes `.md` | **non** (prose FacturX API) | — | **CC-BY-4.0** (décision du 11 nov. 2026) |
 
 **Copies non modifiées.** Les 10 XML et les 2 XSLT ont les SHA256 du
 ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
@@ -123,12 +125,25 @@ ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
 
 ---
 
-## 4. Ce que cette note ne décide pas
+## 4. Licence du dépôt — décision du 11 novembre 2026
 
-- **Licence du dépôt** (code / prose FacturXAPI) : non décidée.
-  Ce fichier n'en choisit aucune (ni MIT, ni Apache-2.0, ni EUPL pour le repo).
-- **Licence du texte des oracles** : non décidée. L'EUPL 1.2
-  du Work ConnectingEurope ne s'étend pas à nos markdowns.
+| Contenu | Licence |
+|---|---|
+| Fichiers CEN non modifiés (`fixtures/`, `vendor/en16931-*`) | EUPL-1.2 (amont, inchangé) |
+| Sondes, mutants, `variants/533` (copies modifiées d'exemples CEN) | EUPL-1.2 (œuvres dérivées, art. 5) |
+| Nos scripts, tests, workflows, recettes, fichiers `RESULTS` | EUPL-1.2 |
+| Prose : README, GAPS.md, `oracles/*.md`, notes | CC-BY-4.0 |
+| `brfr/vendor/` (France_RFE non modifié) | Apache-2.0 (amont, inchangé) |
+
+Attribution : « FacturX API (facturxapi.com) ». Textes : `LICENSE` (copie de
+`LICENSE-EUPL-1.2.txt`), `LICENSE-CC-BY-4.0.txt` (legalcode lu sur
+https://creativecommons.org/licenses/by/4.0/legalcode.txt le 11 nov. 2026,
+SHA256 `9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411`,
+18657 octets ; copie du dépôt sans la dernière ligne vide finale),
+`brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt`.
+
+Hors périmètre :
+
 - **Factur-X / ZUGFeRD / FNFE / FeRD / lots 001–015 / AFNOR** : hors
   périmètre. Aucun de ces binaires n'est redistribué ici.
 - **Publication** : ce dépôt public est `facturxapi/en16931-oracles`.
@@ -148,14 +163,15 @@ ZIP officiel (voir `SHA256SUMS`, `fixtures/SHA256SUMS`,
 4. Fournir le Source Code (les XML/XSLT eux-mêmes) ou un pointeur vers
    le dépôt ConnectingEurope / la release `validation-1.3.17`.
 5. Si l'on **modifie** un XML ou un XSLT : mentionner la modification
-   et sa date (art. 5). **Ce pack ne le fait pas.**
+   et sa date (art. 5). Ce dépôt le fait pour `gaps/`, `mutants/` et
+   `variants/533/` (mention dans le README de chaque dossier).
 
 ---
 
 ## BR-FR / France_RFE Flux2 (pack `brfr/`) — notes lues 16 août 2026
 
 **Objet :** redistribution des **seuls** fichiers Flux2 utilisés sous
-`brfr/vendor/v1.4.0.02/` et `brfr/vendor/v1.4.0.03/` (`.sch` / `.xslt`
+`brfr/vendor/v1.4.0.02/`, `brfr/vendor/v1.4.0.03/` et `brfr/vendor/v1.4.0.04/` (`.sch` / `.xslt`
 UBL+CII Flux2), **sans** zipball entier (le zipball amont embarque aussi
 des artefacts CEN / XSD UBL hors périmètre de ce pack).
 
@@ -164,6 +180,7 @@ des artefacts CEN / XSD UBL hors périmètre de ce pack).
 | Texte | Source | Copie jointe |
 |---|---|---|
 | Apache License 2.0 (LICENSE racine du tag France_RFE) | https://raw.githubusercontent.com/fnfempe/France_RFE/v1.4.0.03/LICENSE | `brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt` |
+| Apache License 2.0 au tag `v1.4.0.04` (commit `97ba0f3d`), lu le 11 nov. 2026 | https://raw.githubusercontent.com/fnfempe/France_RFE/v1.4.0.04/LICENSE | même fichier : SHA256 `c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4`, 11357 octets, identique à la copie jointe |
 | En-têtes Schematron Flux2 (verbatim) | fichiers `.sch` vendored | inchangés |
 
 ### Licence applicable

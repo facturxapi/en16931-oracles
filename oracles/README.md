@@ -12,7 +12,7 @@ Statut : candidat machine-vérifié (0 failed-assert sur le XSLT officiel 1.3.17
 Pas une signature produit. Pas une preuve CIUS / Factur-X / BR-FR.
 ```
 
-Les notes `oracle-candidate-*.md` datent du 16 août 2026 (1.3.16) ; chacune porte en tête un bloc « Mise à jour 1.3.17 » avec la mesure du 18 octobre 2026. La doctrine existante n'a pas été réécrite. Licence du *texte* : non décidée. L'EUPL 1.2 couvre les XML/XSLT CEN, pas ces markdowns.
+Les notes `oracle-candidate-*.md` datent du 16 août 2026 (1.3.16) ; chacune porte en tête un bloc « Mise à jour 1.3.17 » avec la mesure du 18 octobre 2026. La doctrine existante n'a pas été réécrite. Licence du *texte* : CC-BY-4.0 (décision du 11 nov. 2026, `../LICENSE-NOTES.md` § 4). L'EUPL 1.2 couvre les XML/XSLT CEN et les recettes.
 
 `INDEX.md` est la copie de l'index des 10 candidats (16 août 2026).
 
