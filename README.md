@@ -1,53 +1,66 @@
-# EN16931 validation oracles
+# EN 16931 validation oracles
 
 [![Verify EN16931 oracle receipts](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/verify-receipts.yml) [![EN16931 upstream drift](https://github.com/facturxapi/en16931-oracles/actions/workflows/upstream-drift.yml/badge.svg)](https://github.com/facturxapi/en16931-oracles/actions/workflows/upstream-drift.yml)
 
-Reproducible machine verification of the official ConnectingEurope
-EN16931 1.3.17 validation artefacts (`eInvoicing-EN16931`).
+Upgrading to EN 16931 validation [1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17)? Some behaviour changes are not in the release notes. Each one below is a one-line probe with its SVRL receipt, replayable in one command.
 
-This repository publishes:
+| Change in 1.3.17 | Effect | Probe | Upstream (state read 11 Nov 2026) |
+|---|---|---|---|
+| Greek VAT prefix `EL` now fails `BR-CO-09` (CII and UBL). The list was aligned for #509; the assert text still says Greece may use `EL`. | Seller VAT id (BT-31) `EL…`: 0 failed-assert in 1.3.16, 1 fatal `BR-CO-09` in 1.3.17 | `gaps/CII_example1-bt31-EL.xml`, `gaps/ubl-tc434-creditnote1-bt31-EL.xml` | [532](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/532), open; reproduced here |
+| IGIC / IPSI rules renamed from `BR-AF-*` / `BR-AG-*` (#519) in opposite directions: IGIC is `BR-IP-*` in CII and `BR-IG-*` in UBL, IPSI the reverse. | Same one-line defect, a different rule id per syntax | `gaps/*-bt151-L.xml`, `gaps/*-bt151-M.xml`, [`variants/533/`](variants/533/README.md) | [533](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/533), open; reproduced here |
+| Fixed upstream in 1.3.17: BT-159 country `AN` / `SS` (CII now rejects `AN` and accepts `SS`), BT-21 subject `BAT` (UBL now accepts it), UBL `BR-CO-09` single letter `A` (now rejected) | 4 probes change verdict between 1.3.16 and 1.3.17 | `gaps/*-bt159-origin-AN.xml` / `-SS.xml`, `gaps/*-bt21-*BAT*.xml`, `gaps/ubl-tc434-creditnote1-bt31-A.xml` | [509](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/509), [510](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/510) closed, reproduced here; [515](https://github.com/ConnectingEurope/eInvoicing-EN16931/issues/515) closed, reported from here |
 
-- the **10** official ConnectingEurope example invoices used as oracles;
-- the official **CII** and **UBL** XSLT from validation-1.3.17 (vendored, unmodified);
-- SVRL receipts and a content-addressed `RESULTS.sha256`;
-- intentional **mutants** that must fail.
+Use it to: check a validator upgrade before you ship it · run the probes against your own validator · cite a reproducible receipt in an upstream issue.
 
-It does **not** claim anything about a commercial product, API, or runtime.
+Scope: this repository runs the vendored, unmodified ConnectingEurope EN 16931 validation-1.3.17 XSLT (and, in `brfr/`, the France_RFE Flux2 XSLT `v1.4.0.02` and `v1.4.0.03`; in `variants/533/`, two patched CII builds) with SaxonC-HE 13.0 on the files it contains, and states nothing about Factur-X / ZUGFeRD profile rulesets, other validators or commercial products.
 
-Updated to [validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17) on 18 Oct 2026. The 10 fixtures stay at 0 failed-assert and the 10 mutants fail on the same rule ids. `CII_example3.xml` is the new 1.3.17 copy (one `SpecifiedTradeSettlementPaymentMeans` block removed upstream); the other 9 fixtures are byte-identical to 1.3.16. Upstream renamed the IGIC rules `BR-AF-*` and the IPSI rules `BR-AG-*` (#519), but not the same way in both syntaxes: IGIC became `BR-IP-*` in CII and `BR-IG-*` in UBL, IPSI the reverse (measured by matching rule texts across the two vendored XSLT). No fixture, mutant or probe here cites those ids. Four `gaps/` probes changed verdict because upstream fixed #509, #510 and #515: see `GAPS.md`.
+Maintained by FacturX API — https://facturxapi.com
 
-## Which FacturX repo should I use?
-
-- [validate-einvoice](https://github.com/facturxapi/validate-einvoice) — GitHub Action that runs the official ConnectingEurope EN16931 1.3.17 XSLT artefacts (CII/UBL).
-- [en16931-oracles](https://github.com/facturxapi/en16931-oracles) — Replayable fixtures, receipts and mutants for that same 1.3.17 pin, plus a BR-FR pack for the French Flux2 rules (France_RFE `v1.4.0.02` / `v1.4.0.03`).
-- [awesome-einvoicing](https://github.com/facturxapi/awesome-einvoicing) — Sourced map of specs, validators, libraries and corpora. Inclusion is not a ranking.
-
-## Provenance and licences
-
-| Object | Licence |
-|---|---|
-| Official XML fixtures + XSLT | **EUPL 1.2** (ConnectingEurope / validation-1.3.17), unmodified copies |
-| Attribution | See `NOTICE` |
-| Licence notes | See `LICENSE-NOTES.md` and `LICENSE-EUPL-1.2.txt` |
-
-Oracle prose under `oracles/*.md` describes the machine-verified candidate status of each fixture.
-
-## Reproduce
+## Replay
 
 From the repository root:
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r scripts/requirements.txt && .venv/bin/python scripts/validate.py
+python3 -m venv .venv && .venv/bin/pip install -r scripts/requirements.txt
+.venv/bin/python scripts/validate.py                                                     # 10 fixtures, compared to scripts/expected.json
+.venv/bin/python scripts/validate.py --dir gaps --out-dir gaps/receipts --no-expected     # 36 gaps probes
+.venv/bin/python scripts/validate.py --dir mutants --out-dir mutants/receipts --no-expected  # 10 mutants, each must fail
+git diff --exit-code                                                                      # receipts are byte-stable
 ```
 
-- Default (`--mode reference`): vendored XSLT under `vendor/en16931-1.3.17/` + SaxonC-HE 13.0.
-- Mutants: `.venv/bin/python scripts/validate.py --dir mutants --no-expected` (expect failed-assert on each file).
+CI runs the same replays plus `scripts/verify_receipts.py`, `scripts/verify_gaps_receipts.py`, `scripts/check_brcl08_polarity.py`, `variants/533/run_533.py --check` and the unit tests in `tests/` ([workflow](.github/workflows/verify-receipts.yml)).
 
-Expected reference hash (also in `oracles/receipts/RESULTS.sha256`):
+Expected hashes:
 
 ```
-7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d  RESULTS.json
+7f812b376356c1ac3ab10b119d69c5e0c1f5b866b8914b08fe51132e60398c6d  oracles/receipts/RESULTS.json
+2c32ab6c3da8a6f3943457192cc63b8f82770af9846abcbde077c74f07ad1125  gaps/receipts/RESULTS.json
 ```
+
+## Run it on your own files
+
+```bash
+.venv/bin/python scripts/validate.py --dir /path/to/invoices --out-dir /tmp/en16931-receipts --no-expected
+```
+
+- The syntax is chosen from the file name: names starting with `ubl-` run the UBL XSLT, all others run the CII XSLT.
+- Always pass `--out-dir`: without it, receipts are written to `oracles/receipts/`.
+- Each file gets a `.svrl.xml` and a `.receipt.md`, plus a `RESULTS.json` / `RESULTS.sha256` for the set.
+
+In CI, [validate-einvoice](https://github.com/facturxapi/validate-einvoice) is a GitHub Action that runs the same ConnectingEurope XSLT (1.3.16 by default, 1.3.17 with `version: '1.3.17'`).
+
+## `gaps/`: one-line probes with receipts
+
+Each probe is a copy of a CEN example with one line changed, replayed on the 1.3.17 XSLT, with its SVRL receipt in `gaps/receipts/`. The 36 probes, by state in 1.3.17:
+
+| State in 1.3.17 | Probes | What it means |
+|---|---:|---|
+| Open | 14 | 8 cases where a rule's text covers the value but its test lets it through (BR-CO-09, CII-DT-097, BR-DEC-13), 4 IGIC / IPSI probes (533), 2 `EL` probes (532) |
+| Fixed in 1.3.17 | 8 | probes for 509 (4), 510 (3) and 515 (1) |
+| Observation | 8 | 0 failed-assert, and no rule claims to test the case |
+| Control | 6 | a rule fires as expected (5), or a valid neighbour passes (1) |
+
+Two more files in `gaps/engine-errors/` make Saxon stop before any SVRL (`FORG0001`). The four UBL probes for 509 / 510 derive from the official UBL example 5, which is not in `fixtures/`. Full table, rule texts and counter-tests: [`GAPS.md`](GAPS.md) (English summary on top, details in French).
 
 ## Fixtures (reference oracles)
 
@@ -64,30 +77,42 @@ Expected reference hash (also in `oracles/receipts/RESULTS.sha256`):
 | `huf_example_cii.xml` | CII | 0 failed-assert |
 | `ubl-tc434-creditnote1.xml` | UBL | 0 failed-assert |
 
-`XRechnung-O.xml` is an official EN16931 category-O CII example; it is **not** a CIUS XRechnung conformity claim.
+`XRechnung-O.xml` is an official EN 16931 category-O CII example, not an XRechnung CIUS conformity claim.
 
-## Out of scope
+## Licences
 
-- Factur-X 1.09.2 / ZUGFeRD product profiles
-- BR-FR / CTC-FR
-- Product quality, commercial APIs, or performance benchmarks
+| Object | Licence |
+|---|---|
+| ConnectingEurope XML examples and XSLT (`fixtures/`, `vendor/`), unmodified | EUPL-1.2 — `LICENSE-EUPL-1.2.txt`, `NOTICE` |
+| Modified copies of those examples and XSLT (`gaps/`, `mutants/`, `variants/533/`) | EUPL-1.2 |
+| SVRL receipts | output of the official XSLT, see `LICENSE-NOTES.md` § 3 |
+| France_RFE Flux2 Schematron / XSLT under `brfr/vendor/` | Apache-2.0 — `brfr/vendor/LICENSE-APACHE-2.0-France_RFE.txt` |
+| FacturX prose in the `GAPS.md` sections marked CC-BY-4.0 | CC-BY-4.0 |
+| Other original prose and scripts | not decided yet — `LICENSE-NOTES.md` § 4 |
+
+Details: [`LICENSE-NOTES.md`](LICENSE-NOTES.md).
 
 ## Layout
 
-- `fixtures/` — official examples
-- `oracles/` — candidate notes + SVRL receipts
-- `mutants/` — intentional failures
-- `gaps/` — extra fixtures (notes only; not a published findings list)
-- `vendor/en16931-1.3.17/` — official XSLT
-- `scripts/validate.py` — reproducible runner
+- `fixtures/` — 10 official ConnectingEurope examples (unmodified)
+- `vendor/en16931-1.3.17/` — official CII and UBL XSLT (unmodified)
+- `oracles/` — per-fixture notes and SVRL receipts
+- `mutants/` — 10 one-line mutants that must fail ([`MUTANTS.md`](MUTANTS.md))
+- `gaps/` — one-line probes with receipts ([`GAPS.md`](GAPS.md))
+- `variants/533/` — CII fixes V1 / V2 for upstream issue 533, tested at runtime
+- `mapping/` — rule-id mapping proof, measured on 1.3.16 ([`MAPPING-PROOF.md`](MAPPING-PROOF.md))
+- `brfr/` — France_RFE Flux2 pack ([`brfr/README.md`](brfr/README.md))
+- `scripts/` — runner and CI checks ([`scripts/README.md`](scripts/README.md))
+- `tests/` — unit tests for the CI checks
 
 ## See also
 
-- Why two validators can return different verdicts on the same XML (ITB 16/16 on this corpus, FNFE-MPE V1.4.0 calendar of 30 June 2026): https://facturxapi.com/blog/pourquoi-deux-validateurs-divergent
-- GitHub Action that runs the same official ConnectingEurope 1.3.17 XSLT artefacts: https://github.com/facturxapi/validate-einvoice
-- Sourced map of the European e-invoicing ecosystem: https://github.com/facturxapi/awesome-einvoicing
+- [validate-einvoice](https://github.com/facturxapi/validate-einvoice) — GitHub Action running the official ConnectingEurope XSLT on CII / UBL files.
+- [awesome-einvoicing](https://github.com/facturxapi/awesome-einvoicing) — sourced map of specs, validators, libraries and corpora.
 
-## BR-FR Flux2 pack (`brfr/`)
+## Changelog
 
-French Flux2 (France_RFE) dual-version fixtures, mutants, gaps, and receipts.
-See `brfr/README.md` and the BR-FR section of `LICENSE-NOTES.md`.
+- **10 Nov 2026** — two `EL` probes for upstream issue 532 (`gaps/`, 34 → 36 probes), PR #15.
+- **8 Nov 2026** — `variants/533/`: CII fixes V1 / V2 for upstream issue 533 tested at runtime, PR #14.
+- **18 Oct 2026** — four IGIC / IPSI probes for upstream issue 533 (`gaps/*-bt151-L/M`), PR #11.
+- **18 Oct 2026** — updated to [validation-1.3.17](https://github.com/ConnectingEurope/eInvoicing-EN16931/releases/tag/validation-1.3.17). The 10 fixtures stay at 0 failed-assert and the 10 mutants fail on the same rule ids. `CII_example3.xml` is the new 1.3.17 copy (one `SpecifiedTradeSettlementPaymentMeans` block removed upstream); the other 9 fixtures are byte-identical to 1.3.16. Upstream renamed the IGIC rules `BR-AF-*` and the IPSI rules `BR-AG-*` (#519), but not the same way in both syntaxes: IGIC became `BR-IP-*` in CII and `BR-IG-*` in UBL, IPSI the reverse (measured by matching rule texts across the two vendored XSLT). No fixture or mutant cites those ids. Four `gaps/` probes changed verdict because upstream fixed #509, #510 and #515: see `GAPS.md`.

@@ -1,5 +1,37 @@
 # Angles morts EN16931 (1.3.16, rejoué en 1.3.17) — ce que le XSLT officiel ne teste pas (ou teste trop peu)
 
+## Summary (English)
+
+<!-- Licence: original FacturX prose = CC-BY-4.0 only. XML/fixtures/SVRL/XSLT keep EUPL-1.2 (CEN). Do not relicense XML under CC-BY. -->
+
+This file documents 36 one-line probes (plus 2 engine errors) replayed on the vendored ConnectingEurope EN 16931 validation-1.3.17 XSLT with SaxonC-HE 13.0. Each probe is a copy of a CEN example from `fixtures/` (four UBL probes: official UBL example 5) with one line changed, and has an SVRL receipt in `gaps/receipts/`.
+
+- **Open in 1.3.17 (14 probes).** 8 cases where a rule's text covers the value but its test lets it through: `BR-CO-09` checks only the country prefix of a VAT id (FINDING 1), `CII-DT-097` accepts impossible calendar dates (FINDING 3), `BR-DEC-13` accepts `0.000` (FINDING 4). 4 IGIC / IPSI probes: since the `BR-AF` / `BR-AG` rename (#519), the same defect fires a different id in CII and UBL (upstream 533, reproduced here). 2 `EL` probes: a Greek seller VAT id passes in 1.3.16 and fails `BR-CO-09` in 1.3.17, CII and UBL (upstream 532, reproduced here).
+- **Fixed in 1.3.17 (8 probes).** BT-159 country `AN` / `SS` (509), BT-21 subject `BAT` (510), UBL `BR-CO-09` single letter `A` (515, FINDING 2). Four of them change verdict between 1.3.16 and 1.3.17.
+- **Observation (8 probes).** 0 failed-assert, and no rule claims to test the case (IBAN check digits, identifier bodies, TypeCode 381 on a CII invoice, an impossible UBL date).
+- **Control (6 probes).** A rule fires as expected (5), or a valid 29 February passes (1).
+- **Engine errors (2).** Scientific notation in an amount makes Saxon stop with `FORG0001` before any SVRL.
+
+Upstream issues 509 and 510 (bgo-mat), 532 and 533 (greedwhale) were opened by third parties; 515 was opened by euphyra-dev from this repository. States read on 11 Nov 2026: 509, 510, 515 closed (milestone 1.3.17); 532, 533 open.
+
+| Probe | 1.3.16 | 1.3.17 | Upstream |
+|---|---|---|---|
+| `gaps/CII_example1-bt31-EL.xml` | 0 | 1 `BR-CO-09` | 532, open |
+| `gaps/ubl-tc434-creditnote1-bt31-EL.xml` | 0 | 1 `BR-CO-09` | 532, open |
+| `gaps/CII_business_example_Z-bt151-L.xml` | `BR-AF-01`, `BR-AF-05`, `BR-Z-08` | `BR-IP-01`, `BR-IP-05`, `BR-Z-08` | 533, open |
+| `gaps/ubl-tc434-creditnote1-bt151-L.xml` | `BR-AF-01`, `BR-E-08` | `BR-IG-01`, `BR-E-08` | 533, open |
+| `gaps/CII_business_example_Z-bt151-M.xml` | `BR-AG-01`, `BR-Z-08` | `BR-IG-01`, `BR-Z-08` | 533, open |
+| `gaps/ubl-tc434-creditnote1-bt151-M.xml` | `BR-AG-01`, `BR-E-08` | `BR-IP-01`, `BR-E-08` | 533, open |
+| `gaps/ubl-tc434-creditnote1-bt31-A.xml` | 0 | 1 `BR-CO-09` | 515, closed |
+| `gaps/CII_example5-bt159-origin-AN.xml` | 0 | 1 `BR-CL-15` | 509, closed |
+| `gaps/CII_example5-bt159-origin-SS.xml` | 1 `BR-CL-15` | 0 | 509, closed |
+| `gaps/ubl-tc434-example5-bt21-note-BAT-wrap.xml` | 1 `BR-CL-08` | 0 | 510, closed |
+
+The rest of this file is in French: full probe table, rule texts, counter-tests and replay commands.
+
+---
+
+
 **Date :** 16 août 2026 (Europe/Paris) — 16 Aug 2026 PT
 **Addendum runtime #509 :** 29 Aug 2026 PT (pas un 5e finding)
 **Addendum runtime #510 :** 29 Aug 2026 PT (pas un 5e finding ; BR-CL-08 / BT-21 BAT)
