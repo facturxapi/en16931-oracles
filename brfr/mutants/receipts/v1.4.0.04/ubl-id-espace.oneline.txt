@@ -1,0 +1,1 @@
+ubl-id-espace.xml	tag=v1.4.0.04	syntax=ubl	failed=2	ids=BR-FR-01_BT-1-2,BR-FR-02_BT-1	sha256=84998263f2372f88ac06fc32df6c6afd956242a6e7cf8aba6d5270ed0d9e8fad	xslt=5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631

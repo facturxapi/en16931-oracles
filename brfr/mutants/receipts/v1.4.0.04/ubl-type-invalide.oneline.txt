@@ -1,0 +1,1 @@
+ubl-type-invalide.xml	tag=v1.4.0.04	syntax=ubl	failed=1	ids=BR-FR-04_BT-3	sha256=e28756cbd68d1fa44e5ececdfa9cb7077a6f413c87a50cdae73613574c156419	xslt=5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631

@@ -28,6 +28,8 @@ XSLT = {
     ("03", "ubl"): PACK / "vendor/v1.4.0.03/ubl-flux2/BR-FR-Flux2-Schematron-UBL.xslt",
     ("02", "cii"): PACK / "vendor/v1.4.0.02/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt",
     ("03", "cii"): PACK / "vendor/v1.4.0.03/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt",
+    ("04", "ubl"): PACK / "vendor/v1.4.0.04/ubl-flux2/BR-FR-Flux2-Schematron-UBL.xslt",
+    ("04", "cii"): PACK / "vendor/v1.4.0.04/cii-flux2/BR-FR-Flux2-Schematron-CII.xslt",
 }
 
 EXPECTED_XSLT_SHA = {
@@ -35,9 +37,12 @@ EXPECTED_XSLT_SHA = {
     ("03", "ubl"): "4a54e8b363907b7ca13c6d63302910aa7e42681fdaa6d16ef18b9a414973c09c",
     ("02", "cii"): "a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438",
     ("03", "cii"): "a5509334f70a3c8268f0339a968c49185c17cba60f71c8f6fc095deba94e6438",
+    ("04", "ubl"): "5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631",
+    ("04", "cii"): "02c9b97965438c1f587269a07daa5191b15efd3408f913b57bd35570f439ef10",
 }
 
 FAILED_RE = re.compile(r"<svrl:failed-assert\b")
+DOC_ATTR_RE = re.compile(r'\b(documents?)="([^"]+)"')
 FIRED_RE = re.compile(r"<svrl:fired-rule\b")
 FAILED_OPEN_RE = re.compile(r"<svrl:failed-assert\b([^>]*)>")
 ID_ATTR_RE = re.compile(r'\bid="([^"]+)"')
@@ -93,7 +98,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dir", default="fixtures", help="répertoire de XML")
     ap.add_argument("--out-dir", default="receipts/v1.4.0.03")
-    ap.add_argument("--tag", choices=["02", "03"], default="03")
+    ap.add_argument("--tag", choices=["02", "03", "04"], default="03")
     ap.add_argument("files", nargs="*", help="fichiers XML (sinon *.xml du --dir)")
     args = ap.parse_args()
 
@@ -120,6 +125,8 @@ def main() -> int:
             return 2
         fsha = sha256_file(xml_path)
         svrl = transform(xml_path, xslt)
+        # Hermetic receipts: the SVRL carries the input path, never the absolute one of the machine that ran it.
+        svrl = DOC_ATTR_RE.sub(lambda m: f'{m.group(1)}="{args.dir.rstrip("/")}/{Path(m.group(2)).name}"', svrl)
         fired = len(FIRED_RE.findall(svrl))
         failed = len(FAILED_RE.findall(svrl))
         ids = failed_ids(svrl)

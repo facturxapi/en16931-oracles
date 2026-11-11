@@ -1,0 +1,98 @@
+{
+ "cii-c1-bar-b2cint.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "cii-c10-b2-paid-empty.xml": {
+  "03": "fail BR-FR-CO-09_BT-23-1,BR-FR-DEC-01_BT-113",
+  "04": "EXC Cannot convert string \"\" to xs:decimal: no digits in value"
+ },
+ "cii-c1b-bar-b2c.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "cii-c2-issue-date-slash.xml": {
+  "03": "fail BR-FR-03_BT-2",
+  "04": "fail BR-FR-03_BT-2"
+ },
+ "cii-c3-due-date-slash.xml": {
+  "03": "fail BR-FR-03_BT-9,BR-FR-CO-07_BT-9",
+  "04": "fail BR-FR-03_BT-9,BR-FR-CO-07_BT-9"
+ },
+ "cii-c4-two-due-dates-both-ok.xml": {
+  "03": "EXC A sequence of more than one item { (u\"20260915\", u\"20261015\") } is not allowed as the first operand of 'ge'",
+  "04": "pass"
+ },
+ "cii-c5-two-due-dates-one-before-issue.xml": {
+  "03": "EXC A sequence of more than one item { (u\"20260915\", u\"20260801\") } is not allowed as the first operand of 'ge'",
+  "04": "fail BR-FR-CO-07_BT-9"
+ },
+ "cii-c6-one-due-date-before-issue.xml": {
+  "03": "fail BR-FR-CO-07_BT-9",
+  "04": "fail BR-FR-CO-07_BT-9"
+ },
+ "cii-c7-empty-due-date.xml": {
+  "03": "fail BR-FR-03_BT-9",
+  "04": "fail BR-FR-03_BT-9"
+ },
+ "cii-c8-b2-paid-nonnumeric.xml": {
+  "03": "fail BR-FR-CO-09_BT-23-1,BR-FR-DEC-01_BT-113",
+  "04": "EXC Cannot convert string \"abc\" to xs:decimal: invalid character 'a'"
+ },
+ "cii-c9-b2-paid-ok.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "ubl-u1-issue-date-slash.xml": {
+  "03": "fail BR-FR-03_BT-2",
+  "04": "EXC Cannot convert string \"16/0\" to xs:decimal: invalid character '/'"
+ },
+ "ubl-u2-bar-note-split-two-notes.xml": {
+  "03": "pass",
+  "04": "fail BR-FR-20_BT-21"
+ },
+ "ubl-u2b-bar-b2cint.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "ubl-u2c-bar-b2c-endpoint-mismatch-type389.xml": {
+  "03": "fail BR-FR-22_BT-34",
+  "04": "pass"
+ },
+ "ubl-u2c-bar-b2c-endpoint-mismatch.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "ubl-u2d-bar-b2b-endpoint-mismatch-type389.xml": {
+  "03": "fail BR-FR-22_BT-34",
+  "04": "fail BR-FR-22_BT-34"
+ },
+ "ubl-u2d-bar-b2b-endpoint-mismatch.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "ubl-u2e-b1-type389-endpoint-ok.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "ubl-u3-paymentduedate-before-issue-no-duedate.xml": {
+  "03": "pass",
+  "04": "fail BR-FR-CO-07_BT-9"
+ },
+ "ubl-u3b-paymentduedate-ok-no-duedate.xml": {
+  "03": "pass",
+  "04": "pass"
+ },
+ "ubl-u3c-duedate-ok-paymentduedate-before.xml": {
+  "03": "pass",
+  "04": "fail BR-FR-CO-07_BT-9"
+ },
+ "ubl-u4-b2-prepaid-nonnumeric.xml": {
+  "03": "fail BR-FR-CO-09_BT-23-1,BR-FR-DEC-01_BT-113",
+  "04": "EXC Cannot convert string \"abc\" to xs:decimal: invalid character 'a'"
+ },
+ "ubl-u4b-b2-prepaid-ok.xml": {
+  "03": "pass",
+  "04": "pass"
+ }
+}

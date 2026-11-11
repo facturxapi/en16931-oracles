@@ -1,7 +1,7 @@
 # BR-FR / France_RFE Flux2 oracles (v1.1)
 
 Machine-verified fixtures, mutants, gaps, and dual-version receipts for the
-official France_RFE Flux2 Schematron/XSLT (`v1.4.0.02` / `v1.4.0.03`).
+official France_RFE Flux2 Schematron/XSLT (`v1.4.0.02` / `v1.4.0.03` / `v1.4.0.04`).
 
 **Engine:** SaxonC-HE 13.0 (`saxonche==13.0.0`).
 **Executed artefacts:** Flux2 XSLT under `vendor/` (unmodified copies).
@@ -180,3 +180,9 @@ sha256sum -c fixtures/SHA256SUMS
 - pas de donnée client réelle
 - fixtures CEN du dépôt racine (`fixtures/`) non touchées
 - pas d'usage du nom FNFE comme marque
+
+---
+
+## Rejeu `v1.4.0.04`
+
+Artefacts `.04` dans `vendor/v1.4.0.04/` (copies non modifiées), reçus des fixtures, mutants et `objective-a` rejoués avec `--tag 04` (verdicts identiques à `.03` sur ces fichiers), diff des `.sch` dans `diffs/v1.4.0.03-v1.4.0.04-flux2-sch.diff`, et 24 sondes une-règle-à-la-fois dans `probes-v1.4.0.04/` (tableau : `probes-v1.4.0.04/RESULTS.md`, rejeu : `probes-v1.4.0.04/replay.py`). Écart principal : `.04` remplace `number()` par `xs:decimal()` ; une valeur non numérique arrête la transformation au lieu de produire un `failed-assert`.

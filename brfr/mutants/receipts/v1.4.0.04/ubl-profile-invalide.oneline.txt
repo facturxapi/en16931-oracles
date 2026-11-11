@@ -1,0 +1,1 @@
+ubl-profile-invalide.xml	tag=v1.4.0.04	syntax=ubl	failed=1	ids=BR-FR-08_BT-23	sha256=f799c14c93b6a85a35a886163a221ce912120c8f4c659ec004833832d61ff427	xslt=5ab722085cf69301acdecbb70b38620524488c602316bfba34b00fb78deb8631
